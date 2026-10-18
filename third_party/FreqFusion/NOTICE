@@ -1,0 +1,14 @@
+FreqFusion: Frequency-aware Feature Fusion for Dense Image Prediction (TPAMI 2024)
+Authors: Linwei Chen, Ying Fu, Lin Gu, Chenggang Yan, Tatsuya Harada, Gao Huang.
+Source repository: https://github.com/Linwei-Chen/FreqFusion
+Pinned commit: 3fb0c70637a3c194fb74294d3ce4681958b26241 (2025-11-25).
+Adapted core: mmdetection/mmdet/models/necks/FreqFusion.py.
+The mmdetection subtree contains the included Apache License 2.0 and
+Copyright 2018-2023 OpenMMLab notice. No repository-root license was found;
+this adaptation is based on the licensed subtree, not the root fallback.
+Changes: pure PyTorch zero-padding CARAFE, channel chunking with non-reentrant
+checkpointing, explicit meshgrid indexing, validation, and Torchvision FPN
+wrapper preserving existing convolution modules/state-dict names.
+The CPU reference tests record the source's actual initialization behavior.
+This work does not claim numerical equivalence to compiled MMCV without a
+compiled-operator test, or reproduction of the published training results.

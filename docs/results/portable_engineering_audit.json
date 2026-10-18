@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "at_utc": "2026-10-18T22:04:27.217305+00:00",
+  "scope": "engineering_smoke",
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "mode": "run",
+    "verification_status": "VALIDATION_ARTIFACTS_AUDITED"
+  },
+  "world_size": 4,
+  "epochs": 1,
+  "training_images_per_epoch": 16,
+  "validation_images_per_epoch": 8,
+  "updates": 2,
+  "base_frozen": true,
+  "selected_head_reloaded": true,
+  "optimizer_state_saved": true,
+  "rng_states_saved": 4,
+  "test_used": false,
+  "artifact_sha256": {
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/protocol.json": "6058377deafdade0e4360b3028098ddc5d17174412f498874cdc360ec46bba26",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/comparison.json": "500eddefce81ca78ff198191cff5e2512266988d20582bb6d528c157079896b7",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/comparison.md": "e0e20aff623647f4d34331352a7b5c4184b3f0a872754602635de6b06c7e249a",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/heads_epoch_01.pt": "09e957d872b75101b941bcd3a75c245a00af513acb759554b29c0cf47ced6470",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/train_epoch01_rank0.jsonl": "d6399c318233f31630c2f62c92d7aef741add1617be0bbfed8d885deb066e07b",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/train_epoch01_rank1.jsonl": "ef994c35e1c4d982c3223cd35edcd271850c8bc1a1d203122015ebb0d295c026",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/train_epoch01_rank2.jsonl": "fa98c4eab5c6ba61d4051a67c685e8142e90c3589ebe896a713461758660ad03",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/train_epoch01_rank3.jsonl": "f6a661fab3407f197a6a2a973b3db1d09abd4ed7d8fb4a238bfc31a66e1aac24",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/native/predictions.jsonl": "fc9cdfa9a764382ab9a34cc61526f6adb8e024459fcd8c7778ca1ffabfac326d",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/native/evaluation.json": "d260610c246e313427bb67f059937913d1285fe76d72d87607e48430acbb5b48",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/native_probability_depth/predictions.jsonl": "82cbf3810c40c682c9247e8317a671fed1e4a9895ba23330bb1c3b9fa7be1a49",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/native_probability_depth/evaluation.json": "5a4270d8d2231bc828e1bccfd85d114c92443d8121098e2756ef52ca914d8346",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/point/predictions.jsonl": "87aac84abce6edbb2b1457046ff97bbf7fba573567c115eb492992be4bf4b765",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/point/evaluation.json": "89980bfe3ec9bfc4dcd7ae58986b7e5ba32d902390e3449da234ea7c3cdbb304",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/point_probability_depth/predictions.jsonl": "5db2bd1f0ba7a4650ff59b2aaa1b5784e3a5b5e51686e06e3cdd67b8365a091e",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/point_probability_depth/evaluation.json": "cb517096b9247fdaa3e5b41e6c6788d246a5e4b1d586edbbf5813164e27019a3",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/point_depth/predictions.jsonl": "87aac84abce6edbb2b1457046ff97bbf7fba573567c115eb492992be4bf4b765",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/point_depth/evaluation.json": "c922c7a498cb8edb4042600e954fa1b4d8e17b530ac72f79c1e332050c2d0ae2",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/point_depth_probability_depth/predictions.jsonl": "5db2bd1f0ba7a4650ff59b2aaa1b5784e3a5b5e51686e06e3cdd67b8365a091e",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/val_epoch_01/point_depth_probability_depth/evaluation.json": "55c0b46b16ab71243ee401874290f431bf453383a9bcd070f1d5419e559cd028",
+    "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/experiment/last_training.pt": "0f211f9fbb34c2f92907e9255c325057ef75d7babcb8b25781882591b8773ae5"
+  },
+  "limitations": [
+    "Engineering subsets do not establish model performance",
+    "This audit does not claim exact training resumption has been exercised",
+    "Single-GPU checks do not replace the required final-base four-GPU engineering run"
+  ]
+}

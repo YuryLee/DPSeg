@@ -1,0 +1,66 @@
+{
+  "schema": "rgbd-course-model-v1",
+  "name": "dafusion-swin-t-e15-depth-point-e06",
+  "base": {
+    "epoch": 15,
+    "sha256": "ef52456da6bb47e4f38c7cfb26e5eaf88c02895bf674487febd04d24d0dc2059",
+    "model_tensor_sha256": "8c1549a03330f4448146bdb0986e7fa7895c8ccaf15d1e903fe6106a487dc314",
+    "protocol": "../artifacts/protocols/base_epoch15.json",
+    "protocol_sha256": "e3ebd11c7d3699b5156805eac8e26f6e9944b82eb68741009ff35dea5701d650"
+  },
+  "head": {
+    "epoch": 6,
+    "sha256": "ec72065e3dd5e869d9ddd217cbddf89b2a3f9d11dd29447e57c38a9e6323ebff",
+    "head_tensor_sha256": "e5df8b59ab876f39d91324833c4d340d3e87ed4480703717160e1fff594ab8d7",
+    "protocol": "../artifacts/protocols/point_e15.json",
+    "protocol_sha256": "e7e1f707c4b85184273e41e3e3ebd357ee1878dc12a566b861cc9d5980519753"
+  },
+  "dataset": {
+    "name": "course RGB-D component",
+    "image_size": [
+      1024,
+      1024
+    ],
+    "train_images": 14432,
+    "val_images": 2584,
+    "test_images": 2112,
+    "archive_bytes": 20554250971,
+    "archive_sha256": "931708a0bbfbdc0908c3118098897fccf9a05e4f6d768758ba7328136898c94e"
+  },
+  "validation": {
+    "split": "val",
+    "images": 2584,
+    "scope": "whole_image",
+    "selected_variant": "point_depth_probability_depth",
+    "mask_ap": 0.8646802196436845,
+    "mask_ap_small": 0.5861924068547278,
+    "test_used": false,
+    "completion_audit_sha256": "3696663f396e6fa572619c0a7277c2a05e3a1221069fbb91430a268b9a02ecb4",
+    "metrics": {
+      "native": {
+        "mask_ap": 0.8148707314438498,
+        "mask_ap_small": 0.5037415129909696
+      },
+      "native_probability_depth": {
+        "mask_ap": 0.8513162923379991,
+        "mask_ap_small": 0.5666742458782763
+      },
+      "point": {
+        "mask_ap": 0.8136970350166652,
+        "mask_ap_small": 0.48859302851069863
+      },
+      "point_probability_depth": {
+        "mask_ap": 0.8522574622576123,
+        "mask_ap_small": 0.5613365670484499
+      },
+      "point_depth": {
+        "mask_ap": 0.8468433363125217,
+        "mask_ap_small": 0.5472584731377017
+      },
+      "point_depth_probability_depth": {
+        "mask_ap": 0.8646802196436845,
+        "mask_ap_small": 0.5861924068547278
+      }
+    }
+  }
+}

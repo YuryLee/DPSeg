@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "generated_at_utc": "2026-10-18T22:23:41.434374+00:00",
+  "scope": "software_correctness_not_new_performance_experiments",
+  "unit_checks": {
+    "command": "python -m unittest tests.test_course_portable -v",
+    "tests_passed": 5,
+    "test_source_sha256": "d8ba61193de90a540635055182c8a768600ad04f9d074076fa42f5bc016adeb6"
+  },
+  "relocation": {
+    "images": 8,
+    "variants": 6,
+    "exact_prediction_pairs": 48,
+    "all_equal_to_original_scored_outputs": true,
+    "relative_sources_loaded_from_copy": true,
+    "image_indices": [
+      0,
+      4,
+      16,
+      128,
+      644,
+      1292,
+      1936,
+      2580
+    ],
+    "receipt_sha256": "00dc64cf1e6f125cb8819163370e704511448661538f33f7177c968012f86b7d"
+  },
+  "training_entry": {
+    "status": "passed",
+    "full_protocol_build_checked": true,
+    "full_training_launched": false,
+    "expected_full_updates": 10824,
+    "rejected_mismatched_or_missing_engineering": [
+      "batch_size",
+      "gpus",
+      "engineering_receipt"
+    ],
+    "actual_engineering_audit": "/tmp/rgbd-course-portability-cluzv4mg/outputs/training-engineering/audit.json"
+  },
+  "engineering": {
+    "status": "passed",
+    "scope": "engineering_smoke",
+    "world_size": 4,
+    "epochs": 1,
+    "training_images_per_epoch": 16,
+    "validation_images_per_epoch": 8,
+    "updates": 2,
+    "base_frozen": true,
+    "selected_head_reloaded": true,
+    "optimizer_state_saved": true,
+    "rng_states_saved": 4
+  },
+  "engineering_exit_code": 0,
+  "engineering_audit_sha256": "5789d446e014da16e34adf1fb77be6dd3f84166a8eaa3dabc702c0603c4724e8",
+  "browser": {
+    "status": "passed",
+    "cases": 8,
+    "variants": 6,
+    "rle_masks_checked_against_coco_codec": 2832,
+    "one_pixel_canvas_coordinate_check": true,
+    "threshold_preserves_validation_metrics": true,
+    "empty_view_checked": true,
+    "json_and_png_downloads_checked": true,
+    "mobile_no_horizontal_overflow": true,
+    "javascript_errors": [],
+    "external_page_requests": [],
+    "scope": "offline_demo_functionality_only"
+  },
+  "final_demo_bytes_equal_to_browser_checked_demo": true,
+  "historical_frozen_source_files_unchanged": 52,
+  "transformers_source": {
+    "tag": "v4.53.2",
+    "official_url": "https://github.com/huggingface/transformers/blob/v4.53.2/src/transformers/models/mask2former/modeling_mask2former.py",
+    "official_blob_sha1": "e7f8fc41100a9ac84655c883710b118c778bca56",
+    "installed_source_sha256": "8006337e36309e6d712f2fce1c35f227a7ae178dc017d31f27a6fd3fb67655d8",
+    "matches_official_release": true
+  },
+  "source_sha256": {
+    "rgbd_seg/course_portable.py": "39ff4e6ffd024940fdac552780750c7e3c734a0706cd473bacffd846d53b0b15",
+    "tools/course_predict.py": "552ad022868dc4de90774372ccf5f2754dcad1d45e5500625d8b916358fb9e0c",
+    "tools/course_train_points.py": "8d0ee2210bce3a4c4ec5c90821de92469680bbc65fbe9fea6742887830ce2945",
+    "tools/check_course_demo.py": "3b40c0fdde5add3a1a7eb0cd903d650cb67a048b10a79d0f5765bdf12b4bc877",
+    "web/course.html": "c69e6ce696406adfa52e2249ba6f96b33a7f6ec636a4f2883427e95b1f4b181f",
+    "tests/test_course_portable.py": "d8ba61193de90a540635055182c8a768600ad04f9d074076fa42f5bc016adeb6"
+  }
+}

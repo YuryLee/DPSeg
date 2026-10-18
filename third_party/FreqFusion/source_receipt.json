@@ -1,0 +1,58 @@
+{
+  "repository": "Linwei-Chen/FreqFusion",
+  "commit": "3fb0c70637a3c194fb74294d3ce4681958b26241",
+  "proxy": "disabled urllib ProxyHandler({})",
+  "root_license_present": false,
+  "raw_host_error": "TLS certificate validation failed; used verified HTTPS GitHub API blobs without disabling certificate checks",
+  "files": {
+    "README.md": {
+      "api_url": "https://api.github.com/repos/Linwei-Chen/FreqFusion/git/blobs/c98cb6d94da6122bbcea04df796062476cf1dade",
+      "permalink": "https://github.com/Linwei-Chen/FreqFusion/blob/3fb0c70637a3c194fb74294d3ce4681958b26241/README.md",
+      "saved": "reports/v5/sources/freqfusion_README.md",
+      "sha256": "256cd246002f9707afbc35e1bb2dd0db2aa5e230fa7b1e61c4d385561c1bbfca"
+    },
+    "FreqFusion.py": {
+      "api_url": "https://api.github.com/repos/Linwei-Chen/FreqFusion/git/blobs/b8fa94d418c3094a8d6653712b65037f70daccec",
+      "permalink": "https://github.com/Linwei-Chen/FreqFusion/blob/3fb0c70637a3c194fb74294d3ce4681958b26241/FreqFusion.py",
+      "saved": "reports/v5/sources/freqfusion_FreqFusion.py",
+      "sha256": "5852efce406681ce6f3f7763ff8e034cab44f93cb0fdda0114130bc4c8c97e42"
+    },
+    "mmdetection/LICENSE": {
+      "api_url": "https://api.github.com/repos/Linwei-Chen/FreqFusion/git/blobs/1bfc23e48f92245b229cdd57c77e79bc10a1cc27",
+      "permalink": "https://github.com/Linwei-Chen/FreqFusion/blob/3fb0c70637a3c194fb74294d3ce4681958b26241/mmdetection/LICENSE",
+      "saved": "reports/v5/sources/freqfusion_mmdetection__LICENSE",
+      "sha256": "874b8b2e6f12306a1ff7812c068a0dbf880418b8ac1f7190382bd6c6da9f23a1"
+    },
+    "mmdetection/mmdet/models/necks/FreqFusion.py": {
+      "api_url": "https://api.github.com/repos/Linwei-Chen/FreqFusion/git/blobs/283b41a6f9ca2c41ff3906e93f43db5ea0027cac",
+      "permalink": "https://github.com/Linwei-Chen/FreqFusion/blob/3fb0c70637a3c194fb74294d3ce4681958b26241/mmdetection/mmdet/models/necks/FreqFusion.py",
+      "saved": "reports/v5/sources/freqfusion_mmdetection__mmdet__models__necks__FreqFusion.py",
+      "sha256": "886e2d0068d2c1ce8f054ad12b4337e990a43a64220b29c978c4eec8057c12d7"
+    },
+    "mmdetection/mmdet/models/necks/fpn.py": {
+      "api_url": "https://api.github.com/repos/Linwei-Chen/FreqFusion/git/blobs/9c2edb4c20c44c6d6ff482e7e3a2c613c9626566",
+      "permalink": "https://github.com/Linwei-Chen/FreqFusion/blob/3fb0c70637a3c194fb74294d3ce4681958b26241/mmdetection/mmdet/models/necks/fpn.py",
+      "saved": "reports/v5/sources/freqfusion_mmdetection__mmdet__models__necks__fpn.py",
+      "sha256": "7edcc20cb12dc1a3112ecb240a868b415e0044f5f2284eeae1a62d26fdfeac59"
+    },
+    "mmdetection/configs/mask_rcnn/mask_rcnn_r50_fpn_1x_coco_freqfusion.py": {
+      "api_url": "https://api.github.com/repos/Linwei-Chen/FreqFusion/git/blobs/0cb8e4932c6decdfd60c3ced3c89a356a72557b4",
+      "permalink": "https://github.com/Linwei-Chen/FreqFusion/blob/3fb0c70637a3c194fb74294d3ce4681958b26241/mmdetection/configs/mask_rcnn/mask_rcnn_r50_fpn_1x_coco_freqfusion.py",
+      "saved": "reports/v5/sources/freqfusion_mmdetection__configs__mask_rcnn__mask_rcnn_r50_fpn_1x_coco_freqfusion.py",
+      "sha256": "37350db2a2c32e06fdf7f9a844344d5e60423898f11f321af10cc3d7429cb678"
+    },
+    "mmdetection/mmdet/models/necks/fpn_carafe.py": {
+      "api_url": "https://api.github.com/repos/Linwei-Chen/FreqFusion/git/blobs/295ce883b4c0ee37605790772863490e16ce7f37",
+      "permalink": "https://github.com/Linwei-Chen/FreqFusion/blob/3fb0c70637a3c194fb74294d3ce4681958b26241/mmdetection/mmdet/models/necks/fpn_carafe.py",
+      "saved": "reports/v5/sources/freqfusion_mmdetection__mmdet__models__necks__fpn_carafe.py",
+      "sha256": "d43edaaab811df5cec0129b4f4c7fc0affe1e9c1cb69a91319bef81bc084eaea"
+    }
+  },
+  "adapted_source": "mmdetection/mmdet/models/necks/FreqFusion.py",
+  "changes": [
+    "zero-padding Torch CARAFE",
+    "channel checkpointing",
+    "explicit meshgrid indexing",
+    "Torchvision wrapper"
+  ]
+}

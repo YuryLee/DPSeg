@@ -1,0 +1,25 @@
+{
+  "mode": "E0",
+  "arch": "r50_v2",
+  "size": 720,
+  "max_size": 1280,
+  "train_scales": [
+    480,
+    640,
+    720
+  ],
+  "seed": 23,
+  "max_depth_m": 5.0,
+  "frozen_batch_norm": true,
+  "trainable_backbone_layers": 3,
+  "zero_init_depth": true,
+  "anchor_sizes": [
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "score_threshold": 0.01,
+  "max_detections": 100
+}

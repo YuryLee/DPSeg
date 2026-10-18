@@ -1,0 +1,140 @@
+{
+  "schema": "course_longer_point_v1",
+  "status": "frozen",
+  "scope": "full_experiment",
+  "created_at_utc": "2026-10-18T16:16:47.910417+00:00",
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "mode": "run",
+    "verification_status": "FOUR_GPU_ENGINEERING_PASSED"
+  },
+  "point_policy": {
+    "family": "PointRend-inspired residual point refinement; not an exact paper reproduction",
+    "fine_features": "stride4 fused Swin features (96) + pixel decoder features (256)",
+    "hidden_layers": 3,
+    "hidden_channels": 256,
+    "instance_conditioning": "original per-query coarse mask logit, concatenated at every hidden layer",
+    "output": "residual logit; zero-initialized final layer preserves baseline",
+    "depth_channels": 9,
+    "depth_difference_scale_m": 0.001,
+    "depth_features": "center validity + tanh of 4 signed neighbor differences + 4 pair-validity bits",
+    "training_points_per_instance": 784,
+    "oversample_ratio": 3,
+    "uncertain_fraction": 0.75,
+    "train_roi": "GT bounding box plus 8 pixels; training supervision only",
+    "inference_roi": "original predicted foreground bounding box plus 8 pixels",
+    "inference_points_per_stage_per_instance": 784,
+    "inference_stages": "512 then 1024 for a 256 coarse map; carry interpolated residuals",
+    "roi_padding_px": 8,
+    "loss": "mean point BCE per instance",
+    "scores": "original baseline class-times-mask-quality score, unchanged",
+    "empty_result": "original mask",
+    "max_detections": 100,
+    "base_precision": "float32",
+    "head_precision": "float32"
+  },
+  "archive": "/data/yinli/workspace/downloads/buaa_image_segmentation/blender.zip",
+  "archive_stat": {
+    "bytes": 20554250971,
+    "mtime_ns": 1791871125132274994
+  },
+  "weights": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/formal_v1/lr5e5/epoch_15.pt",
+    "sha256": "ef52456da6bb47e4f38c7cfb26e5eaf88c02895bf674487febd04d24d0dc2059"
+  },
+  "training_protocol": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/protocol_v1/lr5e5.json",
+    "sha256": "e3ebd11c7d3699b5156805eac8e26f6e9944b82eb68741009ff35dea5701d650"
+  },
+  "source_sha256": {
+    "tools/run_course_dafusion.py": "359f6354d4b781337cfd5953ff3af865114eca38428736e5d3cb3c8573bca378",
+    "rgbd_seg/course_depth_data.py": "f6fcb8b9f9f0cd5d62cd5f0ff0a6d1a65d767fa9cd359c10a3eba5a00eaf7f96",
+    "rgbd_seg/course_dafusion_eval.py": "e9a3df29636c7780a7e72e5457eb38d05bdd575f0056d699d885f9b1f19668f8",
+    "rgbd_seg/course_dafusion.py": "18ff74462c8c31c9a88550a2dfded24e52e01b2fcf47c671ab0442ed1ca83cec",
+    "rgbd_seg/course_training_data.py": "d2145b73ee14f81fa2cc6084d9bab92002bc18d3a54deb756ef3235818f866eb",
+    "rgbd_seg/course_finetune_eval.py": "68a118aa292d474cffe543db7d62b939116f077af9cc144ac5f43ad776d9ab8a",
+    "rgbd_seg/course_finetune_mask2former.py": "e6d4a6e3aa922b1ae612213fc941f8388a93c8eccc7e0344c6394d127e1cd18f",
+    "rgbd_seg/course_mask2former.py": "265aaad977fb208db1de8f1c829c5b0d928201f5eec4b1ca7efcd4b655482e4a",
+    "rgbd_seg/course_archive.py": "e5acb37e9ee319c000e699e2c4c190c3b51e69856fbd9b205082b9340a858844",
+    "rgbd_seg/course_submission.py": "1b37f5ebaac939a36fcd9d650caee8a2f373f50a9e665b9130ca0f2674c355d1",
+    "third_party/DA-Fusion/source_receipt.json": "1663212b49420057fe77484888f40892059c53ce8d62637b1e9c1e43e2ebf124",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/__init__.py": "214f925c034868e1058db7f35f6de650351373c4efbb0a839ef9cd441b4ee288",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/deformable_self_attention.py": "c3f7a2e57a2c2022609ee915d71fa6e9ffabe9f1f2d6d850c8f400cffe568830",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/deformable_cross_attention.py": "cacdafb9264940e69b7e4b916cd6795c001d53be67078df17df5afe66778af23",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/fusion_stage.py": "9d13360b92f6ed0e4c1bf11a24ff514f57513ba49f93878607c64f457a03d5f1",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/geometry_prior.py": "f76a8ec7a6b502acf9fd93cc53c146bcdfba9cdf9c8715efb8ff56122d9720ac",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/offset_network.py": "d8fb8520ab98c1f98041df1956628b8b6a10250817322d9460eb68c7bc0a0835",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/relative_position_bias.py": "5fc54b67a6bb88dbf3b0fd59f646067840808c4163ef9b074cd6e0a3f514b9ef",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/sampling.py": "17fc6b5436fa03785e4b01f4c6f2c32b5cd2b8f82e5895a2ae69032156485cf5",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/backbone/depth_adapter.py": "c64505e7dd2c0999b1d658f1368d484f244aee94147ef1a6af279586b93635ac",
+    "third_party/DA-Fusion/dafusion/dafusion/modeling/backbone/dual_fusion_backbone.py": "f1345f49b02a2780eb8320a97e7c10535f5fab0adf17ac97dfc3bff85a7308a1",
+    "third_party/DA-Fusion/dafusion/dafusion/data/depth_xyz.py": "85471d049fe0b63f298924b529e7c876849355c1d03e80ee40908618b7e3db8e",
+    "third_party/DA-Fusion/dafusion/dafusion/data/hha.py": "3f92aa7f75a0b7bc30ca0f59f8c9053b48325c69c9c3385b76ea73d669c7c614",
+    "third_party/DA-Fusion/dafusion/dafusion/data/dataset_mappers/dafusion_mapper.py": "d083c33d5149ed6fc1b8b20e3827e1d50326c354ac4981f972c962e747b0ab3b",
+    "third_party/DA-Fusion/dafusion/dafusion/config.py": "ee8be8b485b7fd5c63eef9dd7637239b512d98b7952fe960dab8047edc9e3a97",
+    "third_party/DA-Fusion/dafusion/configs/Base-DAFusion-SwinL.yaml": "901e4844bd83b805c369b156ef73c3f170b4df6ce3649c172dfc822a3f0a185e",
+    "third_party/DA-Fusion/dafusion/configs/dafusion_rgbd_uoais_stage1.yaml": "4e686a73e999263c5fff5122b706bd144904358bd8538de9185dcffc15c130e0",
+    "third_party/DA-Fusion/dafusion/README.md": "7aedd733221809c598fd70c6ccac54dc833704b1a1e4a1d824489f3ac9305f74",
+    "rgbd_seg/course_resolution.py": "e560425007f7df93d0050827e2f70f55cd60d6f6bfad5d367acc52252d7080e5",
+    "rgbd_seg/course_distributed_eval.py": "1591a54738a37e47312034053ad0a3f819f3d476a5790f568aacefebefbf5e0c",
+    "tools/run_course_resolution_ddp.py": "a43026f0534cea5bc6a8b441803a6715abaa520e397de9e9e384029326ee37eb",
+    "tools/launch_course_resolution_ddp.py": "b753cd2d69ffc411c3e23d40d2bbdfedc7487a44c666512ac531be2c05bb9518",
+    "/data/yinli/miniconda3/lib/python3.13/site-packages/transformers/models/mask2former/modeling_mask2former.py": "8006337e36309e6d712f2fce1c35f227a7ae178dc017d31f27a6fd3fb67655d8",
+    "rgbd_seg/course_point_refinement.py": "d5214ab90a597272f975ce1c2214b804b1ca54f14a93d2db01176f46a78238b6",
+    "tools/run_course_point_refinement.py": "bd951f43f5c99eb1ffa27a0e933e53b458fa66e780434b3a71cf4da68ac978a3",
+    "tools/supervise_course_point_refinement.py": "f521da7fb5a15ee963721f88b8fcf16c5f32bd12c4170c987bb1b1da25694736",
+    "tools/build_course_point_protocol.py": "211e5101432dfabbe14ac728715d42728080a4d45afdfb61cf928b35bb508d72",
+    "tests/test_course_point_refinement.py": "6e9677e9030d2d87c7a2a982e45d847eab9d0197d551ab745395ef2a0abcf696",
+    "rgbd_seg/course_optimized.py": "06451adedf84a868c8006e6474c50994eb3e511504a54aedad200f6ab65fa128",
+    "rgbd_seg/course_tiled_probability.py": "11bbac620744e58fef14dd15476f5958f51754336af74c862f6391b0bc7e643a",
+    "rgbd_seg/course_depth_refinement.py": "8c7adaad81e580734f91581858eb1f2aace820b0ea3f62d873a5bba1837090c2",
+    "tools/check_course_prediction_reload.py": "740826a0edee9153ca5ce4cad354f478c35113bccc7a774f5d28a6cb4a5e7eef",
+    "rgbd_seg/course_longer_training.py": "8e438abba17caa7382700c613c7da7888e68227a9b2e5d02ad7df87e1baa1628",
+    "tools/run_course_longer_training.py": "7cbb75a786f82d76064fc5d705cccb5d3116897019f31fbbfd10a18fa304c688",
+    "tools/launch_course_longer_training.py": "367f345b06352c928b3221d55ac5c95a891b22bd54502b3171c4666fdc8ebd1e",
+    "tools/build_course_longer_protocol.py": "ebffc5ade13dff1be6dba4305dc28bb89b959916418a5831ea97681a4c606527",
+    "tools/run_course_longer_point.py": "3ad4030d732c18659e80e1cc053123cbbc1ec5a460642681a4229b0bcffefe88",
+    "tools/build_course_longer_point_protocol.py": "162506258f2f1fe67f97c37374d22ea54c301c585e69a70f0f72c477d13910f6",
+    "tools/supervise_course_longer_point.py": "ca5dcd42103a4b69f8728b87cf025632c4988eda63646b7b4719ce4722d65b63"
+  },
+  "gpus": [
+    2,
+    3,
+    5,
+    6
+  ],
+  "seed": 17,
+  "batch_size": 2,
+  "global_batch_size": 8,
+  "learning_rate": 0.0003,
+  "epochs": 6,
+  "training_images": 14432,
+  "selection": {
+    "split": "val",
+    "metric": "mask_ap_small",
+    "minimum_gain_vs_native_probability_depth": 0.005,
+    "maximum_AP_drop": 0.005,
+    "rule": "Maximum full validation APs, then AP, then earlier epoch; legacy gain gate is descriptive only"
+  },
+  "head_training": "Paired heads only; complete validation each epoch; test is not opened",
+  "versions": {
+    "torch": "2.7.1",
+    "transformers": "4.53.2",
+    "pycocotools": "2.0.11"
+  },
+  "point_reference": "https://arxiv.org/abs/1912.08193",
+  "non_goals": [
+    "No test evaluation or submission during head selection",
+    "No modifications to historical results or frozen base weights"
+  ],
+  "evaluation_policy": "validation_only",
+  "base_selection": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/base_selection.json",
+    "sha256": "93c505ea267f999a45858a5903a0edefac9de3e8aaf2c59acb343fff839fc980"
+  },
+  "initialization": "Fresh paired heads with identical shared initialization; train against the newly selected frozen base",
+  "engineering": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/engineering/supervisor.json",
+    "sha256": "c1f713fc5d968827d6282a814f3b909fa9e291123e3ea722ef476599007a03c1"
+  }
+}

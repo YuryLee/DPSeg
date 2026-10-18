@@ -1,0 +1,66 @@
+{
+  "status": "archived_results",
+  "metric_scale": "0-1",
+  "baseline_800_5epochs_local_test": {
+    "maskrcnn": {
+      "mask_ap": 0.5908498449431937,
+      "mask_ap_small": 0.09632696084020731
+    },
+    "mask2former": {
+      "mask_ap": 0.6398208770416627,
+      "mask_ap_small": 0.12283768908914104
+    },
+    "dafusion": {
+      "mask_ap": 0.7418368622653602,
+      "mask_ap_small": 0.25613499518608
+    }
+  },
+  "tiled_base_e05_head_e02": {
+    "val": {
+      "tiled_probability_depth": {
+        "mask_ap": 0.8468395796398013,
+        "mask_ap_small": 0.6119788878828787
+      },
+      "tiled_point_depth_probability_depth": {
+        "mask_ap": 0.8549411343863201,
+        "mask_ap_small": 0.6227488869812399
+      },
+      "tiled_point_depth_probability_depth_guard": {
+        "mask_ap": 0.85492470683591,
+        "mask_ap_small": 0.6228571490085276
+      }
+    },
+    "test": {
+      "tiled_probability_depth": {
+        "mask_ap": 0.8500855762707255,
+        "mask_ap_small": 0.43685824359464787
+      },
+      "tiled_point_depth_probability_depth": {
+        "mask_ap": 0.8561195044210548,
+        "mask_ap_small": 0.4430734055455056
+      },
+      "tiled_point_depth_probability_depth_guard": {
+        "mask_ap": 0.856098383087405,
+        "mask_ap_small": 0.44279306130874235
+      }
+    }
+  },
+  "tiled_selected_on_validation": "tiled_point_depth_probability_depth_guard",
+  "kaggle_public_records_20261017": [
+    {
+      "description": "RGBD paired | DA-Fusion Swin-T 1024 base_e05 | whole+4x640tiles | probability-depth",
+      "public_mask_ap_small": 0.47037,
+      "date": "2026-10-17T07:23:55.040Z"
+    },
+    {
+      "description": "RGBD paired | DA-Fusion Swin-T 1024 base_e05 | whole+4x640tiles | depth point head_e02 then probability-depth | fixed baseline representatives/scores",
+      "public_mask_ap_small": 0.47971,
+      "date": "2026-10-17T07:24:33.580Z"
+    }
+  ],
+  "source_records": {
+    "reports/course_dafusion/comparison_summary.json": "325b141beedccf6b175503fb6838ef9f5846204040fbfcea4784cabd568bee4c",
+    "reports/course_tiled_point_refinement/formal_v1/comparison.json": "be6b955ec5eaae0f2d52599d6a499acfa9a26530222274d464dd27d2c27e093f",
+    "reports/course_tiled_point_refinement/kaggle_20261017_tile_vs_point/scores.json": "fa8b83391d7c36cbd4bc86b6cd3a0e1c47fe50b8c72f46d70826d86b191deab8"
+  }
+}

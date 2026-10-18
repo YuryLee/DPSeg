@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RGB-D 小目标实例分割</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#172337;background:#f3f6fb;line-height:1.55}*{box-sizing:border-box}body{margin:0}main{max-width:1500px;margin:auto;padding:28px}h1{font-size:28px;line-height:1.25;margin:0 0 8px}h2{font-size:17px;margin:0}.muted{color:#5e6e84;font-size:14px}.header{margin-bottom:22px}.badge{display:inline-block;background:#e5efff;color:#1754a0;padding:4px 10px;border-radius:20px;font-size:12px;margin-bottom:10px}.card{background:white;border:1px solid #dde5ef;border-radius:14px;padding:18px;min-width:0}.controls{display:grid;grid-template-columns:1fr 1.5fr 1fr 1fr;gap:16px;align-items:end;margin-bottom:16px}label{display:block;font-size:13px;color:#435269}select,input{width:100%;min-width:0;margin-top:6px}select,button{font:inherit;border:1px solid #cbd7e6;border-radius:8px;background:white;padding:9px;color:#172337}button{cursor:pointer}button:hover{background:#edf4ff}input[type=range]{accent-color:#2369c7}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:16px}.number{font-size:27px;font-weight:650;font-variant-numeric:tabular-nums}.metric-caption{font-size:12px;color:#6b778a}.images{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.images figure{margin:0;min-width:0}.images figcaption{font-weight:600;margin-bottom:10px}.viewport{overflow:auto;max-height:660px;border-radius:8px;background:#e9eef5;aspect-ratio:1;min-width:0}.viewport img,.viewport canvas{width:100%;max-width:none;height:auto;display:block;image-rendering:auto}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:16px 0}.zoom{max-width:190px;margin-left:auto}.zoom input{margin-top:0}#status{margin:12px 0}.notice{background:#eaf2ff;color:#214b7e;border-radius:8px;padding:10px 14px;font-size:13px;margin-top:16px}footer{font-size:12px;color:#67758a;margin-top:18px}output{font-variant-numeric:tabular-nums;font-weight:600}select:focus,button:focus,input:focus{outline:2px solid #6aa3eb;outline-offset:2px}@media(max-width:950px){.controls{grid-template-columns:1fr 1fr}.images{grid-template-columns:1fr}.viewport{max-height:700px}}@media(max-width:500px){main{padding:14px}h1{font-size:24px}.card{padding:13px}.controls{grid-template-columns:1fr}.metrics{gap:8px}.number{font-size:23px}.zoom{margin-left:0;width:100%}}
+</style>
+</head>
+<body><main>
+<header class="header"><span class="badge">RGB-D · COMPONENT 实例分割</span><h1>看清小目标的形状与边界</h1><div id="description" class="muted"></div></header>
+<section class="card controls" aria-label="展示控制">
+<label>选择样例<select id="case" aria-label="选择样例"></select></label>
+<label>选择方法<select id="method" aria-label="选择方法"></select></label>
+<label>展示置信度 ≥ <output id="threshold-value">0.50</output><input id="threshold" aria-label="展示置信度" type="range" min="0.01" max="0.99" step="0.01" value="0.5"></label>
+<label>掩码透明度 <output id="opacity-value">0.45</output><input id="opacity" aria-label="掩码透明度" type="range" min="0" max="0.85" step="0.05" value="0.45"></label>
+</section>
+<section class="metrics" aria-label="完整验证指标与显示数量">
+<div class="card"><div class="muted">Mask APₛ</div><div id="aps" class="number">—</div><div class="metric-caption">完整验证集 · 小目标</div></div>
+<div class="card"><div class="muted">Mask AP</div><div id="ap" class="number">—</div><div class="metric-caption">完整验证集 · 全部目标</div></div>
+<div class="card"><div class="muted">本图显示实例</div><div id="count" class="number">—</div><div id="saved-count" class="metric-caption"></div></div>
+</section>
+<div class="actions"><button id="download-json" type="button">下载本图 JSON</button><button id="download-image" type="button">下载叠加图</button><button id="reset" type="button">重置显示</button><label class="zoom">同步缩放 <output id="zoom-value">1×</output><input id="zoom" aria-label="同步缩放" type="range" min="1" max="4" step="0.25" value="1"></label></div>
+<div id="status" class="muted" role="status">正在载入样例…</div>
+<section class="images" aria-label="RGB、深度和实例掩码">
+<figure class="card"><figcaption>原始 RGB</figcaption><div class="viewport"><img id="rgb" alt="原始 RGB 图像"></div></figure>
+<figure class="card"><figcaption>深度视图</figcaption><div class="viewport"><img id="depth" alt="深度可视化，无效深度显示黑色"></div></figure>
+<figure class="card"><figcaption>实例掩码叠加</figcaption><div class="viewport"><canvas id="prediction" width="1024" height="1024" aria-label="实例掩码叠加图"></canvas></div></figure>
+</section>
+<div class="notice">不同颜色表示不同实例，颜色在六组方法间保持对应。展示置信度只控制本图显示；完整验证指标使用全部已保存候选，不随滑杆变化。</div>
+<footer>页面展示固定权重生成的真实预测。可离线切换样例、比较方法和放大边界；页面操作不会重新运行模型。深度颜色按每张图有效深度的范围归一化，仅用于展示。</footer>
+</main>
+<script type="application/json" id="course-data">__COURSE_DATA__</script>
+<script>
+(()=>{
+'use strict';
+const data=JSON.parse(document.getElementById('course-data').textContent),$=id=>document.getElementById(id);
+const controls={case:$('case'),method:$('method'),threshold:$('threshold'),opacity:$('opacity'),zoom:$('zoom')};
+const canvas=$('prediction'),ctx=canvas.getContext('2d'),overlay=document.createElement('canvas');overlay.width=1024;overlay.height=1024;
+const overlayCtx=overlay.getContext('2d'),cache=new WeakMap(),images=new Map();
+const palette=[[38,141,255],[245,126,56],[55,193,122],[213,88,204],[252,190,52],[36,199,210],[243,92,113],[144,119,248],[177,206,54],[237,142,211]];
+function decodeCounts(rle){
+ if(cache.has(rle))return cache.get(rle);
+ const s=rle.counts,runs=[];let p=0,total=0;
+ while(p<s.length){let x=0,k=0,c,more;do{if(p>=s.length||k>5)throw Error('无效 RLE');c=s.charCodeAt(p++)-48;if(c<0||c>63)throw Error('无效 RLE 字符');x|=(c&31)<<(5*k);more=c&32;k++;}while(more);if(c&16)x|=(-1)<<(5*k);if(runs.length>2)x+=runs[runs.length-2];if(x<0)throw Error('无效 RLE 长度');runs.push(x);total+=x;}
+ if(total!==rle.size[0]*rle.size[1])throw Error('RLE 尺寸不符');cache.set(rle,runs);return runs;
+}
+function chosen(){return data.cases[Number(controls.case.value)||0]}
+function visible(){return chosen().predictions[controls.method.value].filter(v=>v.score>=Number(controls.threshold.value))}
+function render(){
+ if(!window.__courseDemo.ready)return;
+ const item=chosen(),method=controls.method.value,values=item.predictions[method],threshold=Number(controls.threshold.value),opacity=Number(controls.opacity.value),zoom=Number(controls.zoom.value);
+ const bg=images.get(item.image_id).rgb;$('rgb').src=item.rgb;$('depth').src=item.depth;ctx.clearRect(0,0,1024,1024);ctx.drawImage(bg,0,0,1024,1024);
+ const pixels=overlayCtx.createImageData(1024,1024),out=pixels.data;let count=0;
+ values.forEach((prediction,index)=>{if(prediction.score<threshold)return;count++;const rle=prediction.segmentation,runs=decodeCounts(rle),h=rle.size[0],w=rle.size[1],color=palette[index%palette.length];if(h!==1024||w!==1024)throw Error('掩码尺寸不符');let position=0,foreground=false;for(const length of runs){if(foreground){for(let j=position;j<position+length;j++){const offset=4*((j%h)*w+Math.floor(j/h));if(out[offset+3]===0){out[offset]=color[0];out[offset+1]=color[1];out[offset+2]=color[2];out[offset+3]=Math.round(opacity*255);}}}position+=length;foreground=!foreground;}});
+ overlayCtx.putImageData(pixels,0,0);ctx.drawImage(overlay,0,0);
+ const metrics=data.validation.metrics[method];$('aps').textContent=metrics.mask_ap_small.toFixed(5);$('ap').textContent=metrics.mask_ap.toFixed(5);$('count').textContent=count;$('saved-count').textContent='已保存 '+values.length+' 个候选';
+ $('threshold-value').textContent=threshold.toFixed(2);$('opacity-value').textContent=opacity.toFixed(2);$('zoom-value').textContent=zoom+'×';
+ for(const element of [$('rgb'),$('depth'),canvas])element.style.width=(zoom*100)+'%';
+ $('status').textContent='样例索引 '+item.index+' · image_id '+item.image_id+(count?' · 不同颜色表示不同实例':' · 当前展示阈值下没有实例，可降低阈值查看');
+ window.__courseDemo.lastRender={image_id:item.image_id,method,threshold,visible:count,saved:values.length};
+}
+function download(name,value,type){const url=URL.createObjectURL(new Blob([value],{type})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+data.cases.forEach((item,index)=>{const option=document.createElement('option');option.value=String(index);option.textContent='索引 '+item.index+' · ID '+item.image_id;controls.case.append(option)});
+Object.entries(data.labels).forEach(([key,label])=>{const option=document.createElement('option');option.value=key;option.textContent=label;controls.method.append(option)});controls.method.value=data.validation.selected_variant;
+$('description').textContent='DA-Fusion 基座第 '+data.base_epoch+' 轮 · 点头第 '+data.head_epoch+' 轮 · 1024×1024 · 样例来自 '+data.split+'；指标来自完整 '+data.validation.images+' 张验证图';
+Object.values(controls).forEach(control=>control.addEventListener(control.type==='range'?'input':'change',render));
+$('reset').addEventListener('click',()=>{controls.threshold.value='0.5';controls.opacity.value='0.45';controls.zoom.value='1';document.querySelectorAll('.viewport').forEach(v=>{v.scrollTop=0;v.scrollLeft=0});render()});
+$('download-json').addEventListener('click',()=>download('predictions_'+chosen().image_id+'_'+controls.method.value+'.json',JSON.stringify({image_id:chosen().image_id,method:controls.method.value,display_threshold:Number(controls.threshold.value),predictions:visible()},null,2),'application/json'));
+$('download-image').addEventListener('click',()=>{const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='mask_'+chosen().image_id+'_'+controls.method.value+'.png';a.click()});
+let syncing=false;const panes=Array.from(document.querySelectorAll('.viewport'));for(const pane of panes)pane.addEventListener('scroll',()=>{if(syncing)return;syncing=true;for(const other of panes){if(other!==pane){other.scrollTop=pane.scrollTop;other.scrollLeft=pane.scrollLeft}}requestAnimationFrame(()=>syncing=false)});
+window.__courseDemo={data,decodeCounts,ready:false,lastRender:null};
+Promise.all(data.cases.map(async item=>{const rgb=new Image();rgb.src=item.rgb;await rgb.decode();images.set(item.image_id,{rgb})})).then(()=>{window.__courseDemo.ready=true;render()}).catch(error=>{$('status').textContent='样例载入失败：'+error.message;console.error(error)});
+})();
+</script></body></html>

@@ -1,0 +1,302 @@
+{
+  "status": "completed_audited",
+  "at_utc": "2026-10-18T21:41:34.234319+00:00",
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "mode": "run",
+    "verification_status": "VALIDATION_ARTIFACTS_AUDITED"
+  },
+  "scope": "whole_image_full_validation",
+  "base_epoch": 15,
+  "head_epochs": 6,
+  "training_images_per_epoch": 14432,
+  "validation_images_per_epoch": 2584,
+  "training_updates": 10824,
+  "image_size": [
+    1024,
+    1024
+  ],
+  "selection_rule": "Maximum full validation APs, then AP, then earlier epoch",
+  "selected": {
+    "epoch": 6,
+    "variant": "point_depth_probability_depth",
+    "mask_ap_small": 0.5861924068547278,
+    "mask_ap": 0.8646802196436845,
+    "gain_vs_native_probability_depth": 0.019518160976451537,
+    "AP_drop_vs_native_probability_depth": -0.013363927305685364,
+    "eligible": true,
+    "checkpoint": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/formal/experiment/heads_epoch_06.pt",
+      "sha256": "ec72065e3dd5e869d9ddd217cbddf89b2a3f9d11dd29447e57c38a9e6323ebff",
+      "head_tensor_sha256": "e5df8b59ab876f39d91324833c4d340d3e87ed4480703717160e1fff594ab8d7",
+      "epoch": 6
+    }
+  },
+  "gain_vs_probability_only": {
+    "mask_ap": 0.013363927305685364,
+    "mask_ap_small": 0.019518160976451537
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "checkpoint": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/formal/experiment/heads_epoch_01.pt",
+        "sha256": "f9826dc30fa35d80148b775fc40559619e52f4ca21acadb90064a294ea2f7e84",
+        "head_tensor_sha256": "4acbefb4df536b98f6751cb098b3a2b8e303364363abffe644fa430436ab25a7",
+        "epoch": 1
+      },
+      "metrics": {
+        "native": {
+          "mask_ap": 0.8148707314438498,
+          "mask_ap_small": 0.5037415129909696
+        },
+        "native_probability_depth": {
+          "mask_ap": 0.8513162923379991,
+          "mask_ap_small": 0.5666742458782763
+        },
+        "point": {
+          "mask_ap": 0.8094698360100395,
+          "mask_ap_small": 0.4781479814364799
+        },
+        "point_probability_depth": {
+          "mask_ap": 0.8503401842680441,
+          "mask_ap_small": 0.5547944688943316
+        },
+        "point_depth": {
+          "mask_ap": 0.8362179958064465,
+          "mask_ap_small": 0.511661680519179
+        },
+        "point_depth_probability_depth": {
+          "mask_ap": 0.8590488552049753,
+          "mask_ap_small": 0.5673580754978899
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "checkpoint": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/formal/experiment/heads_epoch_02.pt",
+        "sha256": "329bbbfd6e4d303f626de2108097f2a9308e4e69293ec609b391a307947bfe01",
+        "head_tensor_sha256": "0e80ce40c99913eaf000f4d676225241f3e20f4eed006cb88f77781600f64481",
+        "epoch": 2
+      },
+      "metrics": {
+        "native": {
+          "mask_ap": 0.8148707314438498,
+          "mask_ap_small": 0.5037415129909696
+        },
+        "native_probability_depth": {
+          "mask_ap": 0.8513162923379991,
+          "mask_ap_small": 0.5666742458782763
+        },
+        "point": {
+          "mask_ap": 0.810868674899633,
+          "mask_ap_small": 0.48455790626781037
+        },
+        "point_probability_depth": {
+          "mask_ap": 0.8503600673996854,
+          "mask_ap_small": 0.5588702902587849
+        },
+        "point_depth": {
+          "mask_ap": 0.8417453059445001,
+          "mask_ap_small": 0.5301958224705267
+        },
+        "point_depth_probability_depth": {
+          "mask_ap": 0.8609458982813598,
+          "mask_ap_small": 0.5767404301538192
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "checkpoint": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/formal/experiment/heads_epoch_03.pt",
+        "sha256": "122a6e1bcc2cd9fe84099d4992fc743d9a3bbc4ddcb6f7dbc07dab22bc97525e",
+        "head_tensor_sha256": "9a197b4555f01afb252f8e0621f6a2bcb9277718cc6a140b5b674b2d2f4e8b2f",
+        "epoch": 3
+      },
+      "metrics": {
+        "native": {
+          "mask_ap": 0.8148707314438498,
+          "mask_ap_small": 0.5037415129909696
+        },
+        "native_probability_depth": {
+          "mask_ap": 0.8513162923379991,
+          "mask_ap_small": 0.5666742458782763
+        },
+        "point": {
+          "mask_ap": 0.8096978997224875,
+          "mask_ap_small": 0.4803708191720318
+        },
+        "point_probability_depth": {
+          "mask_ap": 0.8502021007916735,
+          "mask_ap_small": 0.5583197504166456
+        },
+        "point_depth": {
+          "mask_ap": 0.8395779848862857,
+          "mask_ap_small": 0.5241261907361194
+        },
+        "point_depth_probability_depth": {
+          "mask_ap": 0.8609219826925656,
+          "mask_ap_small": 0.5759690899921499
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "checkpoint": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/formal/experiment/heads_epoch_04.pt",
+        "sha256": "c7dd0852884d8945c8fbd7f09b6d08fb6bfda41e956add208df517ea80eb3beb",
+        "head_tensor_sha256": "445cbfd216aa75d8c6b030e209211541e2e7de394a3fe5249d1bca12bf77ab15",
+        "epoch": 4
+      },
+      "metrics": {
+        "native": {
+          "mask_ap": 0.8148707314438498,
+          "mask_ap_small": 0.5037415129909696
+        },
+        "native_probability_depth": {
+          "mask_ap": 0.8513162923379991,
+          "mask_ap_small": 0.5666742458782763
+        },
+        "point": {
+          "mask_ap": 0.8115499847943409,
+          "mask_ap_small": 0.48260430444418484
+        },
+        "point_probability_depth": {
+          "mask_ap": 0.8519838074661741,
+          "mask_ap_small": 0.5600084114008331
+        },
+        "point_depth": {
+          "mask_ap": 0.8442563475486804,
+          "mask_ap_small": 0.5359690144866636
+        },
+        "point_depth_probability_depth": {
+          "mask_ap": 0.8637665616890036,
+          "mask_ap_small": 0.5825404238158283
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "checkpoint": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/formal/experiment/heads_epoch_05.pt",
+        "sha256": "175111801c3cc3097ae03c123e29e8418d523a1902473baffcc90b1f684682e4",
+        "head_tensor_sha256": "98bcf3c27fd9052794695048772f2431596fc6ed219d25bb2033c0c2bf80eb64",
+        "epoch": 5
+      },
+      "metrics": {
+        "native": {
+          "mask_ap": 0.8148707314438498,
+          "mask_ap_small": 0.5037415129909696
+        },
+        "native_probability_depth": {
+          "mask_ap": 0.8513162923379991,
+          "mask_ap_small": 0.5666742458782763
+        },
+        "point": {
+          "mask_ap": 0.8117539421646754,
+          "mask_ap_small": 0.483680968102083
+        },
+        "point_probability_depth": {
+          "mask_ap": 0.8520477036558104,
+          "mask_ap_small": 0.5608118963529798
+        },
+        "point_depth": {
+          "mask_ap": 0.845313139602117,
+          "mask_ap_small": 0.542137594133175
+        },
+        "point_depth_probability_depth": {
+          "mask_ap": 0.8641197337295654,
+          "mask_ap_small": 0.5850348382694514
+        }
+      }
+    },
+    {
+      "epoch": 6,
+      "checkpoint": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/formal/experiment/heads_epoch_06.pt",
+        "sha256": "ec72065e3dd5e869d9ddd217cbddf89b2a3f9d11dd29447e57c38a9e6323ebff",
+        "head_tensor_sha256": "e5df8b59ab876f39d91324833c4d340d3e87ed4480703717160e1fff594ab8d7",
+        "epoch": 6
+      },
+      "metrics": {
+        "native": {
+          "mask_ap": 0.8148707314438498,
+          "mask_ap_small": 0.5037415129909696
+        },
+        "native_probability_depth": {
+          "mask_ap": 0.8513162923379991,
+          "mask_ap_small": 0.5666742458782763
+        },
+        "point": {
+          "mask_ap": 0.8136970350166652,
+          "mask_ap_small": 0.48859302851069863
+        },
+        "point_probability_depth": {
+          "mask_ap": 0.8522574622576123,
+          "mask_ap_small": 0.5613365670484499
+        },
+        "point_depth": {
+          "mask_ap": 0.8468433363125217,
+          "mask_ap_small": 0.5472584731377017
+        },
+        "point_depth_probability_depth": {
+          "mask_ap": 0.8646802196436845,
+          "mask_ap_small": 0.5861924068547278
+        }
+      }
+    }
+  ],
+  "base_weights": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/formal_v1/lr5e5/epoch_15.pt",
+    "sha256": "ef52456da6bb47e4f38c7cfb26e5eaf88c02895bf674487febd04d24d0dc2059"
+  },
+  "base_training_protocol": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/protocol_v1/lr5e5.json",
+    "sha256": "e3ebd11c7d3699b5156805eac8e26f6e9944b82eb68741009ff35dea5701d650"
+  },
+  "point_protocol": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/protocol.json",
+    "sha256": "e7e1f707c4b85184273e41e3e3ebd357ee1878dc12a566b861cc9d5980519753"
+  },
+  "completion_audit": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/completion_audit.json",
+    "sha256": "3696663f396e6fa572619c0a7277c2a05e3a1221069fbb91430a268b9a02ecb4"
+  },
+  "epoch_audits": [
+    {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/epoch01_validation_audit.json",
+      "sha256": "acf606ab20ae70b3ef9b562d0b2ca64bb844bdf006d6afe220c096b0628809b1"
+    },
+    {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/epoch02_validation_audit.json",
+      "sha256": "1c2c1c99b2ac05f1591d8d8129602b639bc6f62f6df9250a51e4a6e7b4fc19de"
+    },
+    {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/epoch03_validation_audit.json",
+      "sha256": "90b8fd5e1f6e7ada8c9a008445888baaf900a4d13d167e4486a334c21721c8c3"
+    },
+    {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/epoch04_validation_audit.json",
+      "sha256": "5208f1006c95adc302c7099f3adad3c3a6c732b633cce0948dc95bb6a327aec2"
+    },
+    {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/epoch05_validation_audit.json",
+      "sha256": "f95ed45a19e2e30f38a0bdd6e9a02458c6cd38764a7621b078958f04364b2297"
+    },
+    {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_longer_training/point_e15_v1/epoch06_validation_audit.json",
+      "sha256": "f12bd819ac007e9df798df7012f0af285917ebbd02f16b3aa988cbfc2746680c"
+    }
+  ],
+  "test_used": false,
+  "kaggle_submitted": false,
+  "tiled_system_evaluated": false,
+  "limitations": [
+    "Single seed; selected means best among the six evaluated head epochs",
+    "This run evaluates whole images, with fixed instance identities and scores",
+    "No claim of convergence, statistical significance or a new test/Kaggle score",
+    "Exact optimizer-state resumption has not been exercised"
+  ]
+}

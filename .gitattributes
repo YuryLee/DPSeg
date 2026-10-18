@@ -1,0 +1,5 @@
+# Checkpoint provenance depends on the original bytes of source and protocols.
+# Preserve bytes when adding files and checking out on another operating system.
+* -text
+*.png binary
+*.pdf binary

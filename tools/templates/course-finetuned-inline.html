@@ -1,0 +1,61 @@
+<style>
+#course-finetuned-comparison{color:var(--foreground)}
+#course-finetuned-comparison .comparison-images{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+#course-finetuned-comparison figure{margin:0;min-width:0}
+#course-finetuned-comparison figcaption{margin-bottom:6px;font-weight:500}
+#course-finetuned-comparison .comparison-images img{display:block;width:100%;height:auto}
+#course-finetuned-comparison .image-caption{margin-top:6px;overflow-wrap:anywhere}
+#course-finetuned-comparison .comparison-detail{margin-top:12px;overflow-wrap:anywhere}
+#course-finetuned-comparison h2{padding-right:90px}
+@media(max-width:420px){#course-finetuned-comparison .comparison-images{grid-template-columns:1fr}}
+</style>
+<section id="course-finetuned-comparison" aria-label="课程数据微调后实例分割对比">
+  <h2>微调后：六个固定案例</h2>
+  <div class="text-small text-muted">纯 RGB · component 单类 · 五轮微调 · 验证集选优</div>
+  <div class="viz-controls">
+    <label class="form-label">案例<select class="form-select" data-control="case" aria-label="选择固定案例"></select></label>
+    <label class="form-label">视图<select class="form-select" data-control="view" aria-label="选择整图或小目标"><option value="full">整图对比</option><option value="small">小目标 · GT 辅助诊断</option></select></label>
+  </div>
+  <div class="text-small text-muted">显示 score ≥ 0.5 · 完整 AP 使用 score ≥ 0.01</div>
+  <div class="comparison-detail text-small tabular-nums" data-detail aria-live="polite"></div>
+  <div class="comparison-images" data-images>
+    <figure data-panel="rgb"><figcaption>RGB</figcaption><img alt=""><div class="image-caption text-small text-muted"></div></figure>
+    <figure data-panel="gt"><figcaption>GT · 实例真值</figcaption><img alt=""><div class="image-caption text-small text-muted"></div></figure>
+    <figure data-panel="maskrcnn"><figcaption>Mask R-CNN</figcaption><img alt=""><div class="image-caption text-small text-muted"></div></figure>
+    <figure data-panel="mask2former"><figcaption>Mask2Former</figcaption><img alt=""><div class="image-caption text-small text-muted"></div></figure>
+  </div>
+  <div class="comparison-detail text-small" data-empty hidden role="status"></div>
+  <script type="application/json" id="course-finetuned-comparison-data">__DATA__</script>
+</section>
+<script>
+(()=>{
+  const root=document.getElementById('course-finetuned-comparison');
+  const data=JSON.parse(document.getElementById('course-finetuned-comparison-data').textContent);
+  const caseControl=root.querySelector('[data-control="case"]');
+  const viewControl=root.querySelector('[data-control="view"]');
+  const detail=root.querySelector('[data-detail]'),images=root.querySelector('[data-images]'),empty=root.querySelector('[data-empty]');
+  const columns=[['rgb','RGB'],['gt','GT'],['maskrcnn','Mask R-CNN'],['mask2former','Mask2Former']];
+  for(const item of data.cases){const option=document.createElement('option');option.value=item.key;option.textContent='索引 '+item.index+' · ID '+item.image_id;caseControl.append(option)}
+  function render(){
+    const item=data.cases.find(c=>c.key===caseControl.value)||data.cases[0];
+    const small=viewControl.value==='small',crop=item.small_detail;
+    detail.textContent='索引 '+item.index+' · ID '+item.image_id+(small&&crop?' · GT '+crop.annotation_id+' · 原始面积 '+crop.original_annotation_area+' px':' · 原图 '+item.width+'×'+item.height);
+    images.hidden=small&&!crop;empty.hidden=!images.hidden;
+    images.style.display=images.hidden?'none':'';
+    if(images.hidden){empty.textContent='该固定案例没有 0 < area < 1024 的 GT；未替换图片。';return}
+    const selected=small?crop.images:item.full_images;
+    for(const [key,name] of columns){
+      const panel=root.querySelector('[data-panel="'+key+'"]'),image=panel.querySelector('img'),caption=panel.querySelector('.image-caption');
+      let text;
+      if(small){const match=crop.matches[key];text=key==='rgb'?'原图局部':key==='gt'?'选定 GT · 面积 '+crop.original_annotation_area+' px':match?'GT辅助 IoU '+match.iou.toFixed(3)+' · score '+match.score.toFixed(3):'无 score ≥ 0.5 候选'}
+      else{text=key==='rgb'?'原始颜色图':key==='gt'?item.gt_instances+' 个真值实例':item.display_candidates[key]+' 个显示候选 / '+item.raw_candidates[key]+' 个保存候选'}
+      image.src=data.images[selected[key]];image.alt=name+'，索引 '+item.index+'，'+text;caption.textContent=text;
+    }
+  }
+  function applySaved(saved){if(!saved||typeof saved!=='object')return;const p=saved.privateContent||{},m=saved.modelContent||{};const key=p.caseKey||data.cases.find(c=>c.image_id===m.image_id)?.key;if(data.cases.some(c=>c.key===key))caseControl.value=key;if(['full','small'].includes(m.view))viewControl.value=m.view;render()}
+  function changed(){render();const item=data.cases.find(c=>c.key===caseControl.value);if(typeof window.openai?.setWidgetState==='function')Promise.resolve(window.openai.setWidgetState({modelContent:{image_id:item.image_id,index:item.index,view:viewControl.value,display_score_threshold:0.5},privateContent:{caseKey:item.key}})).catch(()=>{})}
+  caseControl.addEventListener('change',changed);viewControl.addEventListener('change',changed);
+  window.addEventListener('openai:set_globals',event=>{if(event.detail?.globals?.widgetState!==undefined)applySaved(event.detail.globals.widgetState)});
+  render();applySaved(window.openai?.widgetState);
+})();
+</script>

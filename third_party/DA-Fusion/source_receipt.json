@@ -1,0 +1,612 @@
+{
+  "repository": "https://github.com/teamROBI/DA-Fusion",
+  "commit": "c5bf9e0395c11ed1c2fbb2b88e7d0589a90df570",
+  "download_url": "https://codeload.github.com/teamROBI/DA-Fusion/zip/refs/heads/main",
+  "archive_sha256": "611f9edd9d68b0a5365fd2c46fc2a0253bc77b9140aa922fd1d98b3d4126f4fc",
+  "all_git_blobs_verified": true,
+  "files": {
+    ".gitignore": {
+      "git_blob_sha1": "040a39644b8e1520dcef9d0c194d08a03498b816",
+      "sha256": "07b8e67d758b20caddcf5e7bdf0397c12c4fb94284d20df77ad29ea9e4ed177a",
+      "bytes": 1637,
+      "git_mode": "100644"
+    },
+    "LICENSE": {
+      "git_blob_sha1": "d05b963fd98777282749a0ddac6d8bf19407f3a4",
+      "sha256": "7d0ea5d0cd1ce49ed675314c83a841362047654fc8fa26fb5a42a83492e0e461",
+      "bytes": 1092,
+      "git_mode": "100644"
+    },
+    "README.md": {
+      "git_blob_sha1": "88e7d8f92976fd77b35f923e67fdc01bafcfcbec",
+      "sha256": "ec611b9ddf6617db1f94e5a7af2bd24c3904843e8a3b684cf12b749fdacf949d",
+      "bytes": 8092,
+      "git_mode": "100644"
+    },
+    "dafusion/README.md": {
+      "git_blob_sha1": "2f29aa07293ca83ed03041d34c9108c2677898ec",
+      "sha256": "7aedd733221809c598fd70c6ccac54dc833704b1a1e4a1d824489f3ac9305f74",
+      "bytes": 6709,
+      "git_mode": "100644"
+    },
+    "dafusion/__init__.py": {
+      "git_blob_sha1": "f27d507f61342c4ea55d53836dff88a25b1d0729",
+      "sha256": "a87522e45fc81db6ab519790a20553f712079b6bfff1e4e46c6d1ae7c4ff3b93",
+      "bytes": 246,
+      "git_mode": "100644"
+    },
+    "dafusion/configs/Base-DAFusion-SwinL.yaml": {
+      "git_blob_sha1": "ca5d4f92f89c00c70369ba6c8b9620ada29ec366",
+      "sha256": "901e4844bd83b805c369b156ef73c3f170b4df6ce3649c172dfc822a3f0a185e",
+      "bytes": 2731,
+      "git_mode": "100644"
+    },
+    "dafusion/configs/dafusion_rgbd_uoais_stage1.yaml": {
+      "git_blob_sha1": "3992bc420f848f9268548c99b5e86205a0090ae5",
+      "sha256": "4e686a73e999263c5fff5122b706bd144904358bd8538de9185dcffc15c130e0",
+      "bytes": 1416,
+      "git_mode": "100644"
+    },
+    "dafusion/configs/dafusion_rgbd_uoais_stage2.yaml": {
+      "git_blob_sha1": "e30290f18bc1416f7fe0c598475281c36543aded",
+      "sha256": "d8535b2f1be3140761d7d1c4977cd6ed408516e8e3fc906314f2395459b56f1a",
+      "bytes": 678,
+      "git_mode": "100644"
+    },
+    "dafusion/configs/postproc/postproc.json": {
+      "git_blob_sha1": "ed8312080ee5dc0e4853e34cb1c829964fc7454d",
+      "sha256": "5192d74491d62bd282e4391fe8e06f4db4dd64190d42e469facc5773421767e5",
+      "bytes": 284,
+      "git_mode": "100644"
+    },
+    "dafusion/configs/postproc/postproc_ocid.json": {
+      "git_blob_sha1": "f01853f8e688f3d502c204fefcfc4f18f1ff557c",
+      "sha256": "4f7764c798a327ca3941472b2c91badc954330f173c52620d47079cbf59999c0",
+      "bytes": 308,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/__init__.py": {
+      "git_blob_sha1": "2f7c62ed60102e341b1935e8d8962a70b3187168",
+      "sha256": "6b0db9c379a275ab1227e505acfeb3b64b3bafcf11866622cd664dc767d655f1",
+      "bytes": 412,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/config.py": {
+      "git_blob_sha1": "cac5ea2e5800c6c5d0383abf1ed9339c77358dfd",
+      "sha256": "ee8be8b485b7fd5c63eef9dd7637239b512d98b7952fe960dab8047edc9e3a97",
+      "bytes": 16221,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/__init__.py": {
+      "git_blob_sha1": "ecbb8457f9b186373e669227c3ad6abf1a3d78c2",
+      "sha256": "4e9d82b7d01b4ffcb166abdc8f0600717cc45e5091e261c8860bfbeb91809065",
+      "bytes": 205,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/color_aug.py": {
+      "git_blob_sha1": "d9d362ee03642df579cb35f3f3798df61ff47fb2",
+      "sha256": "cf67591cde54ce6241ea03454835a1f72462f67c8b92cda1075a4b095cd4e40f",
+      "bytes": 3433,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/copy_paste.py": {
+      "git_blob_sha1": "e07012bcd14d40f71b7248422f2816d0556a3433",
+      "sha256": "01b1bd90e18ada53e9d8385995ed8c9961c5d63deaf097bb6afa02bd447ba027",
+      "bytes": 4151,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/dataset_mappers/__init__.py": {
+      "git_blob_sha1": "e74dc2b19c8f7b88dd3b2ce94775b6625df60ca3",
+      "sha256": "214f925c034868e1058db7f35f6de650351373c4efbb0a839ef9cd441b4ee288",
+      "bytes": 64,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/dataset_mappers/dafusion_mapper.py": {
+      "git_blob_sha1": "5966aae321677cdad95c7a81d16f22acaef71d47",
+      "sha256": "d083c33d5149ed6fc1b8b20e3827e1d50326c354ac4981f972c962e747b0ab3b",
+      "bytes": 21781,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/datasets/__init__.py": {
+      "git_blob_sha1": "b86c30b8b5ab53eca1a06909ee37cd6f41faa18f",
+      "sha256": "52c2fbdbc58f74f66667a92746354c365d932f44d2490c7b0e1531a3070b3157",
+      "bytes": 237,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/datasets/intrinsics.py": {
+      "git_blob_sha1": "659dd6e4e54afb99606ae1124deac59382f931c1",
+      "sha256": "4fabfdc5b1766149fa2a9d03444106caa06b2eac29c84d169e2a196da78a9086",
+      "bytes": 3292,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/datasets/register_tabletop.py": {
+      "git_blob_sha1": "61bdbeac06d9bc594b88302644f4e7b539e54989",
+      "sha256": "d09a0c4c3eecd338c84c898cd3aeb6dafccde9c4701601e19d9bccc93ad009be",
+      "bytes": 4055,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/datasets/register_uois.py": {
+      "git_blob_sha1": "37444065680f5a8c1d4b4efb66af9aa21c41438c",
+      "sha256": "3ed6ffa84920b26b3458aed42ca012a8ce1c1808b4ae6393fbd29a418acc69a2",
+      "bytes": 979,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/datasets/uois_json.py": {
+      "git_blob_sha1": "13667aa6442c0773348b404ebd4e07447808374d",
+      "sha256": "adc213718b902e0b4096a01f3e797c4056c1b326f245b306b7b922ba9407fdea",
+      "bytes": 3511,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/depth_noise.py": {
+      "git_blob_sha1": "7c9edcd39aec77407e3b65a76bb3a4a6929f448e",
+      "sha256": "e0fab8d708e1584e09af123f2474fa8e90412b896b72494e2f27f4bae9f94658",
+      "bytes": 10758,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/depth_normals.py": {
+      "git_blob_sha1": "26948a7ffc29e0bbf11a536dbee39a0292534266",
+      "sha256": "a9c49e7f90887d751a1e8d936717d8b96a49269c0f3b923251f874ca6bb350fe",
+      "bytes": 2173,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/depth_sdp.py": {
+      "git_blob_sha1": "b446df4902a1965f925bda12cdc306dd568f5269",
+      "sha256": "eec88a155c42f65a87969bb65851217907ed6ca36194ca5ebbec2a06b6830b02",
+      "bytes": 4177,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/depth_xyz.py": {
+      "git_blob_sha1": "18b2819aa57e3274f292279167dd06a17d2e3f12",
+      "sha256": "85471d049fe0b63f298924b529e7c876849355c1d03e80ee40908618b7e3db8e",
+      "bytes": 3034,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/hha.py": {
+      "git_blob_sha1": "dee80c40812391260235a9537b88cf601416fb00",
+      "sha256": "3f92aa7f75a0b7bc30ca0f59f8c9053b48325c69c9c3385b76ea73d669c7c614",
+      "bytes": 3135,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/plane_height.py": {
+      "git_blob_sha1": "84b58c7294b9cb71f10e46bb97007eae2512abd1",
+      "sha256": "bc489e105eb253715d7a8b610d24d24a0a55f5f4638bda6fb52ffce98d3a9756",
+      "bytes": 1733,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/support_aug.py": {
+      "git_blob_sha1": "885908da6564799b5f6911dad80d5dbfd9edf46a",
+      "sha256": "b97c41b5f60586b944ea4e507e0e9628a897bf1983003aa64a5facc05d958ed0",
+      "bytes": 7269,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/data/upright.py": {
+      "git_blob_sha1": "77a99a6e5734b843bade3ecfea05f60c1412091b",
+      "sha256": "9d1a6b1e92ff003db70393cd999917d884355515bc9c35ece8a3cfcc951e7660",
+      "bytes": 2217,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/engine/__init__.py": {
+      "git_blob_sha1": "e74dc2b19c8f7b88dd3b2ce94775b6625df60ca3",
+      "sha256": "214f925c034868e1058db7f35f6de650351373c4efbb0a839ef9cd441b4ee288",
+      "bytes": 64,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/engine/predictor.py": {
+      "git_blob_sha1": "3be62fdeea2b9a3d1f29574a48f4595bdc67347c",
+      "sha256": "729274fd26b77e0af1b3c335e564f5be1961c98e350c214354a372d55ae56b46",
+      "bytes": 13337,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/eval/__init__.py": {
+      "git_blob_sha1": "eeb4f9b67aff1397f6ad03133f134c1dc33cc7ac",
+      "sha256": "6745d1fcadb77ced64860312e852588b18c2353bb2e528e638094e676e2a0fa8",
+      "bytes": 89,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/eval/benchmark.py": {
+      "git_blob_sha1": "6012355b74e929e4aec92db59131ad920e3a7f00",
+      "sha256": "d97b9755ed83e038643e88d2990222f01738749f8b07d77597faba8dc98b028e",
+      "bytes": 35799,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/eval/compute_PRF.py": {
+      "git_blob_sha1": "93f0f18b4c1c8a5d54338523cbd377a63199eea2",
+      "sha256": "7f6406eb127aff14d54846f2275e4dd7083e0eaaf40b30e927e42a4d55dc4479",
+      "bytes": 11766,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/eval/model.py": {
+      "git_blob_sha1": "1f6779442c12c9f687bca5b5b52c1b30a1445cb8",
+      "sha256": "327d63a047af774ba800a1206e560212b35b2d71ef3b51413a32cc09a693b745",
+      "bytes": 12612,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/eval/munkres.py": {
+      "git_blob_sha1": "3095ee59aa57d6232f9aa7b32f6e10fb18a376fe",
+      "sha256": "1ad7629fdb82d4b4178b437a1070fe75b1b9053b6c7519cd6ce7a8f3ce28567d",
+      "bytes": 26213,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/eval/post_process.py": {
+      "git_blob_sha1": "33d4b4269fe50cdb07dd6bf124362cdf2f003c0d",
+      "sha256": "6773f18ae486e967a5fefa365c3eec1db63c4514e65aecb57838cf0702763c66",
+      "bytes": 12348,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/eval/postproc_v2.py": {
+      "git_blob_sha1": "34a2bd5883f05f52c3999d7b9d7d714b7c33b67d",
+      "sha256": "ce0548d2568b518b5c5cda20e7cfebf9143cece6e61ec02691b5dcc3e8bbd452",
+      "bytes": 22404,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/eval/sweep.py": {
+      "git_blob_sha1": "0a5b3100fe78e57f66c5b9cf08dbb8f27917918d",
+      "sha256": "0349276f817b103f9e9065dea88bbd8e13bf25fc252edf2725228d942d0f517e",
+      "bytes": 24573,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/__init__.py": {
+      "git_blob_sha1": "a7f5b3f00684aa9b93731ec4eccea9ae1b11c04e",
+      "sha256": "d16b69a2845d13ace4b98a5c04790a0de1379a17f184bb9968dde888d4fb8844",
+      "bytes": 564,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/backbone/__init__.py": {
+      "git_blob_sha1": "e74dc2b19c8f7b88dd3b2ce94775b6625df60ca3",
+      "sha256": "214f925c034868e1058db7f35f6de650351373c4efbb0a839ef9cd441b4ee288",
+      "bytes": 64,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/backbone/depth_adapter.py": {
+      "git_blob_sha1": "2e036166cd97d3cbc8b24d6b113a00a13b734728",
+      "sha256": "c64505e7dd2c0999b1d658f1368d484f244aee94147ef1a6af279586b93635ac",
+      "bytes": 3174,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/backbone/dual_fusion_backbone.py": {
+      "git_blob_sha1": "fe051fdf16b98671ff8d57cb0e1297f1af58c7a8",
+      "sha256": "f1345f49b02a2780eb8320a97e7c10535f5fab0adf17ac97dfc3bff85a7308a1",
+      "bytes": 8196,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/backbone/swin.py": {
+      "git_blob_sha1": "d8175d9dfdc2c32512600dbe775c0a8ad562b4b4",
+      "sha256": "e6141734020a5cca571c8e6fc1288e4962a1e2592a7d4105f67e7e947ef63d4c",
+      "bytes": 27874,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/boundary_head.py": {
+      "git_blob_sha1": "fdb7819ba01cb5c1befaead47f7f9efe13ee1b48",
+      "sha256": "e7ed4dc5716145796eb6942e0543f51fb3e984c1fd233b422ddb0d4f916d9982",
+      "bytes": 4454,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/criterion.py": {
+      "git_blob_sha1": "29a8053b3775448cd1944eb685b6f3d1bc1555a7",
+      "sha256": "47d691fa6c32018152bef75c356f4b81513c4f9c38450d13cba491d721fa0189",
+      "bytes": 13492,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/fusion/__init__.py": {
+      "git_blob_sha1": "e74dc2b19c8f7b88dd3b2ce94775b6625df60ca3",
+      "sha256": "214f925c034868e1058db7f35f6de650351373c4efbb0a839ef9cd441b4ee288",
+      "bytes": 64,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/fusion/deformable_cross_attention.py": {
+      "git_blob_sha1": "ae31dc92f365426bef4f8a9bec3c995689090de9",
+      "sha256": "cacdafb9264940e69b7e4b916cd6795c001d53be67078df17df5afe66778af23",
+      "bytes": 3398,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/fusion/deformable_self_attention.py": {
+      "git_blob_sha1": "a4c176818832f7ce12cb04f19013e729c2484593",
+      "sha256": "c3f7a2e57a2c2022609ee915d71fa6e9ffabe9f1f2d6d850c8f400cffe568830",
+      "bytes": 5844,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/fusion/fusion_stage.py": {
+      "git_blob_sha1": "2dc3deebc465d4e5c666dcd5aa3f6324b71c1947",
+      "sha256": "9d13360b92f6ed0e4c1bf11a24ff514f57513ba49f93878607c64f457a03d5f1",
+      "bytes": 1681,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/fusion/geometry_prior.py": {
+      "git_blob_sha1": "291e45d3cd4b7d22a7ffc4960414b9cd66528c21",
+      "sha256": "f76a8ec7a6b502acf9fd93cc53c146bcdfba9cdf9c8715efb8ff56122d9720ac",
+      "bytes": 11293,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/fusion/offset_network.py": {
+      "git_blob_sha1": "99a9b1a9cf65815badd175b00e1f62961311489c",
+      "sha256": "d8fb8520ab98c1f98041df1956628b8b6a10250817322d9460eb68c7bc0a0835",
+      "bytes": 2087,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/fusion/relative_position_bias.py": {
+      "git_blob_sha1": "c6b610c0c9960e6a0ff9b0dcd42a64c414b08cce",
+      "sha256": "5fc54b67a6bb88dbf3b0fd59f646067840808c4163ef9b074cd6e0a3f514b9ef",
+      "bytes": 1756,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/fusion/sampling.py": {
+      "git_blob_sha1": "cb0523e77e369dccd04a751752a035fa8533bd02",
+      "sha256": "17fc6b5436fa03785e4b01f4c6f2c32b5cd2b8f82e5895a2ae69032156485cf5",
+      "bytes": 1511,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/matcher.py": {
+      "git_blob_sha1": "00fb8ff795111f927f1e604b49c59ded45ef8632",
+      "sha256": "76ac3eab6fc22eb472dc013c1157d21ec63bcfcd10b6444d3a4b51e358f4dd1b",
+      "bytes": 8607,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/meta_arch/__init__.py": {
+      "git_blob_sha1": "e74dc2b19c8f7b88dd3b2ce94775b6625df60ca3",
+      "sha256": "214f925c034868e1058db7f35f6de650351373c4efbb0a839ef9cd441b4ee288",
+      "bytes": 64,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/meta_arch/dafusion_model.py": {
+      "git_blob_sha1": "2aa625acdb39bd2f14a74cb987d14855ee5f9a79",
+      "sha256": "d4481becee175d35da596970b811bfade422c5899e5e6d9f4ffa49ea8625c8c7",
+      "bytes": 16049,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/meta_arch/mask_former_head.py": {
+      "git_blob_sha1": "aa2173d43f5815ed0af48f1dd568c216ca274f37",
+      "sha256": "6a14db5621f342f850a170a1a800b7fdba32763183d97c5a501288d728e132b8",
+      "bytes": 5690,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/meta_arch/per_pixel_baseline.py": {
+      "git_blob_sha1": "4ce7573e0ff97e7fdeef0ea94928def6e263ab1d",
+      "sha256": "bf5724448d01d02c3585fbb70dad40731491b760b849b1206332a610690a43d6",
+      "bytes": 9433,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/__init__.py": {
+      "git_blob_sha1": "e74dc2b19c8f7b88dd3b2ce94775b6625df60ca3",
+      "sha256": "214f925c034868e1058db7f35f6de650351373c4efbb0a839ef9cd441b4ee288",
+      "bytes": 64,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/fpn.py": {
+      "git_blob_sha1": "ded7aba8481a8dff4633778b12dd3bc7468f25e4",
+      "sha256": "8f903bc9f3b5a4673ec6c8e0efaaa7a8f87767554201e3ab8db46e4a2321512c",
+      "bytes": 12375,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/msdeformattn.py": {
+      "git_blob_sha1": "9bbe38fd970b11af3c3320a9a096452e319723e6",
+      "sha256": "b7e80e6c725af5f9a7e05ac20060fd6c2c6690b766ed85cf62681b729ed0e6bd",
+      "bytes": 15309,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/functions/__init__.py": {
+      "git_blob_sha1": "2b06b5ac538b63bdb9a6c82e4635b95bb5491d5b",
+      "sha256": "7415ff520ad22f839a4bb3c5c869b4022b776f2d7ab08df8daf94a3bc64079fd",
+      "bytes": 734,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/functions/ms_deform_attn_func.py": {
+      "git_blob_sha1": "94a36ab85b7c5f9ecee342db91a5d5731740740f",
+      "sha256": "cf206cc3c80e07ae71957ee5d3001a5179edf3139efa1e649362593cb1673730",
+      "bytes": 3728,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/make.sh": {
+      "git_blob_sha1": "7b38cdbf48f3571d986a33e7563b517952b51bb2",
+      "sha256": "4c5a877daa42baa9f239f3d3924fa1494538b35c264d7128eca4372e99cf1a3a",
+      "bytes": 729,
+      "git_mode": "100755"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/modules/__init__.py": {
+      "git_blob_sha1": "6fdbf03359958f3d67ab00f879bf6b61a6c8f06a",
+      "sha256": "b72cb718272847a052ec5e8caae1095718438fe2e09b94e9b3acff7b3da7d3f0",
+      "bytes": 720,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/modules/ms_deform_attn.py": {
+      "git_blob_sha1": "e7b4c42ea504a0859ccadd72646919c941e72f73",
+      "sha256": "e958c034cd2c2695a7141554760ba21ba472ad9a5e0f30f945634a81b91120f5",
+      "bytes": 6805,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/setup.py": {
+      "git_blob_sha1": "3b57ad313ac8f9b6586892142da8ba943e516cec",
+      "sha256": "43337887620f7ddc5fd892abaa837c1a4fbdb0fb767c9cfda78a013f80997780",
+      "bytes": 3038,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/src/cpu/ms_deform_attn_cpu.cpp": {
+      "git_blob_sha1": "48757e2b0156b2c1513b615d2a17e5aee5172ae7",
+      "sha256": "d52c782c5793858269d5440249fae6b475f0257e7076b815708d1c4486e72b92",
+      "bytes": 1399,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/src/cpu/ms_deform_attn_cpu.h": {
+      "git_blob_sha1": "51bb27e9ee828f967e8aa854c2d55574040c6d7e",
+      "sha256": "ef7a0fb1be1985aecbf6b459a5038d688075ca7802e095b58b1377531c4362ee",
+      "bytes": 1282,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/src/cuda/ms_deform_attn_cuda.cu": {
+      "git_blob_sha1": "0c465dab3d636dfd6a44523c63f148b6e15084d9",
+      "sha256": "9b45778524e75be7696f1fdb3c41564efae162930d5e8f9f89cff74b98167f1c",
+      "bytes": 7459,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/src/cuda/ms_deform_attn_cuda.h": {
+      "git_blob_sha1": "4f0658e8668a11f0e7d71deff9adac71884f2e87",
+      "sha256": "402ad3a8815d8ee6baeadb73d80444f3d6d286af46feed8bc50162f9cfde83a0",
+      "bytes": 1283,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/src/cuda/ms_deform_im2col_cuda.cuh": {
+      "git_blob_sha1": "c04e0d4ab97d25c1756fcd8d08dd1e5a6d280b7c",
+      "sha256": "08d0644c24d46f7d6c9e804c3d42522e06f517da454d9dc29cdc2dcf53ef9dfb",
+      "bytes": 54837,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/src/ms_deform_attn.h": {
+      "git_blob_sha1": "2f80a1b294c55b37d13bb3558ff7aeadba3b37de",
+      "sha256": "0ba60b45502da4152aae2e8f5198803032913e8745f4637598dadb7896a23414",
+      "bytes": 1981,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/src/vision.cpp": {
+      "git_blob_sha1": "4a08821e0121a77556aa7a263ec8ebfa928b13b6",
+      "sha256": "4ed8ff5bcf34126aaeec6d28d8cfc985d7534451c5df6d7bada273ec51676284",
+      "bytes": 942,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/pixel_decoder/ops/test.py": {
+      "git_blob_sha1": "6e1b545459f6fd3235767e721eb5a1090ae14bef",
+      "sha256": "0eae613a37b1a67f52c2a5a56036fa7787bf398e630a1d386b54a4daee591bde",
+      "bytes": 4223,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/transformer_decoder/__init__.py": {
+      "git_blob_sha1": "ddcf38e78f3bbb2380b0a246000bcb5e5b385619",
+      "sha256": "71d9e04317bb322ee71fdeaf038efa86655de9b8b1f574446e66d34bb3a69fdb",
+      "bytes": 202,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/transformer_decoder/mask2former_transformer_decoder.py": {
+      "git_blob_sha1": "9f021d4ef2e30a077edbc41e067b0d9afd30f9f7",
+      "sha256": "0fcfb6174e635d42bf99bbfade97cf8ba6e60b77439d848604d609fb557f3adc",
+      "bytes": 19569,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/transformer_decoder/maskformer_transformer_decoder.py": {
+      "git_blob_sha1": "79f09fa43f2f5a33c3422a6bb999b20763ab8b5e",
+      "sha256": "ade13045563dda97f632dcceb1c55955ebe73bfdaf4af2d835a9c4c500194f09",
+      "bytes": 7065,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/transformer_decoder/position_encoding.py": {
+      "git_blob_sha1": "f32532e070e67b2cd25771aea1ad10e7e5a5dc69",
+      "sha256": "d01a863b4db23c0a0afb6d7ed599c612dc5df43df3cde2f1577876b2616c2217",
+      "bytes": 2518,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/modeling/transformer_decoder/transformer.py": {
+      "git_blob_sha1": "ea8caa0108f5e136a9739320ab69a3e1b6f40298",
+      "sha256": "83d5aee20507bcb809c521cbb8359bf12f8589939cbca6360134f1120147b74c",
+      "bytes": 11943,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/paths.py": {
+      "git_blob_sha1": "2a2fe6f2616d53c98c617cdb061cf9be2f556e4f",
+      "sha256": "9d74bcf8930d5a7af99c13f770ec30f7869b97934fb18b373a2f8b8ced4bad9d",
+      "bytes": 2025,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/train_net.py": {
+      "git_blob_sha1": "f87f0639d5746d55a4cb3de8b676789fa5ef55e2",
+      "sha256": "e24cad632d3cbe224397ea0fb56960a675ac185487670ba1a54ce80975cfedd9",
+      "bytes": 10886,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/utils/__init__.py": {
+      "git_blob_sha1": "e74dc2b19c8f7b88dd3b2ce94775b6625df60ca3",
+      "sha256": "214f925c034868e1058db7f35f6de650351373c4efbb0a839ef9cd441b4ee288",
+      "bytes": 64,
+      "git_mode": "100644"
+    },
+    "dafusion/dafusion/utils/misc.py": {
+      "git_blob_sha1": "874d9805b482f52bbffc1be620e36e0cffc07c46",
+      "sha256": "53fc8de4b8f5947fbba0f5a802219c0df1ca0b91133400b7da755cf6a328e672",
+      "bytes": 3897,
+      "git_mode": "100644"
+    },
+    "dafusion/pyproject.toml": {
+      "git_blob_sha1": "6b10859dc08445e17ba447dc220896384e09fd02",
+      "sha256": "6e906d21b6c7112724cd9ac774e407cbbfc7f0193899371c65e88727cbd52d9f",
+      "bytes": 1157,
+      "git_mode": "100644"
+    },
+    "dafusion/scripts/eval.sh": {
+      "git_blob_sha1": "c69593fec66188f2d35072c123720f75db4bfe5f",
+      "sha256": "4a9ea0246dfe6b4a7bebf3fd607a2e087e286807f95a507457d25ba8961ffa1d",
+      "bytes": 727,
+      "git_mode": "100755"
+    },
+    "dafusion/scripts/eval_sweep.sh": {
+      "git_blob_sha1": "8c2af0df12548116cfbbe2c6c802b09c99421882",
+      "sha256": "4177d33239c5e15cf22f4da425c4444c51397290d3d3616d3d2f212747e5e5c0",
+      "bytes": 862,
+      "git_mode": "100644"
+    },
+    "dafusion/scripts/patch_detectron2.sh": {
+      "git_blob_sha1": "caa396128d12b8a885756efe18830de69b700ccb",
+      "sha256": "264f0839c8a704a3eac011276ade660c70f149b031e4a4ed7244b48fae219fb9",
+      "bytes": 1413,
+      "git_mode": "100755"
+    },
+    "dafusion/scripts/setup_env.sh": {
+      "git_blob_sha1": "73604271d5256399ddcfac8b9a6844cc72ac39be",
+      "sha256": "5b278dbc17e4a8f515e336c32d2c8ed61eeb94ae8b1efcd83f7862dce0b0bebe",
+      "bytes": 3594,
+      "git_mode": "100755"
+    },
+    "dafusion/scripts/train.sh": {
+      "git_blob_sha1": "6dc9a76dc91be3255b5ba7f51ee73e5be780ff19",
+      "sha256": "9f4cc3d6082e8f08589187f3af7c809c86a964449b652234d8a5548b8f8755fc",
+      "bytes": 3036,
+      "git_mode": "100755"
+    },
+    "dafusion/tools/average_weights.py": {
+      "git_blob_sha1": "3ea6bfbc659e2e2e7863173f4958cc1051e0c451",
+      "sha256": "ade2e273b5b08da7304b22b3c32f4970697a40532fb3a0d3293271fc83a9fa9e",
+      "bytes": 4333,
+      "git_mode": "100644"
+    },
+    "dafusion/tools/fix_osd_annotations.py": {
+      "git_blob_sha1": "ca94250fabf7af34652a6cd418824e9bb7e47b30",
+      "sha256": "492bed983a30b7d2d415c1d2adbd92232b455c0be0fa1cfb058f71deb435a2ad",
+      "bytes": 10166,
+      "git_mode": "100644"
+    },
+    "dafusion/tools/make_rgbinit_ckpt.py": {
+      "git_blob_sha1": "410d80eeb8889446d966fafe8d09a4127db57a39",
+      "sha256": "825f71ee86c48613df59a80090fcada229ded3e59c197b3c49b9a38fb3e986aa",
+      "bytes": 1738,
+      "git_mode": "100644"
+    },
+    "dafusion/tools/remap_coco_init.py": {
+      "git_blob_sha1": "c5c013e8af20cb87c2e0fbad50f2bb110e6926ba",
+      "sha256": "79713d5afc6bd8363667254168f09b9a98d054002979ef1f4bf89ac9a2fba6d5",
+      "bytes": 4625,
+      "git_mode": "100644"
+    },
+    "docs/UPSTREAM.md": {
+      "git_blob_sha1": "a5aa9d1e872595dd25179ff454ff95a3fc1ecfce",
+      "sha256": "dfce348b569b6dae409ec9d45da86068c2dcb63fba8daf3ef3518eb44767b26e",
+      "bytes": 2237,
+      "git_mode": "100644"
+    },
+    "docs/method.png": {
+      "git_blob_sha1": "02cd9b956acf84a8f0c9adea7d954c209a9bd4ab",
+      "sha256": "498a3113358e8afa58ab66227748da874537ccade263a1ed873eed99b278122b",
+      "bytes": 295207,
+      "git_mode": "100644"
+    },
+    "docs/overview.png": {
+      "git_blob_sha1": "1b051e03a4c5041a977d29ab23250ea5c732ea9f",
+      "sha256": "030641ca6c0e6a512b528a81a808ba3eee6d0a1f9c7320c4a72fd42097818bde",
+      "bytes": 295286,
+      "git_mode": "100644"
+    },
+    "install.sh": {
+      "git_blob_sha1": "9dcd0eecc2c38af5380c80cdaebd53f44686bf7d",
+      "sha256": "9e2623cc63d967f627943c7ed6991e1ba9fe5b782e5721d5aca6d80640034272",
+      "bytes": 7012,
+      "git_mode": "100755"
+    }
+  },
+  "acquired_at": "2026-10-14T15:04:37.420116+00:00",
+  "proxy_used": false,
+  "git_clone_attempt": "failed certificate verification; official codeload archive succeeded with TLS verification enabled"
+}
