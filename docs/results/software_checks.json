@@ -82,5 +82,19 @@
     "tools/check_course_demo.py": "3b40c0fdde5add3a1a7eb0cd903d650cb67a048b10a79d0f5765bdf12b4bc877",
     "web/course.html": "c69e6ce696406adfa52e2249ba6f96b33a7f6ec636a4f2883427e95b1f4b181f",
     "tests/test_course_portable.py": "d8ba61193de90a540635055182c8a768600ad04f9d074076fa42f5bc016adeb6"
+  },
+  "git_checkout": {
+    "status": "passed",
+    "source_commit": "3adf681b204f92fa7fc81c063bf3d2b116cf0159",
+    "source_tree": "dcb695ff84f3f4d58a49ac4c51119915fbb64112",
+    "tracked_files": 386,
+    "all_tracked_bytes_match": true,
+    "frozen_relative_sources_present": 51,
+    "validation_images": 1,
+    "variants": 6,
+    "category_score_and_compressed_rle_exact": true,
+    "cli_exit_code": 0,
+    "receipt_sha256": "45fe28f2bcd33c547446a8c7e82b50e4ac565c532f6ac64f9eeda78ad2ac8b56",
+    "scope": "packaging_and_inference_only_no_new_metrics"
   }
 }
