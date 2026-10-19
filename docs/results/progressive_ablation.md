@@ -36,7 +36,9 @@ S1–S4已完成全部2,584张验证图的评分；以下为验证结果。S0的
 
 RGB与RGB-D使用同一课程完整训练集14,432张，COCO公开初始化，Swin-Tiny，1024输入，全局batch33，seed17，固定第15轮用于主消融。前5轮AdamW峰值学习率0.0002、250步预热、余弦衰减；后10轮保留优化器状态，学习率从0.00002预热至0.00005后余弦衰减。权重衰减0.05，骨干学习率倍率0.1，梯度裁剪1。
 
-本次RGB训练使用GPU 2、3、7，局部batch为4、4、3，累积3次。历史RGB-D的显卡布局和局部batch划分不同；两者的原生局部掩码损失归一化及随机轨迹并不逐步等价。RGB-D增加了第二路编码器和融合模块，因此S0→S1代表整个融合方案的差异。
+RGB前5轮使用GPU 2、3、7，局部batch为4、4、3，累积3次；第6–15轮改用GPU 2–7共6张卡，局部batch为2、2、2、2、2、1，仍累积3次，总batch保持33。续训保留第5轮权重及AdamW状态，并按新rank布局重设随机数状态。六卡工程检查已通过：44张训练、12张验证、2次更新、6份rank随机状态，实际退出码0。
+
+历史RGB-D的显卡布局和局部batch划分不同；两者的原生局部掩码损失归一化及随机轨迹并不逐步等价。RGB-D增加了第二路编码器和融合模块，因此S0→S1代表整个融合方案的差异。
 
 S1–S4共用DA-Fusion第15轮权重，S2–S4共用第6轮深度点头。点头在冻结基座上另训练6轮，不能把额外训练视为零成本。切片和概率细化不训练额外参数。
 
@@ -52,7 +54,7 @@ S1–S4共用DA-Fusion第15轮权重，S2–S4共用第6轮深度点头。点头
 
 ## 产物与运行入口
 
-- RGB训练：`tools/supervise_course_progressive_rgb.py`，包含训练前工程检查和5+10轮监督执行。
+- RGB前5轮：`tools/supervise_course_progressive_rgb.py`；六卡续训：`tools/supervise_course_progressive_rgb_multigpu.py`与`tools/run_course_progressive_rgb_multigpu.py`。初始训练保留原进程及实际退出状态，随后通过六卡检查再运行后10轮。
 - 切片对照：`rgbd_seg/course_progressive_ablation.py`，保持历史实现不变并暴露概率细化之前的输出。
 - 统一评价：`tools/supervise_course_progressive_ablation.py`与`tools/run_course_progressive_ablation.py`。
 - 运行记录：RGB控制组的`supervisor.json`、各阶段实际退出记录、冻结协议、每轮完整验证记录；评价目录的工程检查、分片覆盖、验证锁定和CSV一致性检查。
