@@ -1,0 +1,233 @@
+{
+  "status": "completed",
+  "published_at_utc": "2026-10-19T13:50:20.100726+00:00",
+  "rows": [
+    {
+      "id": "S0",
+      "arm": "mask2former_finetune",
+      "label": "Mask2Former fine-tune",
+      "val": {
+        "mask_ap": 0.668337855310945,
+        "mask_ap50": 0.8844866044969915,
+        "mask_ap75": 0.7350799335968378,
+        "mask_ap_small": 0.3431467071437425,
+        "mask_ap_medium": 0.7002932027973691,
+        "mask_ap_large": 0.8421113602192869,
+        "mask_ar_1": 0.03288841067269582,
+        "mask_ar_10": 0.2835115293989458,
+        "mask_ar_100": 0.7113373557973877,
+        "mask_ar_small": 0.4085371397399764,
+        "mask_ar_medium": 0.7420744019881951,
+        "mask_ar_large": 0.8706570410307961
+      },
+      "test": {
+        "mask_ap": 0.7056769864443552,
+        "mask_ap50": 0.8929023815352377,
+        "mask_ap75": 0.7649566785095678,
+        "mask_ap_small": 0.1857793876060737,
+        "mask_ap_medium": 0.7683522703025599,
+        "mask_ap_large": 0.9070097064322062,
+        "mask_ar_1": 0.02692480983806419,
+        "mask_ar_10": 0.25310487397630593,
+        "mask_ar_100": 0.7295049163817551,
+        "mask_ar_small": 0.26012490737800353,
+        "mask_ar_medium": 0.7902122979822128,
+        "mask_ar_large": 0.9202072538860102
+      },
+      "csv": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/mask2former_finetune/dpseg_s0_swin_t_1024_e15_mask2former_finetune.csv",
+        "sha256": "37638ffec7a94e9dcc7909ff7245ebe6529c1051b52a0ac8bdbedd355ebe49b5",
+        "exact_scored_predictions": true
+      },
+      "test_aps_delta_previous": null
+    },
+    {
+      "id": "S1",
+      "arm": "rgbd_fusion",
+      "label": "+ RGB-D 融合（DA-Fusion课程适配）",
+      "val": {
+        "mask_ap": 0.8148707314438498,
+        "mask_ap50": 0.9422293177974336,
+        "mask_ap75": 0.8757028109697857,
+        "mask_ap_small": 0.5037415129909696,
+        "mask_ap_medium": 0.8422145347059979,
+        "mask_ap_large": 0.9678109735428819,
+        "mask_ar_1": 0.034176870377684854,
+        "mask_ar_10": 0.3126326255431008,
+        "mask_ar_100": 0.8337614578935183,
+        "mask_ar_small": 0.5611328302572962,
+        "mask_ar_medium": 0.862202935694315,
+        "mask_ar_large": 0.9735721465777208
+      },
+      "test": {
+        "mask_ap": 0.8178954293420052,
+        "mask_ap50": 0.9454033747468954,
+        "mask_ap75": 0.8638527340204963,
+        "mask_ap_small": 0.36808644718584377,
+        "mask_ap_medium": 0.8709782605310313,
+        "mask_ap_large": 0.9693441133430112,
+        "mask_ar_1": 0.027559566404282948,
+        "mask_ar_10": 0.26565688690996797,
+        "mask_ar_100": 0.8320770719037396,
+        "mask_ar_small": 0.4318513813909178,
+        "mask_ar_medium": 0.8847406840712759,
+        "mask_ar_large": 0.9775068576653458
+      },
+      "csv": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/rgbd_fusion/dpseg_s1_swin_t_1024_e15_rgbd_fusion.csv",
+        "sha256": "43f92d91980b5da39de96ac6bc4f4aa62807603a8c3465636956ce3ebb607e59",
+        "exact_scored_predictions": true
+      },
+      "test_aps_delta_previous": 0.18230705957977006
+    },
+    {
+      "id": "S2",
+      "arm": "depth_point",
+      "label": "+ 深度点细化",
+      "val": {
+        "mask_ap": 0.8468433363125217,
+        "mask_ap50": 0.9424814904361003,
+        "mask_ap75": 0.8798070734405514,
+        "mask_ap_small": 0.5472584731377017,
+        "mask_ap_medium": 0.8782483455869602,
+        "mask_ap_large": 0.9699829675077448,
+        "mask_ar_1": 0.034462892088094686,
+        "mask_ar_10": 0.31722531700739565,
+        "mask_ar_100": 0.8652742403399574,
+        "mask_ar_small": 0.606673333939449,
+        "mask_ar_medium": 0.8969439266853062,
+        "mask_ar_large": 0.9758384355295624
+      },
+      "test": {
+        "mask_ap": 0.8398384057106147,
+        "mask_ap50": 0.945242532645167,
+        "mask_ap75": 0.8737366933020542,
+        "mask_ap_small": 0.38089636876264044,
+        "mask_ap_medium": 0.8952540696712791,
+        "mask_ap_large": 0.9724209624502471,
+        "mask_ar_1": 0.027730513370968168,
+        "mask_ar_10": 0.26878163844053965,
+        "mask_ar_100": 0.8537369802019559,
+        "mask_ar_small": 0.4513813909177517,
+        "mask_ar_medium": 0.9076965987695642,
+        "mask_ar_large": 0.9804937519049071
+      },
+      "csv": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/depth_point/dpseg_s2_swin_t_1024_e15_depth_point.csv",
+        "sha256": "5ad42e5518c363258dc5eff0a9907d1031bff0410e1478d062a80ea03f8a424f",
+        "exact_scored_predictions": true
+      },
+      "test_aps_delta_previous": 0.012809921576796668
+    },
+    {
+      "id": "S3",
+      "arm": "depth_point_tiled",
+      "label": "+ 切片推理",
+      "val": {
+        "mask_ap": 0.8485024673123611,
+        "mask_ap50": 0.9451046182128705,
+        "mask_ap75": 0.8768423071473418,
+        "mask_ap_small": 0.6115275496928755,
+        "mask_ap_medium": 0.8651600710379809,
+        "mask_ap_large": 0.9549691327982213,
+        "mask_ar_1": 0.03329565110799363,
+        "mask_ar_10": 0.30920445104261723,
+        "mask_ar_100": 0.885788807017066,
+        "mask_ar_small": 0.7204109464496773,
+        "mask_ar_medium": 0.9049394221808015,
+        "mask_ar_large": 0.9618020652471901
+      },
+      "test": {
+        "mask_ap": 0.8508016837355941,
+        "mask_ap50": 0.9559263171555089,
+        "mask_ap75": 0.877429403110876,
+        "mask_ap_small": 0.4375603619604002,
+        "mask_ap_medium": 0.896442032268201,
+        "mask_ap_large": 0.9629120701880304,
+        "mask_ar_1": 0.027624499748217644,
+        "mask_ar_10": 0.26617635366144554,
+        "mask_ar_100": 0.8756009647239669,
+        "mask_ar_small": 0.5641155922515083,
+        "mask_ar_medium": 0.9174109846673678,
+        "mask_ar_large": 0.9730874733313015
+      },
+      "csv": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/depth_point_tiled/dpseg_s3_swin_t_1024_e15_depth_point_tiled.csv",
+        "sha256": "96d468c7295f04f49195dad0dee64f7203384d6da0eaab33fd61b65eca6f9d9b",
+        "exact_scored_predictions": true
+      },
+      "test_aps_delta_previous": 0.05666399319775978
+    },
+    {
+      "id": "S4",
+      "arm": "depth_point_tiled_probability",
+      "label": "+ 概率图深度细化",
+      "val": {
+        "mask_ap": 0.8617479161306195,
+        "mask_ap50": 0.9460077243196802,
+        "mask_ap75": 0.8848749380765158,
+        "mask_ap_small": 0.646539678121616,
+        "mask_ap_medium": 0.8745611764016468,
+        "mask_ap_large": 0.958187300137624,
+        "mask_ar_1": 0.033324253279034606,
+        "mask_ar_10": 0.3100720502308604,
+        "mask_ar_100": 0.9018128328407403,
+        "mask_ar_small": 0.7716974270388217,
+        "mask_ar_medium": 0.9162744641192917,
+        "mask_ar_large": 0.9644430229370373
+      },
+      "test": {
+        "mask_ap": 0.868243244839566,
+        "mask_ap50": 0.9570244990077971,
+        "mask_ap75": 0.8885905923356497,
+        "mask_ap_small": 0.4882993506668117,
+        "mask_ap_medium": 0.9085054303594595,
+        "mask_ap_large": 0.9680621745142857,
+        "mask_ar_1": 0.027661604516180327,
+        "mask_ar_10": 0.26710794837136576,
+        "mask_ar_100": 0.8959582306326362,
+        "mask_ar_small": 0.6405419709960835,
+        "mask_ar_medium": 0.9301950846323036,
+        "mask_ar_large": 0.976836330387077
+      },
+      "csv": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/depth_point_tiled_probability/dpseg_s4_swin_t_1024_e15_depth_point_tiled_probability.csv",
+        "sha256": "0ba8eaa224c171181984dfa3334f96ebe041370b34024d44f5d480a31b079cf1",
+        "exact_scored_predictions": true
+      },
+      "test_aps_delta_previous": 0.05073898870641147
+    }
+  ],
+  "train_images": 14432,
+  "val_images": 2584,
+  "test_images": 2112,
+  "main_metric": "COCO Mask AP_small @[.50:.95], area [0,1024], maxDets100",
+  "base_epochs": {
+    "rgb": 15,
+    "rgbd": 15
+  },
+  "head_epoch": 6,
+  "global_batch": 33,
+  "checkpoint_sha256": {
+    "rgb": "b8e7f01ad167a5474943d81dc2633d4557d15d127d02cec0abc2df1c775bf3ff",
+    "rgbd": "ef52456da6bb47e4f38c7cfb26e5eaf88c02895bf674487febd04d24d0dc2059",
+    "depth_head": "ec72065e3dd5e869d9ddd217cbddf89b2a3f9d11dd29447e57c38a9e6323ebff"
+  },
+  "protocol_sha256": "865a0bb03bcd1436a662236765535d78081d951cee75719dc21e37152361a36b",
+  "validation_lock_sha256": "5b425a12c4a545452d18c0eac614a412ac3faad7b6813aae18dbf4887e8b3ca9",
+  "comparison_sha256": "767e74f90b01cf742c961af8b46cb7387f0589bc4a354bba9c81aa93cd5d16ef",
+  "test_labels_used_for_selection": false,
+  "kaggle_submitted": false,
+  "limitations": [
+    "One seed, fixed epoch15 base weights and prior validation-selected epoch6 point head.",
+    "RGB and RGB-D match 1024 input, 15 epochs, global batch33 and two-stage AdamW schedule; historical RGB-D GPU/local microbatch layout differs, so gradients are not bitwise matched.",
+    "Adding RGB-D also adds a second encoder and DS/DC fusion parameters.",
+    "Later stages reuse frozen RGB-D weights; only the point head has additional training.",
+    "Local test scores use archive annotations and differ from Kaggle public subset."
+  ],
+  "material_passport": {
+    "origin": "academic-research-suite/experiment-agent",
+    "mode": "run",
+    "verification_status": "VERIFIED_FULL_SPLITS"
+  }
+}

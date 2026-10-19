@@ -2,62 +2,65 @@
 
 ## Material Passport
 
-- 来源：ARS experiment-agent，run 模式。
-- 状态：RGB补训及五组完整验证已完成，配置已锁定；完整本地测试正在进行。
-- 用户要求：Mask2Former fine-tune → RGB-D融合 → 深度点细化 → 切片推理 → 概率图深度细化；补齐缺失实验。
-- 本地运行目录：`reports/course_progressive_ablation/v1/`。
+- 来源：ARS experiment-agent，run模式。
+- 状态：完整训练、验证、锁定后测试与五份CSV一致性检查完成。
+- 范围：单种子课程实验；本地测试分数与Kaggle公榜分别报告。
 
-## 需要补齐的结果
+### 五步累计消融
 
-| 步骤 | 配置 | 本次工作 |
-|---|---|---|
-| S0 | RGB Mask2Former fine-tune | 补训1024输入、15轮基线，替代训练预算不匹配的800输入、5轮旧基线 |
-| S1 | + RGB-D融合 | 固定DA-Fusion第15轮，重新生成统一评价结果 |
-| S2 | + 深度点细化 | 固定第6轮深度点头，关闭概率细化 |
-| S3 | + 切片推理 | 补齐切片点头在概率细化之前的输出 |
-| S4 | + 概率图深度细化 | 与S3共享相同候选、分数、顺序，仅修改概率图 |
+以下各行累计保留上一行的组件。主表统一使用完整本地测试集2,112张图，分数范围为0–1。
 
-## 已完成的五组完整验证
-
-S0–S4已完成全部2,584张验证图的评分；以下为验证结果。S0已完成1024输入、15轮训练和逐轮完整验证，共6,570次更新。最终统一评测与其第15轮验证指标完全一致。五组模型与参数已在测试开始前锁定，正在进行全部2,112张本地测试图的推理。
-
-| 编号 | 配置（累计添加） | 验证AP | 验证APₛ | APₛ相对上一组增量 |
+| 编号 | 配置（累计添加） | 本地测试 AP | 本地测试 APₛ | APₛ 相对上一组增量 |
 |---|---|---:|---:|---:|
-| S0 | Mask2Former fine-tune | 0.668338 | 0.343147 | — |
-| S1 | + RGB-D融合 | 0.814871 | 0.503742 | +0.160595 |
-| S2 | + 深度点细化 | 0.846843 | 0.547258 | +0.043517 |
-| S3 | + 切片推理 | 0.848502 | 0.611528 | +0.064269 |
-| S4 | + 概率图深度细化 | 0.861748 | 0.646540 | +0.035012 |
+| S0 | Mask2Former fine-tune | 0.705677 | 0.185779 | — |
+| S1 | + RGB-D 融合（DA-Fusion课程适配） | 0.817895 | 0.368086 | +0.182307 |
+| S2 | + 深度点细化 | 0.839838 | 0.380896 | +0.012810 |
+| S3 | + 切片推理 | 0.850802 | 0.437560 | +0.056664 |
+| S4 | + 概率图深度细化 | 0.868243 | 0.488299 | +0.050739 |
 
-五组验证分片均正常退出，图像ID顺序完整，掩码尺寸和每图实例数符合约定。逐图核对了S1/S2及S3/S4的类别、分数、数量和顺序，均一致。冻结基座与点头张量摘要未变；S1/S2的完整验证指标与此前同权重结果完全一致。RGB通过8张真实验证图的几何输入不变性检查：修改深度、有效性和相机内参后预测完全不变。
+完整系统S4相对RGB基线S0的APₛ绝对变化为 **+0.302520**。负增量同样保留，不能把累计添加组件描述为每一步均有提升。
 
-四组RGB-D验证原始指标与核验摘要见[progressive_rgbd_validation.json](progressive_rgbd_validation.json)。这些验证分数不填入README的本地测试列；测试完成后会统一报告五组实测指标与CSV路径。
+- **统一基座预算：** RGB与RGB-D均从COCO公开权重开始，Swin-Tiny、1024输入、完整训练集、15轮、全局batch33和相同两阶段AdamW学习率计划；主表固定第15轮权重。
+- **固定组件：** S1–S4共用第15轮RGB-D基座，S2–S4共用验证集选择的第6轮深度点头；S3关闭概率细化，S4仅增加既定概率图深度细化。
+- **评价顺序：** 完成2,584张验证图的五组评价并锁定配置后，再评价完整本地测试集。置信度阈值0.01、每图最多100实例；测试标注不进入推理或参数选择。
+- **比较范围：** RGB-D包含额外编码器及DS/DC融合；历史RGB-D与本次RGB的显卡及局部batch划分不同，不能视为逐步梯度完全一致的控制实验。点头另有6轮训练，切片增加推理计算量。
 
-## 训练设置
+完整验证指标、五份CSV本机路径、权重与工程核验见[五步消融报告](progressive_ablation.md)，原始数值见[结构化结果](progressive_ablation.json)。本表为本地完整测试结果，Kaggle公榜成绩见[历史结果](../historical_results.md)。
 
-RGB与RGB-D使用同一课程完整训练集14,432张，COCO公开初始化，Swin-Tiny，1024输入，全局batch33，seed17，固定第15轮用于主消融。前5轮AdamW峰值学习率0.0002、250步预热、余弦衰减；后10轮保留优化器状态，学习率从0.00002预热至0.00005后余弦衰减。权重衰减0.05，骨干学习率倍率0.1，梯度裁剪1。
+## 完整验证结果
 
-RGB前5轮使用GPU 2、3、7，局部batch为4、4、3，累积3次；第6–15轮改用GPU 2–7共6张卡，局部batch为2、2、2、2、2、1，仍累积3次，总batch保持33。续训保留第5轮权重及AdamW状态，并按新rank布局重设随机数状态。六卡工程检查已通过：44张训练、12张验证、2次更新、6份rank随机状态，实际退出码0。
+| 编号 | 配置（累计添加） | 验证AP | 验证APₛ |
+|---|---|---:|---:|
+| S0 | Mask2Former fine-tune | 0.668338 | 0.343147 |
+| S1 | + RGB-D 融合（DA-Fusion课程适配） | 0.814871 | 0.503742 |
+| S2 | + 深度点细化 | 0.846843 | 0.547258 |
+| S3 | + 切片推理 | 0.848502 | 0.611528 |
+| S4 | + 概率图深度细化 | 0.861748 | 0.646540 |
 
-历史RGB-D的显卡布局和局部batch划分不同；两者的原生局部掩码损失归一化及随机轨迹并不逐步等价。RGB-D增加了第二路编码器和融合模块，因此S0→S1代表整个融合方案的差异。
+## 测试CSV本机路径
 
-S1–S4共用DA-Fusion第15轮权重，S2–S4共用第6轮深度点头。点头在冻结基座上另训练6轮，不能把额外训练视为零成本。切片和概率细化不训练额外参数。
+每份文件均包含2,112张图，与该行评分使用的逐图预测完全一致。掩码为1024×1024的COCO压缩RLE，每图最多100实例。
 
-## 推理和评价
+- **S0 Mask2Former fine-tune**：`/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/mask2former_finetune/dpseg_s0_swin_t_1024_e15_mask2former_finetune.csv`
+- **S1 + RGB-D 融合（DA-Fusion课程适配）**：`/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/rgbd_fusion/dpseg_s1_swin_t_1024_e15_rgbd_fusion.csv`
+- **S2 + 深度点细化**：`/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/depth_point/dpseg_s2_swin_t_1024_e15_depth_point.csv`
+- **S3 + 切片推理**：`/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/depth_point_tiled/dpseg_s3_swin_t_1024_e15_depth_point_tiled.csv`
+- **S4 + 概率图深度细化**：`/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/depth_point_tiled_probability/dpseg_s4_swin_t_1024_e15_depth_point_tiled_probability.csv`
 
-整图1024×1024；切片保留整图并增加四个640×640角部视图。沿用既定候选过滤、跨视图NMS和前100个实例选择，随后运行点头。S3直接输出点头掩码，S4对同一组候选的软概率进行一次固定深度引导细化。阈值、采点数、切片和后处理参数不做搜索。
+## 核验与复现
 
-先完成全部2,584张验证图的五组评测，再锁定模型身份与配置，最后对全部2,112张本地测试图统一计算COCO Mask AP/APₛ并导出五份CSV。评分使用原图掩码面积的小目标区间、IoU 0.50至0.95和maxDets100；分片预测先合并，再计算完整划分指标。
+- RGB基线完成5+10轮完整训练和逐轮完整验证；总计6,570次优化器更新。使用固定第15轮，而非依据测试结果选择轮次。
+- 新切片实现通过8张真实验证图的旧实现对照，检查五个视图的零残差点头、最终RLE与原实现一致。RGB几何输入不变性检查通过。
+- 所有推理分片完整覆盖目标划分，合并后进行COCO评分；实际进程退出状态和权重摘要均保存。
+- 概率细化两组共享候选、置信度与顺序。未调整既有阈值、点数、切片和深度细化参数。
+- 运行目录：`reports/course_progressive_ablation/v1/`；评价入口：`tools/supervise_course_progressive_ablation.py`；RGB训练入口：`tools/supervise_course_progressive_rgb.py`。
 
-推理入口只接收RGB、测量深度、有效性和相机内参。标注仅用于独立评分。新增加的切片输出须与原切片点头实现比较，确保S4的掩码、类别和顺序一致；S3/S4候选置信度必须完全一致。RGB还须通过修改深度与相机参数后预测不变的检查。
+结构化指标与权重摘要见[progressive_ablation.json](progressive_ablation.json)。数据、权重、大型预测和CSV由Git忽略，通过课程本机目录共享。
 
-本地测试标注来自课程下载归档，与竞赛官方无标注测试的提交使用场景应区别说明。本地完整测试分数不等于约30%测试子集上的Kaggle公榜分数。本轮不自动提交Kaggle。
+### 限制
 
-## 产物与运行入口
-
-- RGB前5轮：`tools/supervise_course_progressive_rgb.py`；六卡续训：`tools/supervise_course_progressive_rgb_multigpu.py`与`tools/run_course_progressive_rgb_multigpu.py`。初始训练保留原进程及实际退出状态，随后通过六卡检查再运行后10轮。
-- 切片对照：`rgbd_seg/course_progressive_ablation.py`，保持历史实现不变并暴露概率细化之前的输出。
-- 统一评价：`tools/supervise_course_progressive_ablation.py`与`tools/run_course_progressive_ablation.py`。
-- 运行记录：RGB控制组的`supervisor.json`、各阶段实际退出记录、冻结协议、每轮完整验证记录；评价目录的工程检查、分片覆盖、验证锁定和CSV一致性检查。
-
-尚未完成的指标和CSV不能作为已完成结果引用。完成记录将覆盖本页的进行中状态，并汇总至README五行主表。
+- One seed, fixed epoch15 base weights and prior validation-selected epoch6 point head.
+- RGB and RGB-D match 1024 input, 15 epochs, global batch33 and two-stage AdamW schedule; historical RGB-D GPU/local microbatch layout differs, so gradients are not bitwise matched.
+- Adding RGB-D also adds a second encoder and DS/DC fusion parameters.
+- Later stages reuse frozen RGB-D weights; only the point head has additional training.
+- Local test scores use archive annotations and differ from Kaggle public subset.
