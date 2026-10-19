@@ -1,4 +1,6 @@
-# RGB-D 小目标实例分割
+# DPSeg
+
+**Depth-guided Point Refinement for Segmentation** · RGB-D 小目标实例分割与深度边界细化
 
 课程 `component` 实例分割项目，包含 Mask R-CNN、Mask2Former、DA-Fusion 课程适配、深度点头和深度引导的掩码细化。提供训练与推理入口、完整验证结果、源码核验记录和离线交互 Demo。
 
@@ -29,6 +31,9 @@
 已验证环境为 Linux、Python 3.13.5、PyTorch 2.7.1、Transformers 4.53.2。单卡推理和四卡点头训练入口均已用真实数据检查。
 
 ```bash
+git clone https://github.com/YuryLee/DPSeg.git
+cd DPSeg
+
 python3.13 -m venv .venv
 source .venv/bin/activate
 
