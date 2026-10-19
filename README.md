@@ -123,6 +123,8 @@ flowchart TD
 - **比较范围：** RGB-D包含额外编码器及DS/DC融合；历史RGB-D与本次RGB的显卡及局部batch划分不同，不能视为逐步梯度完全一致的控制实验。点头另有6轮训练，切片增加推理计算量。
 
 完整验证指标、五份CSV本机路径、权重与工程核验见[五步消融报告](docs/results/progressive_ablation.md)，原始数值见[结构化结果](docs/results/progressive_ablation.json)。本表为本地完整测试结果，Kaggle公榜成绩见[历史结果](docs/historical_results.md)。
+
+**S4的Kaggle公榜APₛ为0.52886**（2026-10-19，提交编号57398816），高于此前最高0.47971。提交文件与主表S4的评分预测完全一致，详见[提交记录](docs/results/kaggle_s4_e15.json)。
 <!-- progressive-ablation:end -->
 
 点头类型、点头轮次、早期Mask R-CNN/Mask2Former/DA-Fusion基线，以及旧权重的切片实验，统一移至[补充实验](docs/results/ablation_background.md)。

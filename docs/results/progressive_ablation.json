@@ -302,7 +302,7 @@
   "validation_lock_sha256": "5b425a12c4a545452d18c0eac614a412ac3faad7b6813aae18dbf4887e8b3ca9",
   "comparison_sha256": "767e74f90b01cf742c961af8b46cb7387f0589bc4a354bba9c81aa93cd5d16ef",
   "test_labels_used_for_selection": false,
-  "kaggle_submitted": false,
+  "kaggle_submitted": true,
   "limitations": [
     "One seed, fixed epoch15 base weights and prior validation-selected epoch6 point head.",
     "RGB and RGB-D match 1024 input, 15 epochs, global batch33 and two-stage AdamW schedule; historical RGB-D GPU/local microbatch layout differs, so gradients are not bitwise matched.",
@@ -362,5 +362,16 @@
     "global_batch": 33,
     "optimizer_steps": 6570
   },
-  "input_modality_metadata_note": "Input modalities above come from model reload receipts and the RGB geometry-invariance check. The reused numerical scoring helper writes a legacy constant depth_used=False, and the older RGB training wrapper writes True; these bookkeeping flags are not used in scoring or model inference. Frozen raw receipts and sources are retained unchanged."
+  "input_modality_metadata_note": "Input modalities above come from model reload receipts and the RGB geometry-invariance check. The reused numerical scoring helper writes a legacy constant depth_used=False, and the older RGB training wrapper writes True; these bookkeeping flags are not used in scoring or model inference. Frozen raw receipts and sources are retained unchanged.",
+  "kaggle_submission": {
+    "submission_id": 57398816,
+    "status": "COMPLETE",
+    "submitted_at_utc": "2026-10-19T14:05:37.510Z",
+    "filename": "dpseg_s4_swin_t_1024_e15_depth_point_tiled_probability.csv",
+    "sha256": "0ba8eaa224c171181984dfa3334f96ebe041370b34024d44f5d480a31b079cf1",
+    "public_score": 0.52886,
+    "previous_best_public_score": 0.47971,
+    "public_score_gain": 0.04915,
+    "record": "kaggle_s4_e15.json"
+  }
 }

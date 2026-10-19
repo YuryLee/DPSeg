@@ -55,6 +55,12 @@ RGB-D为此前完成的独立训练，显卡布局和局部batch划分与RGB不�
 - **S3 + 切片推理**：`/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/depth_point_tiled/dpseg_s3_swin_t_1024_e15_depth_point_tiled.csv`
 - **S4 + 概率图深度细化**：`/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/depth_point_tiled_probability/dpseg_s4_swin_t_1024_e15_depth_point_tiled_probability.csv`
 
+## Kaggle提交
+
+S4已于2026-10-19提交，编号57398816，状态COMPLETE，公榜APₛ为 **0.52886**，较此前最高0.47971增加0.04915；本次查询中为本队最高公榜分。其评分范围约为官方测试集的30%，与上方完整本地测试结果分别列报。
+
+上传文件为上述S4 CSV，SHA256为`0ba8eaa224c171181984dfa3334f96ebe041370b34024d44f5d480a31b079cf1`，与本地评分产物一致。来源与核验时间见[提交记录](kaggle_s4_e15.json)。
+
 ## 核验与复现
 
 - RGB基线完成5+10轮完整训练和逐轮完整验证；总计6,570次优化器更新。使用固定第15轮，而非依据测试结果选择轮次。
@@ -71,4 +77,4 @@ RGB-D为此前完成的独立训练，显卡布局和局部batch划分与RGB不�
 - 两种基座匹配输入分辨率、训练轮数、全局batch与两阶段学习率计划；显卡、局部batch划分和随机轨迹不同，不能视为逐步梯度完全一致的实验。
 - RGB-D同时增加第二路编码器和DS/DC融合参数，S0→S1衡量整个融合方案的差异。
 - 后续各组共享冻结基座，点头额外训练6轮；切片增加推理计算量。
-- 本地测试使用下载归档中的标注，评分范围与Kaggle公榜约30%的子集不同。本轮五份CSV尚未提交Kaggle。
+- 本地测试使用下载归档中的标注，评分范围与Kaggle公榜约30%的子集不同。本轮仅S4已提交Kaggle，其余四份CSV未提交。

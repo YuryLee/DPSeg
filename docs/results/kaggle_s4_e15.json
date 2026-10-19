@@ -1,0 +1,21 @@
+{
+  "competition": "rgb-d",
+  "configuration": "S4: RGB-D fusion + depth point refinement + tiled inference + probability-depth refinement",
+  "submission_id": 57398816,
+  "status": "COMPLETE",
+  "submitted_at_utc": "2026-10-19T14:05:37.510Z",
+  "checked_at_utc": "2026-10-19T14:10:17.938842+00:00",
+  "filename": "dpseg_s4_swin_t_1024_e15_depth_point_tiled_probability.csv",
+  "bytes": 52277683,
+  "sha256": "0ba8eaa224c171181984dfa3334f96ebe041370b34024d44f5d480a31b079cf1",
+  "local_csv_path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_progressive_ablation/v1/evaluation/test/depth_point_tiled_probability/dpseg_s4_swin_t_1024_e15_depth_point_tiled_probability.csv",
+  "public_score": 0.52886,
+  "previous_best_public_submission_id": 57301139,
+  "previous_best_public_score": 0.47971,
+  "public_score_gain": 0.04915,
+  "team_best_public_verified": true,
+  "local_test_ap": 0.868243244839566,
+  "local_test_aps": 0.4882993506668117,
+  "score_scope": "Kaggle public leaderboard, approximately 30% of official test; distinct from full local test",
+  "source": "Kaggle MCP get_competition_submission and search_competition_submissions sorted by PublicScore"
+}
