@@ -1,0 +1,121 @@
+{
+  "status": "completed_rgbd_validation_only",
+  "full_five_stage_experiment_complete": false,
+  "split": "val",
+  "images": 2584,
+  "base_epoch": 15,
+  "depth_head_epoch": 6,
+  "base_sha256": "ef52456da6bb47e4f38c7cfb26e5eaf88c02895bf674487febd04d24d0dc2059",
+  "head_sha256": "ec72065e3dd5e869d9ddd217cbddf89b2a3f9d11dd29447e57c38a9e6323ebff",
+  "protocol_sha256": "e84a04adc3a17bdd496d2910f47b46e5ec892f57b5ab2fae5acce01b66f92456",
+  "run_sha256": "fbadc4c3948209ddacdc30793a7b7c771cf46324e5127a3c566d21dd90dc63af",
+  "checked_at_utc": "2026-10-19T09:07:50.216112+00:00",
+  "metrics": {
+    "rgbd_fusion": {
+      "mask_ap": 0.8148707314438498,
+      "mask_ap50": 0.9422293177974336,
+      "mask_ap75": 0.8757028109697857,
+      "mask_ap_small": 0.5037415129909696,
+      "mask_ap_medium": 0.8422145347059979,
+      "mask_ap_large": 0.9678109735428819,
+      "mask_ar_1": 0.034176870377684854,
+      "mask_ar_10": 0.3126326255431008,
+      "mask_ar_100": 0.8337614578935183,
+      "mask_ar_small": 0.5611328302572962,
+      "mask_ar_medium": 0.862202935694315,
+      "mask_ar_large": 0.9735721465777208
+    },
+    "depth_point": {
+      "mask_ap": 0.8468433363125217,
+      "mask_ap50": 0.9424814904361003,
+      "mask_ap75": 0.8798070734405514,
+      "mask_ap_small": 0.5472584731377017,
+      "mask_ap_medium": 0.8782483455869602,
+      "mask_ap_large": 0.9699829675077448,
+      "mask_ar_1": 0.034462892088094686,
+      "mask_ar_10": 0.31722531700739565,
+      "mask_ar_100": 0.8652742403399574,
+      "mask_ar_small": 0.606673333939449,
+      "mask_ar_medium": 0.8969439266853062,
+      "mask_ar_large": 0.9758384355295624
+    },
+    "depth_point_tiled": {
+      "mask_ap": 0.8485024673123611,
+      "mask_ap50": 0.9451046182128705,
+      "mask_ap75": 0.8768423071473418,
+      "mask_ap_small": 0.6115275496928755,
+      "mask_ap_medium": 0.8651600710379809,
+      "mask_ap_large": 0.9549691327982213,
+      "mask_ar_1": 0.03329565110799363,
+      "mask_ar_10": 0.30920445104261723,
+      "mask_ar_100": 0.885788807017066,
+      "mask_ar_small": 0.7204109464496773,
+      "mask_ar_medium": 0.9049394221808015,
+      "mask_ar_large": 0.9618020652471901
+    },
+    "depth_point_tiled_probability": {
+      "mask_ap": 0.8617479161306195,
+      "mask_ap50": 0.9460077243196802,
+      "mask_ap75": 0.8848749380765158,
+      "mask_ap_small": 0.646539678121616,
+      "mask_ap_medium": 0.8745611764016468,
+      "mask_ap_large": 0.958187300137624,
+      "mask_ar_1": 0.033324253279034606,
+      "mask_ar_10": 0.3100720502308604,
+      "mask_ar_100": 0.9018128328407403,
+      "mask_ar_small": 0.7716974270388217,
+      "mask_ar_medium": 0.9162744641192917,
+      "mask_ar_large": 0.9644430229370373
+    }
+  },
+  "coverage": {
+    "rgbd_fusion": {
+      "images": 2584,
+      "instances": 125315,
+      "max_instances_per_image": 100
+    },
+    "depth_point": {
+      "images": 2584,
+      "instances": 125315,
+      "max_instances_per_image": 100
+    },
+    "depth_point_tiled": {
+      "images": 2584,
+      "instances": 200573,
+      "max_instances_per_image": 100
+    },
+    "depth_point_tiled_probability": {
+      "images": 2584,
+      "instances": 200573,
+      "max_instances_per_image": 100
+    }
+  },
+  "proofs": {
+    "rgbd_fusion": {
+      "predictions_sha256": "acf22950b75f0ffad6d87b1f301cbd2cf9dbb4c3f185de3828377afcc892d23f",
+      "evaluation_sha256": "0d9f84a7515b4cba5484ba53810eafae5e54d425e808229fae159736440a82a4"
+    },
+    "depth_point": {
+      "predictions_sha256": "0f963ceb8196ef73cdc96a6749b1840cfd069c860e5c26bfa49814392c70afd7",
+      "evaluation_sha256": "187885cdb176381c1fa909102d8cc064edaaa5a9fe4a8f615340f537ef3151c2"
+    },
+    "depth_point_tiled": {
+      "predictions_sha256": "caaa0a96fcb2e56cd5cda78108df0710bac43569e5ec260400276b2000caaff0",
+      "evaluation_sha256": "be2f44f8eee60874ea47753b127ca6b6f19089bbbb4f8bda8e70a029349ad13b"
+    },
+    "depth_point_tiled_probability": {
+      "predictions_sha256": "0b59361c0cd2113f5befd2a306794451e95730a09527f77983e1d4081eb4b6c0",
+      "evaluation_sha256": "5ab1257f46025ff2cdb64052920a72daa46d9664cd19c70d98bb203cd631f96d"
+    }
+  },
+  "all_image_ids_exact": true,
+  "all_refiner_instance_identities_preserved": true,
+  "actual_worker_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "test_evaluated": false,
+  "kaggle_submitted": false,
+  "remaining": "Matched RGB15epoch training, all-five validation lock, full local test, five CSVs and final README update"
+}
