@@ -36,3 +36,12 @@ python tools/fetch_course_mask2former.py
 ## 库源码核对
 
 本次训练所用的Mask2Former实现文件已与[Transformers v4.53.2官方源码](https://github.com/huggingface/transformers/blob/v4.53.2/src/transformers/models/mask2former/modeling_mask2former.py)逐字节核对一致。加载器从当前安装目录找到该文件并校验摘要，保留模型原有的源码一致性检查。
+
+## RGB消融对照的训练协议
+
+Mask2Former RGB基线采用与RGB-D基座相同的1024输入、15轮和总batch33，分两阶段执行：
+
+- [前5轮配置](../artifacts/protocols/progressive_rgb_initial5.json)：GPU 2、3、7，每卡batch为4、4、3，梯度累积3次。
+- [后10轮六卡配置](../artifacts/protocols/progressive_rgb_continuation10_six_gpu.json)：GPU 2–7，每卡batch为2、2、2、2、2、1，仍累积3次；保留前5轮权重和AdamW状态。
+
+两份配置均保留运行时原始字节与源码摘要，用于核对本轮训练设置。历史绝对路径属于运行记录。完成状态及统一评价结果见[五步消融报告](results/progressive_ablation.md)。
