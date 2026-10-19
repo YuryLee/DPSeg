@@ -1,6 +1,5 @@
 {
   "status": "completed_rgbd_validation_only",
-  "full_five_stage_experiment_complete": false,
   "split": "val",
   "images": 2584,
   "base_epoch": 15,
@@ -115,7 +114,10 @@
     0,
     0
   ],
-  "test_evaluated": false,
   "kaggle_submitted": false,
-  "remaining": "Matched RGB15epoch training, all-five validation lock, full local test, five CSVs and final README update"
+  "snapshot_scope": "Historical four-arm RGB-D validation snapshot captured at checked_at_utc; final five-stage validation/test and CSV checks are in final_report.",
+  "final_report": "progressive_ablation.json",
+  "full_five_stage_experiment_complete_at_snapshot": false,
+  "test_evaluated_at_snapshot": false,
+  "pending_at_snapshot": "Matched RGB15epoch training, all-five validation lock, full local test, five CSVs and final README update"
 }

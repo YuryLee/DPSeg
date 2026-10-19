@@ -18,14 +18,14 @@
 | S3 | + 切片推理 | 0.850802 | 0.437560 | +0.056664 |
 | S4 | + 概率图深度细化 | 0.868243 | 0.488299 | +0.050739 |
 
-完整系统S4相对RGB基线S0的APₛ绝对变化为 **+0.302520**。负增量同样保留，不能把累计添加组件描述为每一步均有提升。
+完整系统S4相对RGB基线S0的APₛ绝对提升为 **+0.302520**。本轮完整测试中，四个新增步骤的APₛ增量均为正，其中RGB-D融合的增量最大。
 
 - **统一基座预算：** RGB与RGB-D均从COCO公开权重开始，Swin-Tiny、1024输入、完整训练集、15轮、全局batch33和相同两阶段AdamW学习率计划；主表固定第15轮权重。
 - **固定组件：** S1–S4共用第15轮RGB-D基座，S2–S4共用验证集选择的第6轮深度点头；S3关闭概率细化，S4仅增加既定概率图深度细化。
 - **评价顺序：** 完成2,584张验证图的五组评价并锁定配置后，再评价完整本地测试集。置信度阈值0.01、每图最多100实例；测试标注不进入推理或参数选择。
 - **比较范围：** RGB-D包含额外编码器及DS/DC融合；历史RGB-D与本次RGB的显卡及局部batch划分不同，不能视为逐步梯度完全一致的控制实验。点头另有6轮训练，切片增加推理计算量。
 
-完整验证指标、五份CSV本机路径、权重与工程核验见[五步消融报告](progressive_ablation.md)，原始数值见[结构化结果](progressive_ablation.json)。本表为本地完整测试结果，Kaggle公榜成绩见[历史结果](../historical_results.md)。
+完整验证指标、五份CSV本机路径和核验说明见下文，原始数值及权重摘要见[结构化结果](progressive_ablation.json)。本表为本地完整测试结果，Kaggle公榜成绩见[历史结果](../historical_results.md)。
 
 ## 完整验证结果
 
@@ -36,6 +36,14 @@
 | S2 | + 深度点细化 | 0.846843 | 0.547258 |
 | S3 | + 切片推理 | 0.848502 | 0.611528 |
 | S4 | + 概率图深度细化 | 0.861748 | 0.646540 |
+
+## 训练设置
+
+RGB与RGB-D均从公开COCO权重初始化，使用Swin-Tiny、1024输入、完整14,432张训练图、seed17和全局batch33，固定第15轮权重。AdamW权重衰减0.05，骨干学习率倍率0.1，梯度裁剪1。前5轮峰值学习率0.0002，预热250步后余弦衰减；后10轮保留权重和优化器状态，从0.00002预热100步至0.00005后余弦衰减，学习率下限均为峰值的0.1。
+
+RGB前5轮使用GPU 2、3、7，局部batch为4、4、3，累积3次；第6–15轮使用GPU 2–7共6张卡，局部batch为2、2、2、2、2、1，仍累积3次，全局batch保持33。续训保留AdamW状态并按新rank布局重设随机状态。初始训练和续训均正常退出，完成总计6,570次更新及15次完整验证。
+
+RGB-D为此前完成的独立训练，显卡布局和局部batch划分与RGB不同。S1–S4共用RGB-D第15轮基座，S2–S4共用额外训练的第6轮深度点头；切片和概率细化均不增加训练参数。协议文件见[文件说明](../artifacts.md)。
 
 ## 测试CSV本机路径
 
@@ -53,14 +61,14 @@
 - 新切片实现通过8张真实验证图的旧实现对照，检查五个视图的零残差点头、最终RLE与原实现一致。RGB几何输入不变性检查通过。
 - 所有推理分片完整覆盖目标划分，合并后进行COCO评分；实际进程退出状态和权重摘要均保存。
 - 概率细化两组共享候选、置信度与顺序。未调整既有阈值、点数、切片和深度细化参数。
-- 运行目录：`reports/course_progressive_ablation/v1/`；评价入口：`tools/supervise_course_progressive_ablation.py`；RGB训练入口：`tools/supervise_course_progressive_rgb.py`。
+- 运行目录：`reports/course_progressive_ablation/v1/`；评价入口：`tools/supervise_course_progressive_ablation.py`；RGB前5轮入口：`tools/supervise_course_progressive_rgb.py`；后10轮六卡续训入口：`tools/supervise_course_progressive_rgb_multigpu.py`。
 
 结构化指标与权重摘要见[progressive_ablation.json](progressive_ablation.json)。数据、权重、大型预测和CSV由Git忽略，通过课程本机目录共享。
 
 ### 限制
 
-- One seed, fixed epoch15 base weights and prior validation-selected epoch6 point head.
-- RGB and RGB-D match 1024 input, 15 epochs, global batch33 and two-stage AdamW schedule; historical RGB-D GPU/local microbatch layout differs, so gradients are not bitwise matched.
-- Adding RGB-D also adds a second encoder and DS/DC fusion parameters.
-- Later stages reuse frozen RGB-D weights; only the point head has additional training.
-- Local test scores use archive annotations and differ from Kaggle public subset.
+- 只运行一个随机种子，基座固定第15轮，点头沿用此前按验证集选择的第6轮；未估计多次训练的波动。
+- 两种基座匹配输入分辨率、训练轮数、全局batch与两阶段学习率计划；显卡、局部batch划分和随机轨迹不同，不能视为逐步梯度完全一致的实验。
+- RGB-D同时增加第二路编码器和DS/DC融合参数，S0→S1衡量整个融合方案的差异。
+- 后续各组共享冻结基座，点头额外训练6轮；切片增加推理计算量。
+- 本地测试使用下载归档中的标注，评分范围与Kaggle公榜约30%的子集不同。本轮五份CSV尚未提交Kaggle。
