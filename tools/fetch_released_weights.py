@@ -17,15 +17,13 @@ def digest(path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--group", choices=("main", "all"), default="main",
-                        help="main: three files for S0–S4; all: include historical ablations")
     parser.add_argument("--directory", type=Path, default=ROOT / "pretrained/dpseg_weights")
     parser.add_argument("--endpoint", choices=("https://hf-mirror.com", "https://huggingface.co"),
                         default="https://hf-mirror.com", help="Download mirror, or the official Hub")
     parser.add_argument("--verify-only", action="store_true", help="Check local files without network access")
     args = parser.parse_args()
     manifest = json.loads((ROOT / "configs/released_weights.json").read_text())
-    assets = [a for a in manifest["weights"] if args.group == "all" or a["group"] == "main"]
+    assets = manifest["weights"]
     args.directory.mkdir(parents=True, exist_ok=True)
     # Keep downloads direct, consistent with the project's download policy.
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))

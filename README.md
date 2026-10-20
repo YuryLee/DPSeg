@@ -152,11 +152,10 @@ env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY \
 
 消融实验权重见 [Hugging Face](https://huggingface.co/Lemma456/DPSeg)。主消融S0–S4共用三份权重，合计约518 MiB：第15轮RGB基线、第15轮RGB-D基座、配套第6轮普通／深度点头。切片和概率图细化不增加权重。
 
-模型仓库另包含历史基线、分辨率、裁剪、Focal、小目标点配额、学习率分支及点头各轮权重，共24份。完整对应表、下载链接和校验说明见[模型权重说明](docs/model_weights.md)。
+仅发布当前五组主消融所需权重。对应表、下载链接和校验说明见[模型权重说明](docs/model_weights.md)。
 
 ```bash
-python tools/fetch_released_weights.py             # 主消融三份权重
-python tools/fetch_released_weights.py --group all # 全部已发布权重
+python tools/fetch_released_weights.py # 主消融三份权重
 ```
 
 ## 运行 Demo

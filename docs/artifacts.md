@@ -9,7 +9,7 @@
 | `dpseg_rgbd_swin_t_1024_e15.pt` | 本轮冻结的 DA-Fusion 基座 | [Hugging Face权重](model_weights.md) |
 | `dpseg_points_base15_e06.pt` | 本轮选出的普通/深度两个点头 | [Hugging Face权重](model_weights.md) |
 
-主消融的RGB基线、上述RGB-D基座和点头可通过 `python tools/fetch_released_weights.py` 下载。加 `--group all` 获取本次发布的全部24份权重。发布时只改文件名，原始字节和下列模型清单的SHA-256保持一致；全部历史消融的对应关系见[模型权重说明](model_weights.md)。
+主消融的RGB基线、上述RGB-D基座和点头可通过 `python tools/fetch_released_weights.py` 下载。本次仅发布当前五组主消融所需的三份权重。发布时只改文件名，原始字节和下列模型清单的SHA-256保持一致；五组主消融的对应关系见[模型权重说明](model_weights.md)。
 
 模型清单位于 [configs/course_e15_point.json](../configs/course_e15_point.json)，包含基座、点头、协议和张量的 SHA-256。协议原始字节保存在 [artifacts/protocols](../artifacts/protocols)，其中历史路径是实验记录；运行位置由命令行参数提供。
 
