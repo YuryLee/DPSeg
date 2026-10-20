@@ -1,0 +1,2 @@
+-r requirements.txt
+nvidia-ml-py==13.580.82
