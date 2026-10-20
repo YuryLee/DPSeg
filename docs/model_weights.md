@@ -2,6 +2,8 @@
 
 下载入口：[DPSeg Hugging Face模型仓库](https://huggingface.co/Lemma456/DPSeg)。仅发布主消融 S0–S4 对应的3份权重，共517.83 MiB。权重通过 Hugging Face 模型仓库分发，Git 仓库保存代码和文件清单。
 
+固定版本为 `weights-v1`。三份权重的远端SHA-256与本地原件一致；点头已通过镜像直连重新下载并校验。详见[上传核验记录](results/model_weights_upload.json)。
+
 ## 主消融 S0–S4
 
 | 实验 | 所需权重 | 推理设置 |

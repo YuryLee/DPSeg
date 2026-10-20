@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-20T10:32:42.044189+00:00",
+  "repository": "Lemma456/DPSeg",
+  "url": "https://huggingface.co/Lemma456/DPSeg",
+  "private": false,
+  "revision": "weights-v1",
+  "commit": "9ea4aeffb67e96e3ebadcee408f749835290a70e",
+  "assets": [
+    {
+      "filename": "dpseg_rgb_swin_t_1024_e15.pt",
+      "bytes": 190104323,
+      "sha256": "b8e7f01ad167a5474943d81dc2633d4557d15d127d02cec0abc2df1c775bf3ff",
+      "verified": true,
+      "method": "remote_lfs_sha256"
+    },
+    {
+      "filename": "dpseg_rgbd_swin_t_1024_e15.pt",
+      "bytes": 351068109,
+      "sha256": "ef52456da6bb47e4f38c7cfb26e5eaf88c02895bf674487febd04d24d0dc2059",
+      "verified": true,
+      "method": "remote_lfs_sha256"
+    },
+    {
+      "filename": "dpseg_points_base15_e06.pt",
+      "bytes": 1806733,
+      "sha256": "ec72065e3dd5e869d9ddd217cbddf89b2a3f9d11dd29447e57c38a9e6323ebff",
+      "verified": true,
+      "method": "remote_lfs_sha256"
+    },
+    {
+      "filename": "released_weights.json",
+      "bytes": 5138,
+      "sha256": "353b75e7104ca0333253e4d2f7df73141786bfefeb476d1339b6a3d00d344e7c",
+      "verified": true,
+      "method": "remote_git_blob_sha1_and_local_sha256"
+    },
+    {
+      "filename": "README.md",
+      "bytes": 4724,
+      "sha256": "626f1dded3395e06957f1488c95b8592672ab53e486b08d8063f969b872f9f2c",
+      "verified": true,
+      "method": "remote_git_blob_sha1_and_local_sha256"
+    },
+    {
+      "filename": "SHA256SUMS.txt",
+      "bytes": 448,
+      "sha256": "32b5345b3fdd222540abe4a02dc4ae857121d001e0aae85c793fceade248b937",
+      "verified": true,
+      "method": "remote_git_blob_sha1_and_local_sha256"
+    }
+  ],
+  "weights": 3,
+  "total_bytes": 542989475,
+  "github_release_deleted": true,
+  "public_access_verified": true,
+  "public_weight_count_verified": 3,
+  "mirror_download_check": {
+    "mirror": "hf-mirror.com",
+    "proxy_used": false,
+    "file": "dpseg_points_base15_e06.pt",
+    "passed": true,
+    "sha256": "ec72065e3dd5e869d9ddd217cbddf89b2a3f9d11dd29447e57c38a9e6323ebff",
+    "bytes": 1806733
+  }
+}
