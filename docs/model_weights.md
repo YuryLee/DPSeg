@@ -64,10 +64,9 @@ python tools/fetch_released_weights.py --group all --verify-only
 
 默认位置为 `pretrained/dpseg_weights/`，可用 `--directory` 指定其他目录。已有同名文件校验失败时脚本会停止，避免覆盖文件。也可以从上方链接手动下载。
 
-- [机器可读清单](../configs/released_weights.json)：记录每份文件的SHA-256、轮次、原始路径、模型张量摘要、协议及点头基座配对。
+- [机器可读清单](../configs/released_weights.json)：记录每份文件的SHA-256、轮次、模型张量摘要、协议摘要及点头基座配对。
 - [Release清单](https://github.com/YuryLee/DPSeg/releases/download/weights-v1/released_weights.json)。
 - [SHA256SUMS.txt](https://github.com/YuryLee/DPSeg/releases/download/weights-v1/SHA256SUMS.txt)。
-- [原始协议包](https://github.com/YuryLee/DPSeg/releases/download/weights-v1/dpseg_ablation_protocols.tar.gz)：按协议SHA-256命名，保留历史绝对路径和原始字节；迁移运行时显式提供实际路径。
 
 所有权重保留原始checkpoint字节，只更换发布文件名；未量化、未裁剪、未重新序列化。可用 `torch.load(path, map_location="cpu", weights_only=True)` 读取，基座参数在 `model`，配对点头参数在 `heads`。它们是推理checkpoint，不含优化器和完整随机状态，不用于精确恢复中断训练。
 
