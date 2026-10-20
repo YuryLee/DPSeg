@@ -148,6 +148,17 @@ env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY \
 
 安装使用[TUNA PyPI镜像](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)，命令取消当前代理环境变量。下载公开初始化权重的可选依赖在 `requirements-download.txt`，浏览器验收依赖在 `requirements-dev.txt`。
 
+## 模型权重
+
+消融实验权重见 [GitHub Release](https://github.com/YuryLee/DPSeg/releases/tag/weights-v1)。主消融S0–S4共用三份权重，合计约518 MiB：第15轮RGB基线、第15轮RGB-D基座、配套第6轮普通／深度点头。切片和概率图细化不增加权重。
+
+Release另包含历史基线、分辨率、裁剪、Focal、小目标点配额、学习率分支及点头各轮权重，共24份。完整对应表、下载链接和校验说明见[模型权重说明](docs/model_weights.md)。
+
+```bash
+python tools/fetch_released_weights.py             # 主消融三份权重
+python tools/fetch_released_weights.py --group all # 全部已发布权重
+```
+
 ## 运行 Demo
 
 准备课程 `blender.zip`、第15轮基座、第6轮点头和公开 COCO 初始化目录，详见[文件说明](docs/artifacts.md)。将下方路径换成各自文件的位置：
@@ -213,4 +224,4 @@ python -m unittest tests.test_course_portable -v
 
 这是一次单种子、固定训练预算的课程实验。第6轮在本轮候选中最好，不据此宣称已收敛或达到统计显著。五步累计消融已完成完整验证与本地测试；结果见主表。Kaggle公榜成绩须单独通过竞赛提交获得。
 
-公开实现的课程适配与原论文设置存在差异，见[方法约定](docs/dafusion_method_contract.md)。第三方代码保留各自许可证；数据与课程训练权重由项目组按课程渠道共享。
+公开实现的课程适配与原论文设置存在差异，见[方法约定](docs/dafusion_method_contract.md)。第三方代码保留各自许可证；课程数据按课程渠道取得，已训练权重见[Release说明](docs/model_weights.md)。

@@ -69,7 +69,7 @@ S4已于2026-10-19提交，编号57398816，状态COMPLETE，公榜APₛ为 **0.
 - 概率细化两组共享候选、置信度与顺序。未调整既有阈值、点数、切片和深度细化参数。
 - 运行目录：`reports/course_progressive_ablation/v1/`；评价入口：`tools/supervise_course_progressive_ablation.py`；RGB前5轮入口：`tools/supervise_course_progressive_rgb.py`；后10轮六卡续训入口：`tools/supervise_course_progressive_rgb_multigpu.py`。
 
-结构化指标与权重摘要见[progressive_ablation.json](progressive_ablation.json)。数据、权重、大型预测和CSV由Git忽略，通过课程本机目录共享。
+结构化指标与权重摘要见[progressive_ablation.json](progressive_ablation.json)。五组对应的三份权重已整理至[权重Release](../model_weights.md)，保留原始字节和SHA-256；数据、大型预测和CSV仍通过课程本机目录共享。
 
 ### 限制
 

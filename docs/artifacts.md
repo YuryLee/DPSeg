@@ -6,8 +6,10 @@
 |---|---|---|
 | 课程 `blender.zip` | RGB、uint16 深度、内参及 COCO 标注 | 使用课程提供的完整归档 |
 | COCO Mask2Former Swin-Tiny 初始化目录 | 重建原始模型结构并核对初始化来源 | 使用本机缓存，或运行下方镜像脚本 |
-| `epoch_15.pt` | 本轮冻结的 DA-Fusion 基座 | 项目组共享的已训练基座 |
-| `heads_epoch_06.pt` | 本轮选出的普通/深度两个点头 | 项目组共享的已训练点头 |
+| `dpseg_rgbd_swin_t_1024_e15.pt` | 本轮冻结的 DA-Fusion 基座 | [权重Release](model_weights.md) |
+| `dpseg_points_base15_e06.pt` | 本轮选出的普通/深度两个点头 | [权重Release](model_weights.md) |
+
+主消融的RGB基线、上述RGB-D基座和点头可通过 `python tools/fetch_released_weights.py` 下载。加 `--group all` 获取本次发布的全部24份权重。发布时只改文件名，原始字节和下列模型清单的SHA-256保持一致；全部历史消融的对应关系见[模型权重说明](model_weights.md)。
 
 模型清单位于 [configs/course_e15_point.json](../configs/course_e15_point.json)，包含基座、点头、协议和张量的 SHA-256。协议原始字节保存在 [artifacts/protocols](../artifacts/protocols)，其中历史路径是实验记录；运行位置由命令行参数提供。
 
@@ -29,7 +31,7 @@ env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u http_proxy -u https_proxy -u al
 python tools/fetch_course_mask2former.py
 ```
 
-脚本固定 COCO 模型版本，通过 `hf-mirror.com` 入口下载并禁用代理，生成 `pretrained/mask2former_swin_tiny_coco_instance/`。它下载的是公开初始化权重；课程训练后的基座与点头由项目组单独共享。
+脚本固定 COCO 模型版本，通过 `hf-mirror.com` 入口下载并禁用代理，生成 `pretrained/mask2former_swin_tiny_coco_instance/`。它下载的是公开初始化权重；课程训练后的基座与点头从上述Release下载。
 
 `data/`、`pretrained/`、`outputs/`、`reports/` 和权重文件由 Git 忽略。仓库保留用于复现的源码、冻结协议、模型清单和经过核验的指标。
 
