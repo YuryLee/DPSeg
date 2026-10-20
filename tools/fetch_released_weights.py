@@ -20,6 +20,8 @@ def main():
     parser.add_argument("--group", choices=("main", "all"), default="main",
                         help="main: three files for S0–S4; all: include historical ablations")
     parser.add_argument("--directory", type=Path, default=ROOT / "pretrained/dpseg_weights")
+    parser.add_argument("--endpoint", choices=("https://hf-mirror.com", "https://huggingface.co"),
+                        default="https://hf-mirror.com", help="Download mirror, or the official Hub")
     parser.add_argument("--verify-only", action="store_true", help="Check local files without network access")
     args = parser.parse_args()
     manifest = json.loads((ROOT / "configs/released_weights.json").read_text())
@@ -39,7 +41,8 @@ def main():
             print(f"Downloading {asset['filename']} ({asset['bytes'] / 2**20:.2f} MiB)", flush=True)
             size, checksum = 0, hashlib.sha256()
             try:
-                with opener.open(asset["url"], timeout=120) as response, temporary.open("wb") as stream:
+                url = asset["url"].replace("https://huggingface.co", args.endpoint, 1)
+                with opener.open(url, timeout=120) as response, temporary.open("wb") as stream:
                     for block in iter(lambda: response.read(1024 * 1024), b""):
                         size += len(block)
                         if size > asset["bytes"]:

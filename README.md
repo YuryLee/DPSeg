@@ -150,9 +150,9 @@ env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY \
 
 ## 模型权重
 
-消融实验权重见 [GitHub Release](https://github.com/YuryLee/DPSeg/releases/tag/weights-v1)。主消融S0–S4共用三份权重，合计约518 MiB：第15轮RGB基线、第15轮RGB-D基座、配套第6轮普通／深度点头。切片和概率图细化不增加权重。
+消融实验权重见 [Hugging Face](https://huggingface.co/Lemma456/DPSeg)。主消融S0–S4共用三份权重，合计约518 MiB：第15轮RGB基线、第15轮RGB-D基座、配套第6轮普通／深度点头。切片和概率图细化不增加权重。
 
-Release另包含历史基线、分辨率、裁剪、Focal、小目标点配额、学习率分支及点头各轮权重，共24份。完整对应表、下载链接和校验说明见[模型权重说明](docs/model_weights.md)。
+模型仓库另包含历史基线、分辨率、裁剪、Focal、小目标点配额、学习率分支及点头各轮权重，共24份。完整对应表、下载链接和校验说明见[模型权重说明](docs/model_weights.md)。
 
 ```bash
 python tools/fetch_released_weights.py             # 主消融三份权重
@@ -224,4 +224,4 @@ python -m unittest tests.test_course_portable -v
 
 这是一次单种子、固定训练预算的课程实验。第6轮在本轮候选中最好，不据此宣称已收敛或达到统计显著。五步累计消融已完成完整验证与本地测试；结果见主表。Kaggle公榜成绩须单独通过竞赛提交获得。
 
-公开实现的课程适配与原论文设置存在差异，见[方法约定](docs/dafusion_method_contract.md)。第三方代码保留各自许可证；课程数据按课程渠道取得，已训练权重见[Release说明](docs/model_weights.md)。
+公开实现的课程适配与原论文设置存在差异，见[方法约定](docs/dafusion_method_contract.md)。第三方代码保留各自许可证；课程数据按课程渠道取得，已训练权重见[权重说明](docs/model_weights.md)。
