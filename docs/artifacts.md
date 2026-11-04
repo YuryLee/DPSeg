@@ -2,6 +2,14 @@
 
 代码使用显式文件路径，数据和训练权重可以放在项目目录外。加载时会核对文件、源码、模型结构和张量摘要。
 
+## 当前最佳 Large＋无内参所需文件
+
+当前模型输入为 RGB、原始 uint16 深度及有效性，按逐图 `depth_scale_m` 换算为米；不读取或估计相机内参。需准备课程数据、与训练一致的公开 COCO Swin-L 初始化目录，以及配套的第 15 轮基座和第 6 轮点头。
+
+本机基座为 `reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt`，点头为 `reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt`，完整评测协议为同组 `protocol_system.json`。权重暂存本机；Git 仅保存代码及[结果和校验值摘要](results/swinl_depth_no_k.json)。现有 Hugging Face `weights-v1` 对应下方原 Tiny 消融。[权重说明](model_weights.md) · [复现入口](reproduction.md)。
+
+## 原 Tiny＋XYZ 消融与 Demo 所需文件
+
 | 文件 | 用途 | 准备方式 |
 |---|---|---|
 | 课程 `blender.zip` | RGB、uint16 深度、内参及 COCO 标注 | 使用课程提供的完整归档 |
@@ -19,7 +27,7 @@
 931708a0bbfbdc0908c3118098897fccf9a05e4f6d768758ba7328136898c94e
 ```
 
-数据包含 train 14,432 张、val 2,584 张、test 2,112 张，原图和掩码为 1024×1024，前景类别为 `component`。深度必须使用原始 uint16 文件及逐图 `depth_scale_m`，并保留相机内参；伪彩色深度图只用于展示。
+数据包含 train 14,432 张、val 2,584 张、test 2,112 张，原图和掩码为 1024×1024，前景类别为 `component`。深度使用原始 uint16 文件及逐图 `depth_scale_m`；原 XYZ 配置还需保留内参，无内参配置只读取 RGB、深度及有效性。伪彩色深度图只用于展示。
 
 ## 公开初始化权重
 

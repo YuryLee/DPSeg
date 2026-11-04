@@ -1,2 +1,5 @@
+# Optional dependencies for performance and UOIS/UOAIS benchmark checks.
 -r requirements.txt
 nvidia-ml-py==13.580.82
+opencv-python-headless==5.0.0.93
+scikit-image==0.26.0

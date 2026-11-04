@@ -1,0 +1,168 @@
+{
+  "schema": "dpseg_swinl_depth_no_k_result_v1",
+  "status": "completed_independently_rescored",
+  "finished_at_utc": "2026-11-03T21:58:08.341301+00:00",
+  "configuration": "Swin-Large RGB-D without camera intrinsics + depth-guided point refinement + tiled inference + depth-guided probability refinement",
+  "inputs": [
+    "RGB",
+    "metric_depth_m",
+    "depth_validity"
+  ],
+  "camera_intrinsics_used": false,
+  "depth_encoding": {
+    "representation": "normalized Z repeated three times plus validity",
+    "normalization": "Per-view valid-depth median and p95 absolute deviation after resizing"
+  },
+  "architecture": {
+    "backbone": "large",
+    "depth_encoding": "depth",
+    "camera_intrinsics_used": false,
+    "embedding_channels": 192,
+    "third_stage_blocks": 18,
+    "epoch": 15,
+    "parameters": 460955217
+  },
+  "training": {
+    "base_epochs": 15,
+    "point_epochs": 6,
+    "resolution": 1024,
+    "seed": 17,
+    "effective_batch": 33,
+    "base_initialization": "Same public COCO Swin-L as previous XYZ Large; fresh course training",
+    "point_base": "Frozen fixed epoch15; fresh point heads; full-validation-only selection"
+  },
+  "dataset": {
+    "train_images": 14432,
+    "val_images": 2584,
+    "local_test_images": 2112,
+    "resolution": [
+      1024,
+      1024
+    ],
+    "category": "component"
+  },
+  "selected_point_head_epoch": 6,
+  "base_checkpoint_sha256": "9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8",
+  "head_checkpoint_sha256": "86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783",
+  "test_used_for_selection": false,
+  "metrics": {
+    "val": {
+      "native": {
+        "mask_ap": 0.8522887341982278,
+        "mask_ap50": 0.9637213627490222,
+        "mask_ap75": 0.9094660106583159,
+        "mask_ap_small": 0.579718542226786,
+        "mask_ap_medium": 0.875456670810476,
+        "mask_ap_large": 0.9775280811169681,
+        "mask_ar_1": 0.03433894934691709,
+        "mask_ar_10": 0.31588101496846954,
+        "mask_ar_100": 0.8688644938096729,
+        "mask_ar_small": 0.6356123283934905,
+        "mask_ar_medium": 0.8942509319664491,
+        "mask_ar_large": 0.9837613085991046
+      },
+      "full": {
+        "mask_ap": 0.8857173164935935,
+        "mask_ap50": 0.9593146102801555,
+        "mask_ap75": 0.902701341457922,
+        "mask_ap_small": 0.702909959597234,
+        "mask_ap_medium": 0.8942388543243882,
+        "mask_ap_large": 0.9691674518735491,
+        "mask_ar_1": 0.033682461421119296,
+        "mask_ar_10": 0.3124977867367647,
+        "mask_ar_100": 0.9204151400825376,
+        "mask_ar_small": 0.8062187471588326,
+        "mask_ar_medium": 0.9330828673501088,
+        "mask_ar_large": 0.9755825641962899
+      }
+    },
+    "test": {
+      "native": {
+        "mask_ap": 0.8456264561094238,
+        "mask_ap50": 0.9564883185073308,
+        "mask_ap75": 0.8936722950589349,
+        "mask_ap_small": 0.4087969008102758,
+        "mask_ap_medium": 0.8972162961025453,
+        "mask_ap_large": 0.9756734341650608,
+        "mask_ar_1": 0.02761389838594259,
+        "mask_ar_10": 0.2673239511277199,
+        "mask_ar_100": 0.8589568259521349,
+        "mask_ar_small": 0.48129564941251185,
+        "mask_ar_medium": 0.9092362372892161,
+        "mask_ar_large": 0.9849436147516002
+      },
+      "full": {
+        "mask_ap": 0.8802892836843677,
+        "mask_ap50": 0.9625140609439644,
+        "mask_ap75": 0.8962846723301018,
+        "mask_ap_small": 0.5252858263082129,
+        "mask_ap_medium": 0.9155911511687985,
+        "mask_ap_large": 0.9750856983614972,
+        "mask_ar_1": 0.027519811295751505,
+        "mask_ar_10": 0.266976756513212,
+        "mask_ar_100": 0.9102899472582227,
+        "mask_ar_small": 0.6740870117497618,
+        "mask_ar_medium": 0.9420244812087597,
+        "mask_ar_large": 0.9836635172203596
+      }
+    }
+  },
+  "validation_point_only": {
+    "mask_ap": 0.8809779143294576,
+    "mask_ap50": 0.963814058686517,
+    "mask_ap75": 0.9111596216063274,
+    "mask_ap_small": 0.6073099589082058,
+    "mask_ap_medium": 0.9095451511003763,
+    "mask_ap_large": 0.9805889171924925,
+    "mask_ar_1": 0.03450375233243895,
+    "mask_ar_10": 0.31898230751419887,
+    "mask_ar_100": 0.8961536889990602,
+    "mask_ar_small": 0.6661332848440766,
+    "mask_ar_medium": 0.9261863156259708,
+    "mask_ar_large": 0.9859544914557251
+  },
+  "submissions": [
+    {
+      "variant": "native",
+      "sha256": "6fb0b19c6f3943b60ca841dadfb71c8ea8930be141b19602eef9d117376df239",
+      "instances": 116324,
+      "metrics": {
+        "mask_ap": 0.8456264561094238,
+        "mask_ap_small": 0.4087969008102758
+      },
+      "absolute_differences": {
+        "mask_ap": 0.0,
+        "mask_ap_small": 0.0
+      },
+      "filename": "dpseg_swinl_depth_no_k_base15_native.csv",
+      "bytes": 40311368
+    },
+    {
+      "variant": "full",
+      "sha256": "572798907d773a7408ecdc7c7a5094daff0405657c43b8752b9a1e1ab8dadf10",
+      "instances": 140958,
+      "metrics": {
+        "mask_ap": 0.8802892836843677,
+        "mask_ap_small": 0.5252858263082129
+      },
+      "absolute_differences": {
+        "mask_ap": 0.0,
+        "mask_ap_small": 0.0
+      },
+      "filename": "dpseg_swinl_depth_no_k_base15_full.csv",
+      "bytes": 49151193
+    }
+  ],
+  "kaggle": {
+    "competition": "rgb-d-333",
+    "submission_id": 57967712,
+    "status": "COMPLETE",
+    "public_score": 0.56785
+  },
+  "checkpoint_publication": "Local experiment files; not included in the Hugging Face weights-v1 release",
+  "limitations": [
+    "Single seed17",
+    "No-intrinsics encoding replaces XYZ with normalized measured Z plus validity",
+    "Local archive test scores are separate from Kaggle public scores"
+  ]
+}

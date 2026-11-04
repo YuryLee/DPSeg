@@ -1,6 +1,29 @@
 # 训练与评测复现
 
-当前入口复现“第15轮基座冻结、重新训练两个点头”的流程。原训练循环、实例匹配、损失、采样、DDP 和评价函数继续使用原源码；路径适配代码在 `rgbd_seg/course_portable.py` 和 `tools/course_train_points.py`。
+## 当前最佳 Large＋无内参入口
+
+当前最佳模型以双 Swin-Large 融合 RGB 与归一化 Z＋有效性，训练和推理均不需要相机内参。基座训练 15 轮，冻结后训练 6 轮点细化头，仅用验证集选头；完整系统还包含整图与四个 640 切片及概率图深度细化。[设置与结果](results/swinl_depth_no_k.md) · [文件与权重](artifacts.md)。
+
+- 基座训练：`tools/run_course_depth_backbone.py`，配置 `backbone=large`、`depth_encoding=depth`。
+- 点头训练及完整系统评测：`tools/run_course_depth_backbone_system.py`，分别选择 `--mode points` 和 `--mode evaluate`。
+- 原实验控制程序：`tools/run_course_swinl_depth_no_k.py`，串联工程检查、正式训练、验证、测试与 CSV 独立复评；该程序绑定既有实验目录，须先按实际文件位置准备配置，避免覆盖完成的运行。
+
+在本组原始协议、配套权重和 COCO Swin-L 初始化目录均已准备好的环境中，可用以下命令重新评测。协议含数据路径、源码与权重摘要，新环境需要先核对这些依赖：
+
+```bash
+CUDA_VISIBLE_DEVICES=0,2 python -m torch.distributed.run \
+  --standalone --nproc_per_node=2 tools/run_course_depth_backbone_system.py \
+  --protocol /path/to/protocol_system.json \
+  --base /path/to/large_no_k_base15.pt \
+  --heads /path/to/large_no_k_heads_epoch_06.pt \
+  --output outputs/large_no_k_evaluation --mode evaluate
+```
+
+该入口对课程归档的完整 val/test 分别评价基础与完整配置，保存预测并导出测试 CSV。输入读取与切片过程不接收 `camera_K`。[无内参和模态对齐检查](../tests/test_course_depth_backbone.py)。
+
+## 原 Tiny＋XYZ 点头训练复现
+
+以下可移植入口复现原 Tiny＋XYZ“第 15 轮基座冻结、重新训练两个点头”的流程。原训练循环、实例匹配、损失、采样、DDP 和评价函数继续使用原源码；路径适配代码在 `rgbd_seg/course_portable.py` 和 `tools/course_train_points.py`。
 
 ## 1. 准备环境与文件
 
@@ -63,4 +86,4 @@ CUDA_VISIBLE_DEVICES=0 python tools/course_predict.py \
   --output outputs/full_validation
 ```
 
-该命令保存六组完整预测，调用原来的 COCO segm 评价函数，并写入 `evaluation_summary.json`。小规模 Demo 不计算新 AP。测试集推理可显式使用 `--split test --all`；本轮六轮训练及权重选择只使用 train/val，没有新增测试或 Kaggle 结果。
+该命令保存原 Tiny 模型的六组完整预测，调用原来的 COCO segm 评价函数，并写入 `evaluation_summary.json`。小规模 Demo 不计算新 AP。测试集推理可显式使用 `--split test --all`；该点头训练及权重选择只使用 train/val。当前 Large＋无内参的测试与 Kaggle 结果见本页开头的独立入口。

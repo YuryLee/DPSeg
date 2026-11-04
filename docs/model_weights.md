@@ -4,6 +4,19 @@
 
 固定版本为 `weights-v1`。三份权重的远端SHA-256与本地原件一致；点头已通过镜像直连重新下载并校验。详见[上传核验记录](results/model_weights_upload.json)。
 
+## 当前最佳：Large＋无内参
+
+当前最佳配置采用双 Swin-Large、归一化 Z＋有效性输入、深度引导点细化、切片推理及概率图深度细化，训练与推理均无需相机内参。本地测试 AP/APₛ 为 **0.880289/0.525286**，新比赛 `rgb-d-333` 公榜 APₛ 为 **0.56785**。
+
+本组权重保存在本机，尚未发布到现有 Hugging Face `weights-v1`。该版本中的 Tiny 权重对应下方原 S0–S4 实验。
+
+| 文件，相对仓库根目录 | 用途 |
+|---|---|
+| `reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt` | 固定第 15 轮无内参 Large 基座 |
+| `reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt` | 配套第 6 轮点细化头 |
+
+基座 SHA-256 为 `9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8`，点头为 `86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783`。Large 点头读取 448 维细粒度特征，须与该基座配对。验证、测试、文件校验及提交信息见[实验记录](results/swinl_depth_no_k.md)和[结果摘要](results/swinl_depth_no_k.json)。
+
 ## 主消融 S0–S4
 
 | 实验 | 所需权重 | 推理设置 |
@@ -22,7 +35,7 @@
 | [dpseg_rgbd_swin_t_1024_e15.pt](https://huggingface.co/Lemma456/DPSeg/resolve/weights-v1/dpseg_rgbd_swin_t_1024_e15.pt) | 334.80 MiB | DA-Fusion RGB-D，1024，15轮；S1–S4 |
 | [dpseg_points_base15_e06.pt](https://huggingface.co/Lemma456/DPSeg/resolve/weights-v1/dpseg_points_base15_e06.pt) | 1.72 MiB | 第15轮基座的普通／深度点头，第6轮；S2–S4及整图六组对照 |
 
-主消融结果见[五步消融报告](results/progressive_ablation.md)。完整系统的本地测试APₛ为0.488299，Kaggle公榜为0.52886；两个评分范围不同。
+原 Tiny＋XYZ 主消融结果见[五步消融报告](results/progressive_ablation.md)。该组完整系统的本地测试 APₛ 为 0.488299，旧比赛 `rgb-d` 公榜为 0.52886；两个评分范围不同。
 
 ## 下载与校验
 
@@ -56,4 +69,4 @@ python tools/course_predict.py \
   --output outputs/course_demo
 ```
 
-S0–S4的推理实现见 `rgbd_seg/course_progressive_ablation.py` 和 `tools/run_course_progressive_ablation.py`；历史入口可能包含本机绝对路径，需要按各自协议调整位置。权重发布范围仅为当前五步主消融；不包含历史实验、中间轮次、课程图像、标注、预测CSV和优化器状态。
+原 Tiny＋XYZ S0–S4的推理实现见 `rgbd_seg/course_progressive_ablation.py` 和 `tools/run_course_progressive_ablation.py`；历史入口可能包含本机绝对路径，需要按各自协议调整位置。`weights-v1` 权重发布范围仅为原 Tiny 五步主消融；不包含 Large 权重、中间轮次、课程图像、标注、预测CSV和优化器状态。

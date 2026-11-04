@@ -1,6 +1,6 @@
 # 历史实验与分数来源
 
-所有表格分数均为0–1。完整验证、本地测试和Kaggle公榜分别列报。最新五步累计消融见[完整报告](results/progressive_ablation.md)，点头六轮训练记录见[点头报告](results/point_e15.md)。
+所有表格分数均为0–1。完整验证、本地测试和 Kaggle 公榜分别列报。当前最佳为 **Large＋无相机内参 RGB-D 融合＋深度引导点细化＋切片＋概率图深度细化**，本地 AP/APₛ 为 **0.880289/0.525286**，新比赛 `rgb-d-333` 公榜 APₛ 为 **0.56785**，见[最新完整结果](results/swinl_depth_no_k.md)。本页以下保留原 Tiny＋XYZ 等历史结果，五步累计消融见[原方案报告](results/progressive_ablation.md)。
 
 ## 早期课程基线
 

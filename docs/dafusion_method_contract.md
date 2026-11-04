@@ -1,5 +1,7 @@
 # DA-Fusion 课程适配：方法约定
 
+本文保留 2026-10-14 对原论文、作者实现及早期 Tiny＋XYZ 课程适配的审查记录。**当前最佳方法已更新为双 Swin-Large＋无内参深度**：输入归一化 Z 与有效性，保留 DS/DC，训练及推理不使用相机内参。[当前方法](methods.md) · [完整实验结果](results/swinl_depth_no_k.md)。下文作者 XYZ 路径和早期配置的要求按各自历史范围理解。
+
 ## Material Passport
 
 - origin：academic-research-suite / experiment-agent

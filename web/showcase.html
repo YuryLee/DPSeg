@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DPSeg · 实例分割案例展台</title>
+<style>
+:root{color-scheme:light;--ink:#172b44;--muted:#67768b;--line:#dce3ec;--blue:#275ee8;--teal:#14b8a6;--rose:#f43f5e;--amber:#f59e0b}
+*{box-sizing:border-box}body{margin:0;background:#f2f5fa;color:var(--ink);font:14px/1.6 Inter,"Noto Sans CJK SC","Microsoft YaHei",system-ui,sans-serif}button,select,input{font:inherit}button,select{cursor:pointer}button{border:1px solid var(--line);background:white;color:var(--ink);padding:8px 13px;border-radius:8px}button:hover{border-color:#8aa9ef;background:#f3f7ff}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #9bb9ff;outline-offset:3px}button:disabled{opacity:.4;cursor:default}
+.top{height:70px;padding:0 30px;background:#10243d;color:white;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:12px}.mark{width:34px;height:34px;border-radius:9px;background:#416ff2;display:grid;place-items:center;font-weight:900;font-size:20px}.brand strong{font-size:20px;letter-spacing:.4px}.top small{color:#b5c6df}.tag{font-size:11px;letter-spacing:1.3px;color:#c8dafc;border:1px solid #435975;border-radius:20px;padding:5px 12px}
+.layout{display:grid;grid-template-columns:246px minmax(0,1fr);min-height:calc(100vh - 70px)}aside{padding:26px 17px;background:white;border-right:1px solid var(--line)}.eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--blue);text-transform:uppercase}aside{align-self:start;position:sticky;top:0;max-height:100vh;overflow-y:auto}.side-title{font-size:18px;margin:4px 0 15px}.filters{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}.filters button{padding:3px 8px;font-size:12px;border-radius:16px}.filters button.active{background:var(--ink);color:white;border-color:var(--ink)}
+.case-button{display:block;text-align:left;width:100%;margin:8px 0;padding:12px;border:1px solid transparent;background:#f6f8fb}.case-button.active{background:#edf3ff;border-color:#94b3ff;box-shadow:inset 3px 0 0 var(--blue)}.case-button small{display:block;color:var(--muted);font-size:11px}.case-button strong{font-size:13px;display:block;margin:4px 0}.case-no{display:inline-block;font-size:10px;color:var(--blue);font-weight:700;letter-spacing:1px}.side-note{margin-top:26px;padding-top:17px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.side-note b{color:var(--ink)}
+main{padding:26px 28px 34px;min-width:0;max-width:1700px;width:100%;margin:0 auto}.heading{display:flex;gap:18px;justify-content:space-between;align-items:flex-start;margin-bottom:18px}h1{margin:5px 0 5px;font-size:26px;line-height:1.4;letter-spacing:-.5px}.subtitle{color:var(--muted);font-size:12px}.navigation{display:flex;gap:7px;flex-shrink:0;padding-top:10px}.navigation button{width:38px;padding:6px}.narrative{background:white;border:1px solid var(--line);border-radius:12px;padding:15px 18px;display:flex;gap:18px;align-items:flex-start;margin-bottom:16px}.case-badge{padding:3px 10px;border-radius:6px;font-weight:600;white-space:nowrap;background:#e7f6f3;color:#087d71}.narrative p{margin:0;color:#3d5069}.narrative .hint{font-size:12px;color:var(--muted);margin-top:4px}
+.toolbar{display:flex;gap:12px 20px;align-items:flex-end;flex-wrap:wrap;margin:0 0 16px}.control label,.range-label{display:block;font-size:11px;color:var(--muted);margin-bottom:5px}.control select{border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);padding:7px 27px 7px 10px;min-width:150px;max-width:240px}.segmented{display:flex;gap:0}.segmented button{border-radius:0;padding:7px 11px;font-size:12px}.segmented button:first-child{border-radius:8px 0 0 8px}.segmented button:last-child{border-radius:0 8px 8px 0}.segmented .active{background:var(--blue);color:white;border-color:var(--blue)}.range{min-width:125px;max-width:170px;flex:1}.range input{width:100%;accent-color:var(--blue)}.focus-control{padding-bottom:8px;font-size:12px;white-space:nowrap}.focus-control input{accent-color:var(--blue)}.toolbar .spacer{flex:1}
+.panels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.panel{min-width:0;background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}.panel-head{height:63px;padding:11px 13px;border-bottom:1px solid #e8edf3}.panel-head strong{font-size:13px;display:block}.panel-head small{font-size:11px;color:var(--muted)}.panel-head .after{color:var(--blue)}.image-wrap{aspect-ratio:1;background:#eaf0f6;position:relative;overflow:hidden}canvas{width:100%;height:auto;display:block;image-rendering:auto}.pixel canvas{image-rendering:pixelated}.panel-foot{padding:8px 12px;font-size:11px;color:var(--muted);min-height:35px}.panel-foot b{font-weight:600;color:var(--ink)}.source-switch{border:0;padding:0;background:transparent;color:var(--blue);font-size:11px;float:right}
+.legend{display:flex;gap:17px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:12px;margin:13px 0}.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}.legend .mode-note{margin-left:auto;font-size:11px}.details{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;margin-top:18px}.card{background:white;border:1px solid var(--line);border-radius:12px;padding:17px 18px}.card h2{font-size:14px;margin:0 0 12px}.stage-row{display:grid;grid-template-columns:minmax(150px,1.4fr) 2fr 56px;gap:12px;align-items:center;font-size:12px;padding:5px 0}.stage-row .stage-name{white-space:nowrap}.track{height:7px;background:#edf1f7;border-radius:8px;overflow:hidden}.bar{height:100%;background:#aac2f9;border-radius:8px}.stage-row.current .bar{background:var(--blue)}.stage-value{text-align:right;font-variant-numeric:tabular-nums}.explain p{margin:0 0 10px;font-size:12px;color:#506078}.metrics{display:flex;gap:28px;margin-bottom:12px}.metric span{color:var(--muted);font-size:11px;display:block}.metric strong{font-size:26px;font-weight:650;line-height:1.4;font-variant-numeric:tabular-nums}.metric .gain{color:#078675}.metric .loss{color:var(--rose)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.actions button{font-size:12px}.actions .primary{background:var(--blue);color:white;border-color:var(--blue)}footer{margin-top:18px;font-size:11px;color:#7d899a;line-height:1.7}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#142b45;color:white;border-radius:9px;padding:10px 18px;display:none;z-index:3}
+@media(min-width:1750px){main{padding-left:40px;padding-right:40px}.panels{gap:18px}}
+@media(max-width:1100px){.layout{grid-template-columns:205px minmax(0,1fr)}main{padding:20px}.panels{grid-template-columns:repeat(2,minmax(0,1fr))}.details{grid-template-columns:1fr}.heading h1{font-size:22px}.top{padding:0 20px}.control select{max-width:210px}}
+@media(max-width:650px){.top{height:62px;padding:0 14px}.top small,.tag{display:none}.layout{display:block}aside{position:static;max-height:none;overflow:visible;border-right:0;border-bottom:1px solid var(--line);padding:14px}.side-title,.side-note{display:none}.filters{margin:8px 0}.case-list{display:flex;overflow-x:auto;gap:7px}.case-button{flex:0 0 190px;margin:0}.layout main{padding:16px 12px}.heading{gap:8px}.heading h1{font-size:21px}.navigation{gap:3px}.navigation button{width:30px}.narrative{gap:10px;padding:12px}.case-badge{font-size:11px;padding:3px 7px}.narrative p{font-size:12px}.toolbar{gap:12px}.control{flex:1;min-width:140px}.control select{width:100%;max-width:100%;font-size:12px;min-width:0}.focus-control{width:100%;padding:0}.panels{gap:8px}.panel-head{height:65px;padding:8px}.panel-head strong{font-size:12px}.panel-head small{font-size:10px}.panel-foot{padding:6px 8px;font-size:10px}.legend{gap:10px}.legend .mode-note{margin-left:0}.metrics{gap:20px}.card{padding:13px}.stage-row{grid-template-columns:145px 1fr 45px;gap:7px;font-size:11px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand"><span class="mark">D</span><strong>DPSeg</strong><small>实例分割案例展台</small></div><span class="tag">GROUND TRUTH × PREDICTIONS</span></header>
+<div class="layout">
+<aside><div class="eyebrow">Case studies</div><h2 class="side-title">从案例看分割效果</h2><div id="filters" class="filters" aria-label="筛选案例"></div><nav id="case-list" class="case-list" aria-label="案例列表"></nav><div class="side-note"><b>怎么看这组例子</b><br>先看原图和GT，再对照预测中的缺失、多出和边界偏差。<br><br>这些案例按可解释性挑选，用来展示具体变化，不代表数据集的平均表现。</div></aside>
+<main>
+<section class="heading"><div><div class="eyebrow" id="position">CASE 01</div><h1 id="title">载入真实案例…</h1><div class="subtitle" id="identity"></div></div><div class="navigation"><button id="prev" aria-label="上一个案例">←</button><button id="next" aria-label="下一个案例">→</button><button id="fullscreen" aria-label="全屏展示">⛶</button></div></section>
+<section class="narrative"><span id="category" class="case-badge"></span><div><p id="story"></p><p id="focus-note" class="hint"></p></div></section>
+<section class="toolbar" aria-label="对比设置">
+<div class="control"><label for="before">改进前</label><select id="before"></select></div>
+<div class="control"><label for="after">改进后</label><select id="after"></select></div>
+<div class="control"><label for="mode">显示方式</label><select id="mode"><option value="overlay">实例掩码叠加</option><option value="error">漏分 / 多分像素</option><option value="outline">GT与预测轮廓</option><option value="mask">纯实例掩码</option></select></div>
+<div><span class="range-label">观察范围</span><div class="segmented"><button id="detail" class="active">局部放大</button><button id="whole">整张图</button></div></div>
+<label class="focus-control"><input id="focus" type="checkbox" checked> 仅显示关注实例 / 区域</label>
+<div class="range"><label for="threshold" class="range-label">置信度 ≥ <output id="threshold-value">0.50</output></label><input id="threshold" type="range" min="0.01" max="0.99" step="0.01" value="0.5"></div>
+<div class="range"><label for="opacity" class="range-label">掩码透明度 <output id="opacity-value">0.48</output></label><input id="opacity" type="range" min="0" max="0.85" step="0.01" value="0.48"></div>
+</section>
+<section class="panels" aria-label="原图、GT和改进前后预测">
+<article class="panel"><div class="panel-head"><button id="source-switch" class="source-switch">查看深度</button><strong id="source-title">原始 RGB</strong><small>课程原图 · 同一观察区域</small></div><div class="image-wrap pixel"><canvas id="rgb" aria-label="原始图像"></canvas></div><div class="panel-foot" id="crop-caption"></div></article>
+<article class="panel"><div class="panel-head"><strong>Ground Truth · 真实标注</strong><small>原始 COCO 实例掩码</small></div><div class="image-wrap pixel"><canvas id="gt" aria-label="真实实例掩码"></canvas></div><div class="panel-foot" id="gt-caption"></div></article>
+<article class="panel"><div class="panel-head"><strong id="before-title">改进前</strong><small id="before-subtitle"></small></div><div class="image-wrap pixel"><canvas id="prediction-before" aria-label="改进前实例掩码"></canvas></div><div class="panel-foot" id="before-caption"></div></article>
+<article class="panel"><div class="panel-head"><strong id="after-title" class="after">改进后</strong><small id="after-subtitle"></small></div><div class="image-wrap pixel"><canvas id="prediction-after" aria-label="改进后实例掩码"></canvas></div><div class="panel-foot" id="after-caption"></div></article>
+</section>
+<div id="legend" class="legend"></div>
+<section class="details"><article class="card"><h2 id="chart-title">同一实例，在五个阶段中的变化</h2><div id="stages"></div></article><article class="card explain"><h2 id="metric-title">关注实例的 Mask IoU</h2><div class="metrics"><div class="metric"><span>改进前</span><strong id="metric-before">—</strong></div><div class="metric"><span>改进后</span><strong id="metric-after">—</strong></div><div class="metric"><span id="delta-label">变化</span><strong id="metric-delta" class="gain">—</strong></div></div><p id="metric-note"></p><div class="actions"><button id="download-png" class="primary">导出当前对比图</button><button id="download-json">下载原始掩码 JSON</button><button id="reset">恢复本例设置</button></div></article></section>
+<footer id="provenance"></footer>
+</main></div><div id="toast" class="toast" role="status"></div>
+<script type="application/json" id="showcase-data">__SHOWCASE_DATA__</script>
+<script>
+(()=>{
+'use strict';
+const data=JSON.parse(document.getElementById('showcase-data').textContent),$=id=>document.getElementById(id);
+const palette=[[20,184,166],[139,92,246],[245,158,11],[236,72,153],[59,130,246],[132,204,22],[249,115,22],[6,182,212]];
+const cyan=[20,184,166],pink=[244,63,94],amber=[245,158,11],images=new Map(),cache=new Map(),runsCache=new WeakMap();
+let current=0,filter='全部',detail=true,depth=false,ready=false;
+function chosen(){return data.cases[current]}
+function runs(rle){
+ if(runsCache.has(rle))return runsCache.get(rle);
+ let p=0;const values=[];let total=0;
+ while(p<rle.counts.length){let x=0,k=0,c;do{if(p>=rle.counts.length||k>5)throw Error('RLE损坏');c=rle.counts.charCodeAt(p++)-48;if(c<0||c>63)throw Error('RLE字符错误');x|=(c&31)<<(5*k);k++;}while(c&32);if(c&16)x|=(-1)<<(5*k);if(values.length>2)x+=values[values.length-2];if(x<0)throw Error('RLE长度错误');values.push(x);total+=x}
+ if(total!==rle.size[0]*rle.size[1])throw Error('RLE尺寸错误');runsCache.set(rle,values);return values;
+}
+function decode(rle,box){
+ const [l,t,r,b]=box,h=rle.size[0],w=r-l,out=new Uint8Array(w*(b-t));let pos=0,fg=false;
+ for(const len of runs(rle)){const end=pos+len;if(fg&&len){const x0=Math.max(l,Math.floor(pos/h)),x1=Math.min(r-1,Math.floor((end-1)/h));for(let x=x0;x<=x1;x++){const y0=Math.max(t,pos-x*h),y1=Math.min(b,end-x*h);for(let y=y0;y<y1;y++)out[(y-t)*w+x-l]=1}}pos=end;fg=!fg}
+ return out;
+}
+function mask(rle,box){
+ const key=box.join(',')+'|'+rle.counts;
+ if(cache.has(key))return cache.get(key);
+ const result=decode(rle,box);if(cache.size>=128)cache.delete(cache.keys().next().value);cache.set(key,result);return result;
+}
+function merge(masks,size){const out=new Uint8Array(size);for(const m of masks)for(let i=0;i<size;i++)if(m[i])out[i]=1;return out}
+function edge(m,i,w){return m[i]&&(i<w||i>=m.length-w||i%w===0||i%w===w-1||!m[i-1]||!m[i+1]||!m[i-w]||!m[i+w])}
+function allVisible(stage){return chosen().predictions[stage].filter(v=>v.score>=Number($('threshold').value))}
+function best(stage){let v=null;for(const p of allVisible(stage))if(p.focus_iou>0&&(!v||p.focus_iou>v.focus_iou))v=p;return v}
+function visible(stage){const items=allVisible(stage);if(!$('focus').checked)return items;if(chosen().kind==='false_positive')return items.filter(p=>p.focus_iou>0);const p=best(stage);return p?[p]:[]}
+function truth(){const c=chosen();return !$('focus').checked||c.kind==='false_positive'?c.ground_truth:c.ground_truth.filter(a=>a.id===c.annotation_id)}
+function box(){return detail?chosen().bounds:[0,0,1024,1024]}
+function paint(canvasId,kind,stage){
+ const canvas=$(canvasId),bounds=box(),[l,t,r,b]=bounds,w=r-l,h=b-t,c=chosen(),mode=$('mode').value;
+ canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');
+ if(mode==='mask'&&kind!=='rgb'){ctx.fillStyle='#101d2d';ctx.fillRect(0,0,w,h)}else ctx.drawImage(images.get(c.id)[kind==='rgb'&&depth?'depth':'rgb'],l,t,w,h,0,0,w,h);
+ if(kind!=='rgb'){
+  const pixel=ctx.getImageData(0,0,w,h),pixels=pixel.data,gt=truth(),gm=gt.map(a=>mask(a.segmentation,bounds)),gtUnion=merge(gm,w*h),pred=kind==='gt'?[]:visible(stage),pm=pred.map(p=>mask(p.segmentation,bounds));
+  const restrict=kind!=='gt'&&c.kind==='false_positive'&&$('focus').checked?mask(c.reference_rle,bounds):null;
+  function color(i,rgb,alpha){if(restrict&&!restrict[i])return;const j=i*4;pixels[j]=pixels[j]*(1-alpha)+rgb[0]*alpha;pixels[j+1]=pixels[j+1]*(1-alpha)+rgb[1]*alpha;pixels[j+2]=pixels[j+2]*(1-alpha)+rgb[2]*alpha;pixels[j+3]=255}
+  if(kind!=='gt'&&mode==='error'){
+   const union=merge(pm,w*h);for(let i=0;i<w*h;i++){if(gtUnion[i]&&union[i])color(i,cyan,.58);else if(gtUnion[i])color(i,pink,.72);else if(union[i])color(i,amber,.72)}
+  }else if(kind!=='gt'&&mode==='outline'){
+   const union=merge(pm,w*h);for(let i=0;i<w*h;i++){if(edge(gtUnion,i,w))color(i,cyan,1);if(edge(union,i,w))color(i,pink,1)}
+  }else{
+   const mm=kind==='gt'?gm:pm;
+   mm.forEach((m,n)=>{let col=cyan;if(!$('focus').checked){const ix=kind==='gt'?c.ground_truth.indexOf(gt[n]):pred[n].matched_gt_index;col=ix==null?amber:palette[ix%palette.length]}
+    for(let i=0;i<m.length;i++)if(m[i]){if(mode==='outline'){if(edge(m,i,w))color(i,col,1)}else color(i,col,mode==='mask'?1:(edge(m,i,w)?1:Number($('opacity').value)))}
+   });
+  }
+  ctx.putImageData(pixel,0,0);
+ }
+ if(!detail){const [x,y,x2,y2]=c.bounds;ctx.strokeStyle='#facc15';ctx.lineWidth=3;ctx.setLineDash([10,6]);ctx.strokeRect(x,y,x2-x,y2-y);ctx.setLineDash([])}
+ return canvas;
+}
+function coverage(stage){
+ const c=chosen(),ref=mask(c.reference_rle,c.bounds),preds=allVisible(stage),masks=preds.map(p=>mask(p.segmentation,c.bounds));let hit=0,total=0;
+ for(let i=0;i<ref.length;i++)if(ref[i]){total++;if(masks.some(m=>m[i]))hit++}return total?hit/total:0;
+}
+function numbers(){const result={};for(const stage of Object.keys(data.labels))result[stage]=chosen().kind==='false_positive'?coverage(stage):(best(stage)?.focus_iou||0);return result}
+function render(){
+ if(!ready)return;const c=chosen(),before=$('before').value,after=$('after').value,threshold=Number($('threshold').value),mode=$('mode').value;
+ for(const [id,kind,stage] of [['rgb','rgb'],['gt','gt'],['prediction-before','pred',before],['prediction-after','pred',after]])paint(id,kind,stage);
+ const vals=numbers(),isFP=c.kind==='false_positive',fmt=v=>isFP?(v*100).toFixed(1)+'%':v.toFixed(3),delta=vals[after]-vals[before];
+ $('before-title').textContent=data.labels[before];$('after-title').textContent=data.labels[after];
+ for(const [label,stage] of [['before',before],['after',after]]){const p=best(stage),shown=visible(stage).length;$(`${label}-subtitle`).textContent=p?'关注预测置信度 '+p.score.toFixed(3):'当前阈值下无重合预测';$(`${label}-caption`).textContent=`显示 ${shown} 个掩码 · 全图 ${allVisible(stage).length} 个候选`}
+ $('gt-caption').textContent=c.kind==='false_positive'?`全图 ${c.ground_truth.length} 个GT实例`:`关注实例面积 ${c.gt_area} px² · ${c.gt_area<=1024?'小目标':'中等目标'}`;
+ $('crop-caption').textContent=detail?`局部 ${c.bounds[2]-c.bounds[0]} × ${c.bounds[3]-c.bounds[1]} px → 同步放大`:'1024 × 1024 · 黄框为观察区域';
+ $('threshold-value').textContent=threshold.toFixed(2);$('opacity-value').textContent=Number($('opacity').value).toFixed(2);
+ $('metric-title').textContent=isFP?'原误检区域的预测残留比例':'关注实例的 Mask IoU';
+ $('metric-before').textContent=fmt(vals[before]);$('metric-after').textContent=fmt(vals[after]);
+ $('metric-delta').textContent=(delta>0?'+':'')+(isFP?(delta*100).toFixed(1)+'pp':delta.toFixed(3));
+ $('metric-delta').className=(isFP?delta<=0:delta>=0)?'gain':'loss';
+ $('chart-title').textContent=isFP?'原误检区域还被多少预测覆盖（越低越好）':'关注实例的最佳 Mask IoU（越高越好）';
+ $('stages').replaceChildren();for(const [stage,label] of Object.entries(data.labels)){const row=document.createElement('div');row.className='stage-row'+(stage===after?' current':'');const name=document.createElement('span');name.className='stage-name';name.textContent=label;const track=document.createElement('div');track.className='track';const bar=document.createElement('div');bar.className='bar';bar.style.width=100*vals[stage]+'%';track.append(bar);const value=document.createElement('span');value.className='stage-value';value.textContent=fmt(vals[stage]);row.append(name,track,value);$('stages').append(row)}
+ $('metric-note').textContent=isFP?'以S0的这个误检掩码为固定区域，统计各阶段全部可见预测覆盖的比例。原区域与GT的重合比例为 '+(c.gt_coverage*100).toFixed(1)+'%。这不是AP。':'在当前置信度阈值下，取与关注GT重合度最高的预测。IoU=交集÷并集；没有重合预测时为0。此数值用于单例几何对照，不是数据集AP。';
+ const legend=mode==='error'?[[cyan,'与GT重合'],[pink,'GT中有、预测缺失'],[amber,'预测多出的像素']]:mode==='outline'?[[cyan,'GT轮廓'],[pink,'预测轮廓']]:[[cyan,$('focus').checked?'关注实例':'颜色对应不同GT实例'],[amber,'未对应到GT的预测']];
+ $('legend').replaceChildren();for(const [color,text] of legend){const span=document.createElement('span'),dot=document.createElement('i');dot.style.background='rgb('+color.join(',')+')';span.append(dot,document.createTextNode(text));$('legend').append(span)}const note=document.createElement('span');note.className='mode-note';note.textContent=c.kind==='false_positive'&&$('focus').checked?'仅原误检区域参与预测着色':mode==='error'?'误差按当前显示的掩码计算':'展示颜色与裁剪不修改原始掩码';$('legend').append(note);
+ document.querySelectorAll('.image-wrap').forEach(p=>p.classList.toggle('pixel',detail));$('detail').classList.toggle('active',detail);$('whole').classList.toggle('active',!detail);
+ $('source-title').textContent=depth?'深度图 · 伪彩色':'原始 RGB';$('source-switch').textContent=depth?'查看 RGB':'查看深度';
+ window.__showcase.lastRender={case_id:c.id,image_id:c.image_id,before,after,threshold,detail,focus:$('focus').checked,mode,metrics:vals,shown_before:visible(before).length,shown_after:visible(after).length};
+}
+function list(){
+ $('case-list').replaceChildren();data.cases.forEach((c,i)=>{if(filter!=='全部'&&c.group!==filter)return;const b=document.createElement('button');b.className='case-button'+(i===current?' active':'');b.dataset.index=i;b.setAttribute('aria-current',i===current?'true':'false');const num=document.createElement('span');num.className='case-no';num.textContent=`CASE ${String(i+1).padStart(2,'0')} · ${c.group}`;const title=document.createElement('strong');title.textContent=c.title;const small=document.createElement('small');small.textContent=`${c.before} → ${c.after} · image ${c.image_id}`;b.append(num,title,small);b.onclick=()=>select(i);$('case-list').append(b)});
+ document.querySelectorAll('#filters button').forEach(b=>b.classList.toggle('active',b.textContent===filter));
+}
+function select(i){current=i;cache.clear();const c=chosen();$('position').textContent=`CASE ${String(i+1).padStart(2,'0')} / ${String(data.cases.length).padStart(2,'0')} · ${data.split.toUpperCase()}`;$('title').textContent=c.title;$('identity').textContent=`image_id ${c.image_id} · 1024 × 1024 · 课程原图与原始标注`;$('category').textContent=c.group;$('story').textContent=c.note||'观察标注与预测的具体差异。';$('focus-note').textContent=c.kind==='false_positive'?'关注黄色多分区域：原图中有外观纹理，但该区域没有对应的component标注。':`关注 GT #${c.annotation_id}，面积 ${c.gt_area} px²。`;$('before').value=c.before;$('after').value=c.after;$('threshold').value=data.threshold;$('opacity').value=.48;$('mode').value=c.group==='成功'?'overlay':'error';$('focus').checked=true;detail=true;depth=false;list();render()}
+function move(delta){const ids=data.cases.map((c,i)=>[c,i]).filter(([c])=>filter==='全部'||c.group===filter).map(([,i])=>i);let at=ids.indexOf(current);select(ids[(at+delta+ids.length)%ids.length])}
+function download(name,value,type){const url=URL.createObjectURL(new Blob([value],{type})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+for(const name of ['全部',...new Set(data.cases.map(c=>c.group))]){const b=document.createElement('button');b.textContent=name;b.onclick=()=>{filter=name;if(filter!=='全部'&&chosen().group!==filter)select(data.cases.findIndex(c=>c.group===filter));else list()};$('filters').append(b)}
+for(const id of ['before','after'])for(const [stage,label] of Object.entries(data.labels)){const o=document.createElement('option');o.value=stage;o.textContent=label;$(id).append(o)}
+for(const id of ['before','after','mode','focus'])$(id).addEventListener('change',render);
+for(const id of ['threshold','opacity'])$(id).addEventListener('input',render);
+$('detail').onclick=()=>{detail=true;cache.clear();render()};$('whole').onclick=()=>{detail=false;cache.clear();render()};$('source-switch').onclick=()=>{depth=!depth;render()};
+$('prev').onclick=()=>move(-1);$('next').onclick=()=>move(1);$('reset').onclick=()=>select(current);
+document.addEventListener('keydown',e=>{if(['INPUT','SELECT'].includes(document.activeElement.tagName))return;if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1)});
+$('fullscreen').onclick=async()=>{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()};
+$('download-json').onclick=()=>{const c=chosen(),predictions={};for(const [stage,items] of Object.entries(c.predictions))predictions[stage]=items.map(({category_id,score,segmentation})=>({category_id,score,segmentation}));download(`dpseg_${c.id}_${c.image_id}_original_masks.json`,JSON.stringify({image_id:c.image_id,split:data.split,ground_truth:c.ground_truth,predictions,display_crop:c.bounds,focus_annotation_id:c.annotation_id||null},null,2),'application/json')};
+$('download-png').onclick=()=>{const c=chosen(),out=document.createElement('canvas');out.width=2112;out.height=670;const ctx=out.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,out.width,out.height);ctx.fillStyle='#172b44';ctx.font='bold 26px sans-serif';ctx.fillText('DPSeg · '+c.title,20,36);ctx.font='17px sans-serif';ctx.fillText(`image_id ${c.image_id} · ${data.split} · confidence ≥ ${$('threshold').value} · GT from course archive`,20,65);const names=[depth?'Depth':'RGB','Ground Truth',data.labels[$('before').value],data.labels[$('after').value]];['rgb','gt','prediction-before','prediction-after'].forEach((id,i)=>{ctx.fillText(names[i],16+i*528,103);ctx.imageSmoothingEnabled=!detail;ctx.drawImage($(id),16+i*528,118,512,512)});ctx.font='16px sans-serif';ctx.fillText($('legend').innerText.replaceAll('\n','  '),20,654);const a=document.createElement('a');a.href=out.toDataURL('image/png');a.download=`dpseg_${c.id}_${$('before').value}_${$('after').value}.png`;a.click()};
+$('provenance').textContent=`来源：课程合成 RGB-D ${data.split==='test'?'本地测试归档':'验证集'}，原始COCO标注及已完成消融实验的固定预测。${data.split==='test'?'这里使用下载归档中已有的test标注，不是读取Kaggle隐藏评分标注。':''} 页面离线展示，不重新推理。案例在实验结束后按现象挑选，不用于调整模型；单例IoU不能替代完整数据集AP。深度颜色逐图归一化，仅用于观察。`;
+window.__showcase={data,decode,runs,ready:false,lastRender:null};
+Promise.all(data.cases.map(async c=>{const rgb=new Image(),depth=new Image();rgb.src=c.rgb;depth.src=c.depth;await Promise.all([rgb.decode(),depth.decode()]);images.set(c.id,{rgb,depth})})).then(()=>{ready=true;window.__showcase.ready=true;select(0)}).catch(e=>{$('title').textContent='案例载入失败：'+e.message;console.error(e)});
+})();
+</script></body></html>
