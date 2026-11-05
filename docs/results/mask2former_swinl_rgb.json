@@ -1,0 +1,40 @@
+{
+  "status": "completed",
+  "method": "RGB Mask2Former Swin-Large",
+  "epoch": 15,
+  "parameters": 215501686,
+  "val": {
+    "mask_ap": 0.7315391326835045,
+    "mask_ap50": 0.9251923283806424,
+    "mask_ap75": 0.8043574539448364,
+    "mask_ap_small": 0.39029747026140416,
+    "mask_ap_medium": 0.753482592044433,
+    "mask_ap_large": 0.9436699627084641,
+    "mask_ar_1": 0.033569414745100175,
+    "mask_ar_10": 0.2994551967420765,
+    "mask_ar_100": 0.7625080017978506,
+    "mask_ar_small": 0.4594872261114647,
+    "mask_ar_medium": 0.7867097701149425,
+    "mask_ar_large": 0.952883121630266
+  },
+  "test": {
+    "mask_ap": 0.7346113652476002,
+    "mask_ap50": 0.911681216263419,
+    "mask_ap75": 0.7938843485171826,
+    "mask_ap_small": 0.20583773552236304,
+    "mask_ap_medium": 0.7961537864141843,
+    "mask_ap_large": 0.9253503178106516,
+    "mask_ar_1": 0.02717394185152792,
+    "mask_ar_10": 0.25664307863560465,
+    "mask_ar_100": 0.758200153719753,
+    "mask_ar_small": 0.29323594791997454,
+    "mask_ar_medium": 0.8188677440948646,
+    "mask_ar_large": 0.9369399573300822
+  },
+  "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_rgb_v1/submissions/mask2former_swinl_rgb_1024_e15.csv",
+  "csv_sha256": "0dcc2c79fc0ac8c7b695d6df5a58c47a5f07f82673256324ec2b0c9e9b209f82",
+  "checkpoint": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_rgb_v1/base15/final.pt",
+  "checkpoint_sha256": "6d350cac2ef76ee22d372c09cdcb1b01210ccc55c7c2739000b86e2cec302c15",
+  "test_used_for_selection": false,
+  "finished_at_utc": "2026-11-05T14:57:23.875614+00:00"
+}
