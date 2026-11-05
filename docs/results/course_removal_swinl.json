@@ -1,0 +1,328 @@
+{
+  "schema": "dpseg-swinl-single-module-removal-v1",
+  "status": "verified",
+  "generated_at_utc": "2026-11-05T17:03:50.565160+00:00",
+  "material_passport": {
+    "source": "本地冻结实验 reports/course_swinl_removal_v1；academic-research-suite 实验流程",
+    "scope": "固定权重、逐项去除点细化/概率图细化/切片，完整本地测试集",
+    "verification_status": "VERIFIED",
+    "origin": "实际模型推理及 COCO 掩码评分，非估计或合成数值",
+    "authority": "用户授权的三项模块去除实验；without RGB-D 延后",
+    "completed_at_utc": "2026-11-05T16:14:13.091507+00:00",
+    "protocol_sha256": "ae765b94bf2085bed7ccf895289acc25ca4f5d0fc5f1707f8d1d3996d83e62d1",
+    "limitations": "所有结果来自同一次 seed=17 训练：共用第 15 轮 RGB-D 基座，保留点细化时使用同一验证集选取的第 6 轮点头。没有针对各去除配置重新训练或调参，测试标注只用于评分，结果不表示重新训练后的架构优劣，也不构成统计显著性结论。",
+    "dataset_archive_sha256_recorded_in_training_protocol": "931708a0bbfbdc0908c3118098897fccf9a05e4f6d768758ba7328136898c94e",
+    "archive_rehashed_by_this_publisher": false
+  },
+  "split": "local_test",
+  "images": 2112,
+  "backbone": "Swin-Large",
+  "camera_intrinsics_used": false,
+  "training": false,
+  "test_used_for_selection": false,
+  "variants": {
+    "full": {
+      "rgbd": true,
+      "point": true,
+      "probability": true,
+      "tiles": true
+    },
+    "without_point": {
+      "rgbd": true,
+      "point": false,
+      "probability": true,
+      "tiles": true
+    },
+    "without_probability": {
+      "rgbd": true,
+      "point": true,
+      "probability": false,
+      "tiles": true
+    },
+    "without_tiles": {
+      "rgbd": true,
+      "point": true,
+      "probability": true,
+      "tiles": false
+    }
+  },
+  "deferred": [
+    "without_rgbd_fusion"
+  ],
+  "results": [
+    {
+      "status": "completed",
+      "variant": "full",
+      "images": 2112,
+      "predicted_instances": 140958,
+      "metrics": {
+        "mask_ap": 0.8802892836843677,
+        "mask_ap50": 0.9625140609439644,
+        "mask_ap75": 0.8962846723301018,
+        "mask_ap_small": 0.5252858263082129,
+        "mask_ap_medium": 0.9155911511687985,
+        "mask_ap_large": 0.9750856983614972,
+        "mask_ar_1": 0.027519811295751505,
+        "mask_ar_10": 0.266976756513212,
+        "mask_ar_100": 0.9102899472582227,
+        "mask_ar_small": 0.6740870117497618,
+        "mask_ar_medium": 0.9420244812087597,
+        "mask_ar_large": 0.9836635172203596
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/full/evaluation.json",
+      "evaluation_sha256": "7069d3acd4cb2ce663305460174512186ac09195ad78321f077a7ebc25451753",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/full/predictions.jsonl",
+      "predictions_sha256": "aaa7ed9882077edcc48471391f62c665b80ba04c1576f7e41c945864c8cabd29",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/submissions/dpseg_swinl_depth_no_k_removal_full.csv",
+      "csv_sha256": "572798907d773a7408ecdc7c7a5094daff0405657c43b8752b9a1e1ab8dadf10",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "完整 DPSeg",
+      "csv_validation_sha256": "383c2422c789dce7ac8ab39f5e6a15d11a2e17c8e371a6c00d4d1345d38b78d8",
+      "exact_reference_rows": 2112
+    },
+    {
+      "status": "completed",
+      "variant": "without_point",
+      "images": 2112,
+      "predicted_instances": 140958,
+      "metrics": {
+        "mask_ap": 0.8726957528562028,
+        "mask_ap50": 0.9561458760262881,
+        "mask_ap75": 0.8952421569933825,
+        "mask_ap_small": 0.5166798500551152,
+        "mask_ap_medium": 0.9071076089321698,
+        "mask_ap_large": 0.9749396550082278,
+        "mask_ar_1": 0.027484031698073202,
+        "mask_ar_10": 0.26613924889348284,
+        "mask_ar_100": 0.9021056955818825,
+        "mask_ar_small": 0.6629617868106277,
+        "mask_ar_medium": 0.9339039240062478,
+        "mask_ar_large": 0.9827491618409022
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/without_point/evaluation.json",
+      "evaluation_sha256": "4064e4650d29e9686c76609290233d7d57d8112af4baaa8b9914d14aad915af1",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/without_point/predictions.jsonl",
+      "predictions_sha256": "5d0b6fb0f6d7a35b418df0fb5f894fab1ef59226bb54e9a3aa174aa3370d4055",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/submissions/dpseg_swinl_depth_no_k_removal_without_point.csv",
+      "csv_sha256": "cb2cbbe38beb36f1857bb7d5398c23e55a35661002d15e2b3e450999ff5304cc",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "去除深度感知点细化",
+      "csv_validation_sha256": "c8d56ce2b9dc77d902c9d682fd4561dd52141130e1b211d3a790f6ee5cfd9651",
+      "exact_reference_rows": null
+    },
+    {
+      "status": "completed",
+      "variant": "without_probability",
+      "images": 2112,
+      "predicted_instances": 140958,
+      "metrics": {
+        "mask_ap": 0.8605545870472071,
+        "mask_ap50": 0.955864575598411,
+        "mask_ap75": 0.885650790462973,
+        "mask_ap_small": 0.45948572885804584,
+        "mask_ap_medium": 0.9022174751639718,
+        "mask_ap_large": 0.9726947524764311,
+        "mask_ar_1": 0.02745752829238557,
+        "mask_ar_10": 0.2659736026079351,
+        "mask_ar_100": 0.8895338050939546,
+        "mask_ar_small": 0.5859320419180691,
+        "mask_ar_medium": 0.9304979120844091,
+        "mask_ar_large": 0.9804632733922585
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/without_probability/evaluation.json",
+      "evaluation_sha256": "52e7b0b341759386089be46b828bfa6b9db56bd8720b59fdd66a1351ba5a5ceb",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/without_probability/predictions.jsonl",
+      "predictions_sha256": "7821ef6d10ac034373c0815e4df88dedbeafc70bd437fef958cc5c0c972a8a3e",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/submissions/dpseg_swinl_depth_no_k_removal_without_probability.csv",
+      "csv_sha256": "b5767912bfbf9b2b4ba06a6829d7a781522e40554a08419f644e98c6063c0511",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "去除深度引导概率图细化",
+      "csv_validation_sha256": "1b71d4e090bb13b0ea1f5a1d63a84b427fb058364b5f0b770f9bebf7687ceaee",
+      "exact_reference_rows": null
+    },
+    {
+      "status": "completed",
+      "variant": "without_tiles",
+      "images": 2112,
+      "predicted_instances": 116324,
+      "metrics": {
+        "mask_ap": 0.8860679855189169,
+        "mask_ap50": 0.9573466897485423,
+        "mask_ap75": 0.9140489820387586,
+        "mask_ap_small": 0.476383566407863,
+        "mask_ap_medium": 0.9348438683491352,
+        "mask_ap_large": 0.9828868532951069,
+        "mask_ar_1": 0.027812673928599825,
+        "mask_ar_10": 0.2707230129071586,
+        "mask_ar_100": 0.900885213749967,
+        "mask_ar_small": 0.5696411559225151,
+        "mask_ar_medium": 0.9460680246087151,
+        "mask_ar_large": 0.9907345321548309
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/without_tiles/evaluation.json",
+      "evaluation_sha256": "b3890eeff008841622c1eeb309bbd7f878ad6d767fb3608cf78683c737736996",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/without_tiles/predictions.jsonl",
+      "predictions_sha256": "4e46a11061e27e69d0af114b2ed36582bfa67f95993267663fbb39d4a3b435d1",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/submissions/dpseg_swinl_depth_no_k_removal_without_tiles.csv",
+      "csv_sha256": "461d105a4d19ac733dda45c1e85b877c57e5491b1a3a085de92f05d200ab7504",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "去除切片增强推理",
+      "csv_validation_sha256": "cb71e4c82ccb3be351e83252f3ef9c8414505c984a7c627b3b2f5c7096c82656",
+      "exact_reference_rows": 2112
+    }
+  ],
+  "full_minus_removal": {
+    "without_point": {
+      "mask_ap_small": 0.008605976253097669,
+      "mask_ar_small": 0.011125224939134148,
+      "mask_ap": 0.0075935308281648295
+    },
+    "without_probability": {
+      "mask_ap_small": 0.06580009745016702,
+      "mask_ar_small": 0.08815496983169269,
+      "mask_ap": 0.019734696637160543
+    },
+    "without_tiles": {
+      "mask_ap_small": 0.048902259900349854,
+      "mask_ar_small": 0.10444585582724675,
+      "mask_ap": -0.005778701834549205
+    }
+  },
+  "cumulative_s1_to_s2_ap_small_change": -0.004965751844710875,
+  "semantics": {
+    "iou_type": "segm",
+    "max_detections": [
+      1,
+      10,
+      100
+    ],
+    "iou_thresholds": [
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.8999999999999999,
+      0.95
+    ],
+    "area_ranges": [
+      [
+        0,
+        10000000000.0
+      ],
+      [
+        0,
+        1024
+      ],
+      [
+        1024,
+        9216
+      ],
+      [
+        9216,
+        10000000000.0
+      ]
+    ],
+    "ground_truth_area": "original annotation area preserved",
+    "prediction_area": "independent COCO RLE; no bbox passed to loadRes",
+    "gt_instances": 75462,
+    "gt_small_including_crowd": 9447
+  },
+  "weights": {
+    "base": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt",
+      "sha256": "9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8"
+    },
+    "heads": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt",
+      "sha256": "86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783"
+    }
+  },
+  "protocol": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/protocol.json",
+    "sha256": "ae765b94bf2085bed7ccf895289acc25ca4f5d0fc5f1707f8d1d3996d83e62d1"
+  },
+  "system_protocol": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/protocol_system.json",
+    "sha256": "b0d7f0588a476c82204d0c9bde79ea29357747fb7c7caad779fabadf369ab568"
+  },
+  "source_sha256": {
+    "rgbd_seg/course_swinl_removal.py": "84cdba72eb1b89e6ce1de891a3cdebc67b07c6e38f172074d510e9c001f42164",
+    "tools/evaluate_course_swinl_removal.py": "3075cb919c979b1dc221a1e1591a654bca2b59a742f25c3ba7e82267c7e8c6f0",
+    "tools/evaluate_course_swinl_ablation.py": "3673607e35cba1fb603cd29da220c511cc423e1d51080ca8909540fce7c0f1ba"
+  },
+  "publisher_sha256": "56e8f0da96d3b33a96ef6beb42c34478483750ce42b36b9a4dbfdcd0732c0f0f",
+  "phase_exits": {
+    "engineering": {
+      "engineering": 0
+    },
+    "inferring": {
+      "worker0": 0,
+      "worker1": 0,
+      "worker2": 0,
+      "worker3": 0,
+      "worker4": 0
+    },
+    "scoring": {
+      "score_full": 0,
+      "score_without_point": 0,
+      "score_without_probability": 0,
+      "score_without_tiles": 0
+    }
+  },
+  "rank_receipts": [
+    {
+      "rank": 0,
+      "images": 423,
+      "gpu": "NVIDIA A800 80GB PCIe",
+      "receipt_sha256": "d73ecd3fe593c7fa5405e6e32230e45cd5097ab73985c7d9de4e7e1f0571d3bf",
+      "checks_sha256": "83c3c84c526143d8762cafee2434539139c1fb5cedfbf5203771dc34f08b8478"
+    },
+    {
+      "rank": 1,
+      "images": 423,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "f9a1c32a34bb8ced982c5dee57bcc361748d822838a51a5c45e31fcbd74d88a7",
+      "checks_sha256": "31c206f5fe6b0cd93b16a71d7822773b30f9c56597417b82b94cf4df76cd188c"
+    },
+    {
+      "rank": 2,
+      "images": 422,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "c2298c16b2494a242f94b289234186fb47a5b94955e98a84529bf5e5e6c28b22",
+      "checks_sha256": "7f73dbe7cef1ec98b6d413c44961b42c0b8c97167e72f29e57052f0c06a3da9c"
+    },
+    {
+      "rank": 3,
+      "images": 422,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "ff2d5df56d50f1404b714e3de710384d338886de6bbb55324493bf61425a1140",
+      "checks_sha256": "baba4492f4fc6c1469f4b1c7caac94cc24c2cc8070122a6c3365b09dcba3c101"
+    },
+    {
+      "rank": 4,
+      "images": 422,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "082cec40c6613b80734d81f62cc1391ddcb74207cac47e9a563d1b658fedaba6",
+      "checks_sha256": "c631b2c1473bceb0938fb2d4a2bae02f3f770f4f9c3ffcb0b5c96777c2ecc1f4"
+    }
+  ],
+  "references": {
+    "full": {
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/final_evaluation/test_full/evaluation.json",
+      "evaluation_sha256": "d0f2a1fd2760092bdd7690b18c092357682dd9b6c1e49064f5efa9da8c0ed160",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/final_evaluation/test_full/predictions.jsonl",
+      "predictions_sha256": "eb0ee2e6b67432964e48ccdf5180b85bca16914e6d2032e2dff7cef1b3e51fd3"
+    },
+    "without_tiles": {
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_report_ablation_v1/S3/evaluation.json",
+      "evaluation_sha256": "4f8e9e1ab355aa56426a3d7f3d06095e330cf33f71ddc4186230d02324efda8b",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_report_ablation_v1/S3/predictions.jsonl",
+      "predictions_sha256": "4e46a11061e27e69d0af114b2ed36582bfa67f95993267663fbb39d4a3b435d1"
+    }
+  },
+  "cumulative_summary_sha256": "e9ff0ca6960bedd10cdaafeff084860f2c9b7676ee3dc306e27585294ee717a7"
+}
