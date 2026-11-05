@@ -1,0 +1,434 @@
+{
+  "schema": "dpseg-tile-size-sensitivity-v1",
+  "status": "completed",
+  "generated_at_utc": "2026-11-05T18:17:41.688909+00:00",
+  "split": "local_test",
+  "images": 2112,
+  "backbone": "Swin-Large",
+  "camera_intrinsics_used": false,
+  "training": false,
+  "test_used_for_selection": false,
+  "interpretation_scope": "Post-hoc sensitivity comparison on the already examined local test set; no parameter selection",
+  "semantics": {
+    "iou_type": "segm",
+    "max_detections": [
+      1,
+      10,
+      100
+    ],
+    "iou_thresholds": [
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.8999999999999999,
+      0.95
+    ],
+    "area_ranges": [
+      [
+        0,
+        10000000000.0
+      ],
+      [
+        0,
+        1024
+      ],
+      [
+        1024,
+        9216
+      ],
+      [
+        9216,
+        10000000000.0
+      ]
+    ],
+    "ground_truth_area": "original annotation area preserved",
+    "prediction_area": "independent COCO RLE; no bbox passed to loadRes",
+    "gt_instances": 75462,
+    "gt_small_including_crowd": 9447
+  },
+  "results": [
+    {
+      "status": "completed",
+      "tile_size_px": 512,
+      "images": 2112,
+      "predicted_instances": 151635,
+      "metrics": {
+        "mask_ap": 0.8524282725706628,
+        "mask_ap50": 0.944782694348595,
+        "mask_ap75": 0.8661263786724492,
+        "mask_ap_small": 0.4904988379855117,
+        "mask_ap_medium": 0.8867545942045015,
+        "mask_ap_large": 0.9717176169807258,
+        "mask_ar_1": 0.026896981262092178,
+        "mask_ar_10": 0.2616190930534574,
+        "mask_ar_100": 0.8992075481699399,
+        "mask_ar_small": 0.6752408171906426,
+        "mask_ar_medium": 0.9287526696630646,
+        "mask_ar_large": 0.9792746113989637
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_tile_size_v1/tile512/evaluation.json",
+      "evaluation_sha256": "f9740f831e719d903c31765349bdd4e80e4fc39c0c91109762460505a71c02ce",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_tile_size_v1/tile512/predictions.jsonl",
+      "predictions_sha256": "284654b3f0e394a3291b040a13162f57c5486ff7f5d2ad7f5db98b18761fb540",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_tile_size_v1/submissions/dpseg_swinl_depth_no_k_tile512_overlap20.csv",
+      "csv_sha256": "8eec639c9c20e4c2a30f86dd03c0abba881b7ba33545ef2a54956f1a36dfd33f",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "recomputed": true,
+      "geometry": {
+        "tile_size_px": 512,
+        "nominal_overlap_ratio": 0.2,
+        "nominal_stride_px": 410,
+        "axis_starts_px": [
+          0,
+          410,
+          512
+        ],
+        "actual_adjacent_overlap_px": [
+          102,
+          410
+        ],
+        "actual_adjacent_overlap_ratios": [
+          0.19921875,
+          0.80078125
+        ],
+        "tiles": 9,
+        "views_including_whole": 10,
+        "model_input_size": [
+          1024,
+          1024
+        ],
+        "magnification": 2.0,
+        "bounds": [
+          [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          [
+            0,
+            0,
+            512,
+            512
+          ],
+          [
+            410,
+            0,
+            922,
+            512
+          ],
+          [
+            512,
+            0,
+            1024,
+            512
+          ],
+          [
+            0,
+            410,
+            512,
+            922
+          ],
+          [
+            410,
+            410,
+            922,
+            922
+          ],
+          [
+            512,
+            410,
+            1024,
+            922
+          ],
+          [
+            0,
+            512,
+            512,
+            1024
+          ],
+          [
+            410,
+            512,
+            922,
+            1024
+          ],
+          [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        ]
+      },
+      "delta_vs_640": {
+        "mask_ap_small": -0.03478698832270116,
+        "mask_ar_small": 0.0011538054408807286,
+        "mask_ap": -0.02786101111370487
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "full",
+      "images": 2112,
+      "predicted_instances": 140958,
+      "metrics": {
+        "mask_ap": 0.8802892836843677,
+        "mask_ap50": 0.9625140609439644,
+        "mask_ap75": 0.8962846723301018,
+        "mask_ap_small": 0.5252858263082129,
+        "mask_ap_medium": 0.9155911511687985,
+        "mask_ap_large": 0.9750856983614972,
+        "mask_ar_1": 0.027519811295751505,
+        "mask_ar_10": 0.266976756513212,
+        "mask_ar_100": 0.9102899472582227,
+        "mask_ar_small": 0.6740870117497618,
+        "mask_ar_medium": 0.9420244812087597,
+        "mask_ar_large": 0.9836635172203596
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/full/evaluation.json",
+      "evaluation_sha256": "7069d3acd4cb2ce663305460174512186ac09195ad78321f077a7ebc25451753",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/full/predictions.jsonl",
+      "predictions_sha256": "aaa7ed9882077edcc48471391f62c665b80ba04c1576f7e41c945864c8cabd29",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/submissions/dpseg_swinl_depth_no_k_removal_full.csv",
+      "csv_sha256": "572798907d773a7408ecdc7c7a5094daff0405657c43b8752b9a1e1ab8dadf10",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "tile_size_px": 640,
+      "recomputed": false,
+      "reuse_reason": "Exactly identical grid and complete frozen pipeline; independently verified on val and test sentinels",
+      "geometry": {
+        "tile_size_px": 640,
+        "nominal_overlap_ratio": 0.2,
+        "nominal_stride_px": 512,
+        "axis_starts_px": [
+          0,
+          384
+        ],
+        "actual_adjacent_overlap_px": [
+          256
+        ],
+        "actual_adjacent_overlap_ratios": [
+          0.4
+        ],
+        "tiles": 4,
+        "views_including_whole": 5,
+        "model_input_size": [
+          1024,
+          1024
+        ],
+        "magnification": 1.6,
+        "bounds": [
+          [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          [
+            0,
+            0,
+            640,
+            640
+          ],
+          [
+            384,
+            0,
+            1024,
+            640
+          ],
+          [
+            0,
+            384,
+            640,
+            1024
+          ],
+          [
+            384,
+            384,
+            1024,
+            1024
+          ]
+        ]
+      },
+      "delta_vs_640": {
+        "mask_ap_small": 0.0,
+        "mask_ar_small": 0.0,
+        "mask_ap": 0.0
+      }
+    },
+    {
+      "status": "completed",
+      "tile_size_px": 768,
+      "images": 2112,
+      "predicted_instances": 134986,
+      "metrics": {
+        "mask_ap": 0.8882198370998776,
+        "mask_ap50": 0.961267790081112,
+        "mask_ap75": 0.91303331040317,
+        "mask_ap_small": 0.5186851366908484,
+        "mask_ap_medium": 0.9261233655728942,
+        "mask_ap_large": 0.9778384563286641,
+        "mask_ar_1": 0.02763775145106146,
+        "mask_ar_10": 0.26901619358087514,
+        "mask_ar_100": 0.9101720071029128,
+        "mask_ar_small": 0.6478035355139198,
+        "mask_ar_medium": 0.9457906984157342,
+        "mask_ar_large": 0.9845778725998171
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_tile_size_v1/tile768/evaluation.json",
+      "evaluation_sha256": "b69c9ad87ff66b456eeca95131910f150b801678bbc3eef48c024d6cbc97c746",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_tile_size_v1/tile768/predictions.jsonl",
+      "predictions_sha256": "ebc053bb9d5babc5b478067df31f1fd2336a87e4525982b1981d9f5403d5fb7d",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_tile_size_v1/submissions/dpseg_swinl_depth_no_k_tile768_overlap20.csv",
+      "csv_sha256": "b6a424725fd4665e68e3ec8d00e092b596182eab14547b454721f6c175e47bea",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "recomputed": true,
+      "geometry": {
+        "tile_size_px": 768,
+        "nominal_overlap_ratio": 0.2,
+        "nominal_stride_px": 615,
+        "axis_starts_px": [
+          0,
+          256
+        ],
+        "actual_adjacent_overlap_px": [
+          512
+        ],
+        "actual_adjacent_overlap_ratios": [
+          0.6666666666666666
+        ],
+        "tiles": 4,
+        "views_including_whole": 5,
+        "model_input_size": [
+          1024,
+          1024
+        ],
+        "magnification": 1.3333333333333333,
+        "bounds": [
+          [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          [
+            0,
+            0,
+            768,
+            768
+          ],
+          [
+            256,
+            0,
+            1024,
+            768
+          ],
+          [
+            0,
+            256,
+            768,
+            1024
+          ],
+          [
+            256,
+            256,
+            1024,
+            1024
+          ]
+        ]
+      },
+      "delta_vs_640": {
+        "mask_ap_small": -0.006600689617364486,
+        "mask_ar_small": -0.02628347623584204,
+        "mask_ap": 0.007930553415509967
+      }
+    }
+  ],
+  "checkpoints": {
+    "base": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt",
+      "sha256": "9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8"
+    },
+    "heads": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt",
+      "sha256": "86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783"
+    }
+  },
+  "protocol_sha256": "116cc8bc840b7c26cce71e1e527ce3931b50c91e414b25690b7a1bb3697d8ca6",
+  "source_sha256": {
+    "rgbd_seg/course_swinl_removal.py": "84cdba72eb1b89e6ce1de891a3cdebc67b07c6e38f172074d510e9c001f42164",
+    "tools/evaluate_course_swinl_removal.py": "3075cb919c979b1dc221a1e1591a654bca2b59a742f25c3ba7e82267c7e8c6f0",
+    "tools/evaluate_course_swinl_ablation.py": "3673607e35cba1fb603cd29da220c511cc423e1d51080ca8909540fce7c0f1ba",
+    "rgbd_seg/course_tile_size.py": "2b8e0d633b0b5a68aa092e8b6ea7701908dea91837e29f6c64de0f99427c99b1",
+    "tools/evaluate_course_tile_size.py": "45995b7858615ce33e55be2f32f107acfe95c551213ce5af3e4cb70e834b75df"
+  },
+  "rank_receipts": [
+    {
+      "rank": 0,
+      "images": 302,
+      "gpu": "NVIDIA A800 80GB PCIe",
+      "receipt_sha256": "5b49b2214135192c3de2259573f72d1848b7bc0986cac1a5654f3f06bc61df77"
+    },
+    {
+      "rank": 1,
+      "images": 302,
+      "gpu": "NVIDIA A800 80GB PCIe",
+      "receipt_sha256": "af0aeccf49b61c78f9fda25eca9a619f38d37f6fdd94525136909903f7ab0a04"
+    },
+    {
+      "rank": 2,
+      "images": 302,
+      "gpu": "NVIDIA A800 80GB PCIe",
+      "receipt_sha256": "ea256faf65f7320a0d33892bed1af1ce8f321cd34a62000f47e409b8b1ac18f7"
+    },
+    {
+      "rank": 3,
+      "images": 302,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "1e3b42ca3b4a2ea30688cc4c00aa1fa075e981196c561cb87b0eb75f175ac888"
+    },
+    {
+      "rank": 4,
+      "images": 302,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "04974393407856366b67fa297f9b561e47967eba41efe15cd07414f5d1a84728"
+    },
+    {
+      "rank": 5,
+      "images": 301,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "57dd379543fefca2f4d37f455ca263036ce18a03f5fc5896ee7674abcdbd8761"
+    },
+    {
+      "rank": 6,
+      "images": 301,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "0276c4c6ba65252259094b2423ee0c8ef4f70c8c5a3a59f9c9715aeff97548bf"
+    }
+  ],
+  "reference_640_sentinel_ids": [
+    202310001,
+    202619004,
+    202310002,
+    202619005,
+    202310003,
+    202619006,
+    202310004,
+    202619007,
+    202310005,
+    202619008,
+    202310006,
+    202619002,
+    202310007,
+    202619003
+  ],
+  "material_passport": {
+    "source": "academic-research-suite / experiment-agent run",
+    "verification_status": "VERIFIED"
+  }
+}
