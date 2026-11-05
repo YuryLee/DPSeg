@@ -1,0 +1,1095 @@
+{
+  "schema": "dpseg-swinl-efficiency-report-v1",
+  "protocol": {
+    "schema": "dpseg-swinl-efficiency-v1",
+    "created_at": "2026-11-05T12:49:08.882394+00:00",
+    "gpu": 4,
+    "resident_pids": [
+      649998
+    ],
+    "cpu_affinity": [
+      32,
+      33,
+      34,
+      35
+    ],
+    "weights": {
+      "rgb": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_efficiency_swinl/v1/weights/rgb_snapshot.pt",
+        "bytes": 866358819,
+        "sha256": "37c223191be1e83dc1a0c77e7d32abe91330e3f1234fc5ab2b05e16002f5e108"
+      },
+      "base": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt",
+        "bytes": 1852531229,
+        "sha256": "9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8"
+      },
+      "heads": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt",
+        "bytes": 2001679,
+        "sha256": "86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783"
+      },
+      "depth_head": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_efficiency_swinl/v1/weights/depth_head_only.pt",
+        "bytes": 1003005,
+        "sha256": "d78b16ee8315ab21da5e8648a49daef7a32b1587bc581b5ef57f3cd5341c7b67"
+      }
+    },
+    "checkpoint": "/data/yinli/workspace/rgbd_instance_seg/pretrained/mask2former_swin_large_coco_instance",
+    "archive": "/data/yinli/workspace/downloads/buaa_image_segmentation/blender.zip",
+    "rgb_epoch": 12,
+    "rgb_final_training_complete": false,
+    "stages": {
+      "0": "Mask2Former Swin-L RGB",
+      "1": "+ RGB-D fusion",
+      "2": "+ depth point refinement",
+      "3": "+ depth probability refinement",
+      "4": "+ tiled inference"
+    },
+    "base_epoch": 15,
+    "head_epoch": 6,
+    "image_ids": [
+      201960001,
+      201970004,
+      201980007,
+      201991002,
+      202001006,
+      202012001,
+      202022004,
+      202032008,
+      202043003,
+      202053006,
+      202064002,
+      202074005,
+      202084008,
+      202095004,
+      202105007,
+      202116002,
+      202126006,
+      202137001,
+      202148004,
+      202159008,
+      202170003,
+      202180006,
+      202191002,
+      202201005,
+      202213008,
+      202229004,
+      202243007,
+      202255002,
+      202268006,
+      202281001,
+      202297004,
+      202309008
+    ],
+    "image_indices": [
+      0,
+      83,
+      166,
+      249,
+      333,
+      416,
+      499,
+      583,
+      666,
+      749,
+      833,
+      916,
+      999,
+      1083,
+      1166,
+      1249,
+      1333,
+      1416,
+      1499,
+      1583,
+      1666,
+      1749,
+      1833,
+      1916,
+      1999,
+      2083,
+      2166,
+      2249,
+      2333,
+      2416,
+      2499,
+      2583
+    ],
+    "split": "val",
+    "repeats": 3,
+    "sampling": "evenly spaced validation indices; independent of labels and performance",
+    "warmup_images": 5,
+    "precision": "FP32",
+    "tf32": false,
+    "batch_size": 1,
+    "threads": 4,
+    "input_size": [
+      1024,
+      1024
+    ],
+    "score_threshold": 0.01,
+    "max_instances": 100,
+    "timed_scope": "decoded PIL RGB and CPU metric depth -> tensor conversion, preprocessing, H2D, model, relevant refinement/tiling, D2H, COCO RLE",
+    "excluded": "model loading, ZIP/PNG decoding, scoring, file I/O, reference checks",
+    "size_scope": "all inference parameters; actual base checkpoint plus only the required depth-head state_dict; no optimizer",
+    "gpu_activity_policy": "allow listed idle resident service; reject any detected other-process SM/memory-controller activity within 1.5 seconds of measurements; NVML approximately 1-second sampling",
+    "peak_gpu_memory_measured": false,
+    "per_stage_timeout_seconds": 1800,
+    "references": {
+      "0": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_rgb_v1/base15/val_epoch_12/predictions.jsonl",
+      "1": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/final_evaluation/val_native/predictions.jsonl",
+      "2": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/val_epoch_06/predictions.jsonl",
+      "4": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/final_evaluation/val_full/predictions.jsonl"
+    },
+    "sources": {
+      "tools/benchmark_course_swinl.py": "9cf8cc7b1ed3e655d91fa8bec875100debcc009d7b730e5de25b51606b2c99cd",
+      "rgbd_seg/course_swinl_rgb.py": "7d65d4d301d383a5b7046c09fe99a2288807258c8fe0a045a615282a88b6b68d",
+      "rgbd_seg/course_depth_backbone.py": "890ed2c8fd9ec2fac6bbb06f0c4b576d1112d6859f9eb149291d8131c5b08207",
+      "rgbd_seg/course_depth_backbone_points.py": "32a5a682105c23e65c6aa3b4a3b4fd4a4ea4a6da7dbefa7a4d0ce4916d6dbdf3",
+      "rgbd_seg/course_depth_backbone_system.py": "2d1733ff083c6839d2a49156403f6d00869ed8b990bb5b335fa248423dda75ce",
+      "rgbd_seg/course_tiled_probability.py": "11bbac620744e58fef14dd15476f5958f51754336af74c862f6391b0bc7e643a"
+    }
+  },
+  "results": [
+    {
+      "status": "completed",
+      "stage": 0,
+      "name": "Mask2Former Swin-L RGB",
+      "parameters": 215501686,
+      "parameter_bytes": 862006744,
+      "buffer_bytes": 3981344,
+      "checkpoint_bytes": 866358819,
+      "depth_head_parameters": 0,
+      "mean_ms": 531.1560403885475,
+      "median_ms": 585.0684158504009,
+      "p90_ms": 612.1626645326614,
+      "fps": 1.882685922706418,
+      "repeat_mean_ms": [
+        531.6339510900434,
+        528.8487187353894,
+        532.9854513402097
+      ],
+      "images": 32,
+      "repeats": 3,
+      "measurements": 96,
+      "mean_instances": 77.5,
+      "reference_checks": [
+        {
+          "image_id": 202126006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202201005,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202159008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202105007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202268006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202255002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201970004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202148004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201980007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202022004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202064002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202309008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202170003,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202116002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202001006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202095004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202084008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202032008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201960001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201991002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202043003,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202180006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202137001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202297004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202191002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202213008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202012001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202281001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202074005,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202053006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202229004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202243007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        }
+      ],
+      "repeat_masks_exact": true,
+      "detected_gpu_activity_conflicts": 0,
+      "hardware": "NVIDIA A100-PCIE-40GB",
+      "torch": "2.7.1+cu126",
+      "transformers": "4.53.2",
+      "cuda": "12.6",
+      "protocol_sha256": "35192ed5b1b9955364a03655c728dfb1c25b4c93fefc6af64f163037a2207d64",
+      "measurements_sha256": "fa2af717880248d63ac2d58cdcc9c9b35c0f63d04636516e22a18d51cb3f3ff5",
+      "completed_at": "2026-11-05T12:50:18.294552+00:00"
+    },
+    {
+      "status": "completed",
+      "stage": 1,
+      "name": "+ RGB-D fusion",
+      "parameters": 460955217,
+      "parameter_bytes": 1843820868,
+      "buffer_bytes": 7962656,
+      "checkpoint_bytes": 1852531229,
+      "depth_head_parameters": 0,
+      "mean_ms": 944.0495466891056,
+      "median_ms": 928.1888296827674,
+      "p90_ms": 1108.658526558429,
+      "fps": 1.059266437346556,
+      "repeat_mean_ms": [
+        949.0704492200166,
+        943.378878175281,
+        939.699312672019
+      ],
+      "images": 32,
+      "repeats": 3,
+      "measurements": 96,
+      "mean_instances": 51.59375,
+      "reference_checks": [
+        {
+          "image_id": 202126006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202201005,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202159008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202105007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202268006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202255002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201970004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202148004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201980007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202022004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202064002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202309008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202170003,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202116002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202001006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202095004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202084008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202032008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201960001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201991002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202043003,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202180006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202137001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202297004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202191002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202213008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202012001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202281001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202074005,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202053006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202229004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202243007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        }
+      ],
+      "repeat_masks_exact": true,
+      "detected_gpu_activity_conflicts": 0,
+      "hardware": "NVIDIA A100-PCIE-40GB",
+      "torch": "2.7.1+cu126",
+      "transformers": "4.53.2",
+      "cuda": "12.6",
+      "protocol_sha256": "35192ed5b1b9955364a03655c728dfb1c25b4c93fefc6af64f163037a2207d64",
+      "measurements_sha256": "c0f42092ced8c5ea140c93ea27ba7f1caa96ca3a83fa99e24414b2a15b9cb558",
+      "completed_at": "2026-11-05T12:52:18.426011+00:00"
+    },
+    {
+      "status": "completed",
+      "stage": 2,
+      "name": "+ depth point refinement",
+      "parameters": 461205075,
+      "parameter_bytes": 1844820300,
+      "buffer_bytes": 7962656,
+      "checkpoint_bytes": 1853534234,
+      "depth_head_parameters": 249858,
+      "mean_ms": 1137.8753981650032,
+      "median_ms": 1104.3133488856256,
+      "p90_ms": 1448.0118956416845,
+      "fps": 0.8788308470441067,
+      "repeat_mean_ms": [
+        1141.1074046627618,
+        1139.5306726335548,
+        1132.9881171986926
+      ],
+      "images": 32,
+      "repeats": 3,
+      "measurements": 96,
+      "mean_instances": 51.59375,
+      "reference_checks": [
+        {
+          "image_id": 202126006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202201005,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202159008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202105007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202268006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202255002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201970004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202148004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201980007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202022004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202064002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202309008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202170003,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202116002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202001006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202095004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202084008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202032008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201960001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201991002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202043003,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202180006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202137001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202297004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202191002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202213008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202012001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202281001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202074005,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202053006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202229004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202243007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        }
+      ],
+      "repeat_masks_exact": true,
+      "detected_gpu_activity_conflicts": 0,
+      "hardware": "NVIDIA A100-PCIE-40GB",
+      "torch": "2.7.1+cu126",
+      "transformers": "4.53.2",
+      "cuda": "12.6",
+      "protocol_sha256": "35192ed5b1b9955364a03655c728dfb1c25b4c93fefc6af64f163037a2207d64",
+      "measurements_sha256": "da4f5f5552e45d58759a931d6b21ab2c6cd846caeb07f1ffb5af822f0de8090c",
+      "completed_at": "2026-11-05T12:54:38.845636+00:00"
+    },
+    {
+      "status": "completed",
+      "stage": 3,
+      "name": "+ depth probability refinement",
+      "parameters": 461205075,
+      "parameter_bytes": 1844820300,
+      "buffer_bytes": 7962656,
+      "checkpoint_bytes": 1853534234,
+      "depth_head_parameters": 249858,
+      "mean_ms": 1303.244800423272,
+      "median_ms": 1277.747972868383,
+      "p90_ms": 1744.069738779217,
+      "fps": 0.7673155493697092,
+      "repeat_mean_ms": [
+        1323.1090370973106,
+        1298.0426863068715,
+        1288.5826778656337
+      ],
+      "images": 32,
+      "repeats": 3,
+      "measurements": 96,
+      "mean_instances": 51.59375,
+      "reference_checks": [],
+      "repeat_masks_exact": true,
+      "detected_gpu_activity_conflicts": 0,
+      "hardware": "NVIDIA A100-PCIE-40GB",
+      "torch": "2.7.1+cu126",
+      "transformers": "4.53.2",
+      "cuda": "12.6",
+      "protocol_sha256": "35192ed5b1b9955364a03655c728dfb1c25b4c93fefc6af64f163037a2207d64",
+      "measurements_sha256": "a889ec312eb721cc4e84d8640c1704a2379b339b2a8ac9d9c4c2307420b8c49b",
+      "completed_at": "2026-11-05T12:57:15.027943+00:00"
+    },
+    {
+      "status": "completed",
+      "stage": 4,
+      "name": "+ tiled inference",
+      "parameters": 461205075,
+      "parameter_bytes": 1844820300,
+      "buffer_bytes": 7962656,
+      "checkpoint_bytes": 1853534234,
+      "depth_head_parameters": 249858,
+      "mean_ms": 4793.960334781635,
+      "median_ms": 4850.289617665112,
+      "p90_ms": 5490.313359070569,
+      "fps": 0.20859580183521692,
+      "repeat_mean_ms": [
+        4826.686608546879,
+        4800.6232454499695,
+        4754.571150348056
+      ],
+      "images": 32,
+      "repeats": 3,
+      "measurements": 96,
+      "mean_instances": 69.90625,
+      "reference_checks": [
+        {
+          "image_id": 202126006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202201005,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202159008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202105007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202268006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202255002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201970004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202148004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201980007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202022004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202064002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202309008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202170003,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202116002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202001006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202095004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202084008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202032008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201960001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 201991002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202043003,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202180006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202137001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202297004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202191002,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202213008,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202012001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202281001,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202074005,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202053006,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202229004,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        },
+        {
+          "image_id": 202243007,
+          "exact_masks": true,
+          "score_error": 0.0,
+          "counts_equal": true
+        }
+      ],
+      "repeat_masks_exact": true,
+      "detected_gpu_activity_conflicts": 0,
+      "hardware": "NVIDIA A100-PCIE-40GB",
+      "torch": "2.7.1+cu126",
+      "transformers": "4.53.2",
+      "cuda": "12.6",
+      "protocol_sha256": "35192ed5b1b9955364a03655c728dfb1c25b4c93fefc6af64f163037a2207d64",
+      "measurements_sha256": "c7c90802bf528a305d2ec12b7915d87f0896097fd9a436e9dbbdc96798bcd70c",
+      "completed_at": "2026-11-05T13:05:45.159427+00:00"
+    }
+  ],
+  "summary_sha256": "07974baf1856e3addfe301e36fdd79dcf47c1ed98f75277f1055fde93553911b",
+  "raw_run": "/data/yinli/workspace/rgbd_instance_seg/reports/course_efficiency_swinl/v1"
+}
