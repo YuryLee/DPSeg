@@ -1,0 +1,862 @@
+{
+  "schema": "dpseg-official-sahi-merge-v1",
+  "status": "verified",
+  "generated_at_utc": "2026-11-06T04:51:23.117867+00:00",
+  "split": "local_test",
+  "images": 2112,
+  "backbone": "Swin-Large",
+  "camera_intrinsics_used": false,
+  "training": false,
+  "test_used_for_selection": false,
+  "default_changed": false,
+  "speed_benchmark": false,
+  "interpretation_scope": "Post-hoc inference comparison on an already examined local test set; no parameter selection",
+  "semantics": {
+    "iou_type": "segm",
+    "max_detections": [
+      1,
+      10,
+      100
+    ],
+    "iou_thresholds": [
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.8999999999999999,
+      0.95
+    ],
+    "area_ranges": [
+      [
+        0,
+        10000000000.0
+      ],
+      [
+        0,
+        1024
+      ],
+      [
+        1024,
+        9216
+      ],
+      [
+        9216,
+        10000000000.0
+      ]
+    ],
+    "ground_truth_area": "original annotation area preserved",
+    "prediction_area": "independent COCO RLE; no bbox passed to loadRes",
+    "gt_instances": 75462,
+    "gt_small_including_crowd": 9447
+  },
+  "results": [
+    {
+      "status": "completed",
+      "variant": "legacy_full",
+      "images": 2112,
+      "predicted_instances": 140958,
+      "metrics": {
+        "mask_ap": 0.8802892836843677,
+        "mask_ap50": 0.9625140609439644,
+        "mask_ap75": 0.8962846723301018,
+        "mask_ap_small": 0.5252858263082129,
+        "mask_ap_medium": 0.9155911511687985,
+        "mask_ap_large": 0.9750856983614972,
+        "mask_ar_1": 0.027519811295751505,
+        "mask_ar_10": 0.266976756513212,
+        "mask_ar_100": 0.9102899472582227,
+        "mask_ar_small": 0.6740870117497618,
+        "mask_ar_medium": 0.9420244812087597,
+        "mask_ar_large": 0.9836635172203596
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/full/evaluation.json",
+      "evaluation_sha256": "7069d3acd4cb2ce663305460174512186ac09195ad78321f077a7ebc25451753",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/full/predictions.jsonl",
+      "predictions_sha256": "aaa7ed9882077edcc48471391f62c665b80ba04c1576f7e41c945864c8cabd29",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/submissions/dpseg_swinl_depth_no_k_removal_full.csv",
+      "csv_sha256": "572798907d773a7408ecdc7c7a5094daff0405657c43b8752b9a1e1ab8dadf10",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "原完整 DPSeg（当前默认）",
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_removal_v1/full/csv_validation.json",
+        "sha256": "383c2422c789dce7ac8ab39f5e6a15d11a2e17c8e371a6c00d4d1345d38b78d8",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "delta_vs_legacy": {
+        "mask_ap_small": 0.0,
+        "mask_ar_small": 0.0,
+        "mask_ap": 0.0
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "sahi_nms_iou_early",
+      "images": 2112,
+      "predicted_instances": 123609,
+      "metrics": {
+        "mask_ap": 0.8612875714820402,
+        "mask_ap50": 0.9336054844803285,
+        "mask_ap75": 0.8777976700461022,
+        "mask_ap_small": 0.48823095789908827,
+        "mask_ap_medium": 0.8980211276722523,
+        "mask_ap_large": 0.9716495371055756,
+        "mask_ar_1": 0.027519811295751505,
+        "mask_ar_10": 0.26529644059261615,
+        "mask_ar_100": 0.9001192653255945,
+        "mask_ar_small": 0.651148512755372,
+        "mask_ar_medium": 0.933304644416818,
+        "mask_ar_large": 0.9825662907650106
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_nms_iou_early/evaluation.json",
+      "evaluation_sha256": "760c31bd47374bea613cf985a64c07987773e88d4c5c1e38a98eb74f57b0013f",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_nms_iou_early/predictions.jsonl",
+      "predictions_sha256": "6e8a47d4a27d9ddd56f363bfb276f556c3fe39f4c13fc369258fe89dd15f81c3",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/submissions/dpseg_swinl_depth_no_k_sahi_nms_iou_early.csv",
+      "csv_sha256": "843d859004776fb9c374134ecd6ee5b2ac4bb6f9285c5fa5de99a6bc0cba55ef",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "提前 SAHI NMS（框 IoU）",
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_nms_iou_early/csv_validation.json",
+        "sha256": "b511b01763dcd2d0bbd535ead056a54e11e15a29ec42eac15e172033edf14914",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "delta_vs_legacy": {
+        "mask_ap_small": -0.037054868409124586,
+        "mask_ar_small": -0.022938498994389822,
+        "mask_ap": -0.019001712202327492
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "mask_nms_late",
+      "images": 2112,
+      "predicted_instances": 140667,
+      "metrics": {
+        "mask_ap": 0.8792039984128683,
+        "mask_ap50": 0.9625561949505517,
+        "mask_ap75": 0.8962985526760824,
+        "mask_ap_small": 0.5251014048688603,
+        "mask_ap_medium": 0.9155664040429962,
+        "mask_ap_large": 0.9750896574304898,
+        "mask_ar_1": 0.027519811295751505,
+        "mask_ar_10": 0.26698470753491826,
+        "mask_ar_100": 0.9095491770692534,
+        "mask_ar_small": 0.6727003281465015,
+        "mask_ar_medium": 0.941342322527175,
+        "mask_ar_large": 0.9836635172203596
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/mask_nms_late/evaluation.json",
+      "evaluation_sha256": "543f6c15024ef5e2ac3da22866deba8b9043d7adf6ed7d81b138afe402fae51c",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/mask_nms_late/predictions.jsonl",
+      "predictions_sha256": "4865b3a79233277ebe1fddf85e72c7ccc9687d409299e012699adb4249b0b359",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/submissions/dpseg_swinl_depth_no_k_mask_nms_late.csv",
+      "csv_sha256": "3a84fabf411e82b336187896f1f40da3ffccfd7f6a69e9112ff5cf1dbefdfae7",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "延后掩码 NMS（顺序对照）",
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/mask_nms_late/csv_validation.json",
+        "sha256": "5cfbbf49ce54c4b066dc004e2a58adb1ac86c4a544da6a279a3abe8dac58ee32",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "delta_vs_legacy": {
+        "mask_ap_small": -0.00018442143935260003,
+        "mask_ar_small": -0.0013866836032603302,
+        "mask_ap": -0.0010852852714993144
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "sahi_polygon_mask_nms_late",
+      "images": 2112,
+      "predicted_instances": 140154,
+      "metrics": {
+        "mask_ap": 0.8785701875509642,
+        "mask_ap50": 0.9563914122269204,
+        "mask_ap75": 0.8962728493407714,
+        "mask_ap_small": 0.5246627521757663,
+        "mask_ap_medium": 0.9155549362650114,
+        "mask_ap_large": 0.9750896574304898,
+        "mask_ar_1": 0.027519811295751505,
+        "mask_ar_10": 0.26694892793723995,
+        "mask_ar_100": 0.909290768863799,
+        "mask_ar_small": 0.6707102783952578,
+        "mask_ar_medium": 0.9413311657263078,
+        "mask_ar_large": 0.9836635172203596
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_polygon_mask_nms_late/evaluation.json",
+      "evaluation_sha256": "93e7ab6d8573cad92251e48fc6f778df4d1d90229ad27a6811d2b1a227fd4ac8",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_polygon_mask_nms_late/predictions.jsonl",
+      "predictions_sha256": "28730ba43a7806d1c7e1efe42c94e36979437c509452f37be366b937fee4d7c2",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/submissions/dpseg_swinl_depth_no_k_sahi_polygon_mask_nms_late.csv",
+      "csv_sha256": "22baa87a01eabcff6387c653fa8c69f047c760b569d287447ffa3c87107dbfee",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "延后掩码 NMS＋多边形转换（表示对照）",
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_polygon_mask_nms_late/csv_validation.json",
+        "sha256": "848f9a32803cb50627600ad8af7cd51cb1e194b9359ec29fc153fb4718c6de55",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "delta_vs_legacy": {
+        "mask_ap_small": -0.000623074132446555,
+        "mask_ar_small": -0.003376733354504058,
+        "mask_ap": -0.001719096133403486
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "sahi_nms_ios_late",
+      "images": 2112,
+      "predicted_instances": 65292,
+      "metrics": {
+        "mask_ap": 0.7369696963405291,
+        "mask_ap50": 0.7872976201952525,
+        "mask_ap75": 0.7495574867987973,
+        "mask_ap_small": 0.2539169980257456,
+        "mask_ap_medium": 0.7977372106674603,
+        "mask_ap_large": 0.9150890838356334,
+        "mask_ar_1": 0.027519811295751505,
+        "mask_ar_10": 0.26555882430892375,
+        "mask_ar_100": 0.7533407542869259,
+        "mask_ar_small": 0.28527574891499946,
+        "mask_ar_medium": 0.8149931465366101,
+        "mask_ar_large": 0.922066443157574
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_nms_ios_late/evaluation.json",
+      "evaluation_sha256": "085917b4ffba36f1a8d56b18950b5ef816e4ddc252ab98918e4b085aac4383fe",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_nms_ios_late/predictions.jsonl",
+      "predictions_sha256": "fa0cbcf5dac259fac1a70c9499787556d862f8b7d5f1ef6c3ea8e75ee31e61c8",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/submissions/dpseg_swinl_depth_no_k_sahi_nms_ios_late.csv",
+      "csv_sha256": "e78c384fd5a5589d8e0d177a1af94cabd624f66d1b8f1b2e0a5b6cb2a2e94912",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "延后 SAHI NMS（框 IoS）",
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_nms_ios_late/csv_validation.json",
+        "sha256": "876ea96997425b6cb4f040a1fa913f48589896d68aae383738a4207e604683cf",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "delta_vs_legacy": {
+        "mask_ap_small": -0.2713688282824673,
+        "mask_ar_small": -0.38881126283476236,
+        "mask_ap": -0.14331958734383854
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "sahi_greedynmm_ios_late",
+      "images": 2112,
+      "predicted_instances": 65292,
+      "metrics": {
+        "mask_ap": 0.5578205240415854,
+        "mask_ap50": 0.7433384665861752,
+        "mask_ap75": 0.5459403592218591,
+        "mask_ap_small": 0.15750182443152996,
+        "mask_ap_medium": 0.6309259701852312,
+        "mask_ap_large": 0.5129246326073186,
+        "mask_ar_1": 0.02360923378654157,
+        "mask_ar_10": 0.22086083061673425,
+        "mask_ar_100": 0.6274336752272667,
+        "mask_ar_small": 0.18682121308351857,
+        "mask_ar_medium": 0.6890950240668133,
+        "mask_ar_large": 0.7171898811338007
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_greedynmm_ios_late/evaluation.json",
+      "evaluation_sha256": "4646321003916d2a148d100505c780cc61219d247de7c7d98bd09ee5cae66df2",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_greedynmm_ios_late/predictions.jsonl",
+      "predictions_sha256": "12b371570ed6848fb51faffe774abb16d25165827f629a08bdf91177f9133270",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/submissions/dpseg_swinl_depth_no_k_sahi_greedynmm_ios_late.csv",
+      "csv_sha256": "cad847c5b1760d9724cfcd47e18d441c8da6288ba03bc65573de47f926a9640d",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "method": "延后 SAHI GreedyNMM（框 IoS）",
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/sahi_greedynmm_ios_late/csv_validation.json",
+        "sha256": "2953b6b0744e2df4a4a0758b71f8508050ca7d089bfde1f73f9131a8e23cd3f6",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "delta_vs_legacy": {
+        "mask_ap_small": -0.3677840018766829,
+        "mask_ar_small": -0.48726579866624325,
+        "mask_ap": -0.3224687596427822
+      }
+    }
+  ],
+  "controlled_contrasts": {
+    "提前官方 NMS": {
+      "current": "sahi_nms_iou_early",
+      "reference": "legacy_full",
+      "delta": {
+        "mask_ap_small": -0.037054868409124586,
+        "mask_ar_small": -0.022938498994389822,
+        "mask_ap": -0.019001712202327492
+      }
+    },
+    "合并顺序": {
+      "current": "mask_nms_late",
+      "reference": "legacy_full",
+      "delta": {
+        "mask_ap_small": -0.00018442143935260003,
+        "mask_ar_small": -0.0013866836032603302,
+        "mask_ap": -0.0010852852714993144
+      }
+    },
+    "多边形表示": {
+      "current": "sahi_polygon_mask_nms_late",
+      "reference": "mask_nms_late",
+      "delta": {
+        "mask_ap_small": -0.00043865269309395494,
+        "mask_ar_small": -0.0019900497512437276,
+        "mask_ap": -0.0006338108619041716
+      }
+    },
+    "官方框 IoS NMS 规则": {
+      "current": "sahi_nms_ios_late",
+      "reference": "sahi_polygon_mask_nms_late",
+      "delta": {
+        "mask_ap_small": -0.2707457541500207,
+        "mask_ar_small": -0.3854345294802583,
+        "mask_ap": -0.14160049121043505
+      }
+    },
+    "GreedyNMM 相对 NMS": {
+      "current": "sahi_greedynmm_ios_late",
+      "reference": "sahi_nms_ios_late",
+      "delta": {
+        "mask_ap_small": -0.09641517359421561,
+        "mask_ar_small": -0.0984545358314809,
+        "mask_ap": -0.17914917229894367
+      }
+    }
+  },
+  "candidate_occurrences": 442955,
+  "polygon_conversion": {
+    "input_instances": 442955,
+    "changed_instances": 111846,
+    "dropped_instances": 2911,
+    "added_pixels": 0,
+    "removed_pixels": 429160
+  },
+  "synthetic_checks": {
+    "status": "passed",
+    "bbox_iou_vs_ios": true,
+    "same_view_suppression_difference": true,
+    "disjoint_masks_overlapping_boxes": true,
+    "union_mask_and_max_score": true,
+    "source_identity_preserved": true,
+    "input_not_mutated": true,
+    "polygon_rectangle_roundtrip": {
+      "input_instances": 2,
+      "changed_instances": 0,
+      "dropped_instances": 0,
+      "added_pixels": 0,
+      "removed_pixels": 0
+    },
+    "single_pixel_conversion": {
+      "input_instances": 1,
+      "changed_instances": 0,
+      "dropped_instances": 1,
+      "added_pixels": 0,
+      "removed_pixels": 1
+    },
+    "ring_conversion": {
+      "input_instances": 1,
+      "changed_instances": 0,
+      "dropped_instances": 0,
+      "added_pixels": 0,
+      "removed_pixels": 0
+    }
+  },
+  "supplementary_semantics": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/supplementary_semantics.json",
+    "sha256": "097d23dcd505c837f1d1a35cd7a9cc70ea5d052e7954d8eb27630ff2fa2083f3",
+    "receipt": {
+      "status": "passed",
+      "scope": "CPU-only synthetic geometry audit; no dataset labels or model inference",
+      "source_sha256": {
+        "tools/check_course_sahi_semantics.py": "0659ed47641241cda3282bd868f15f4b10e772a34f4b3edf06591449f0c2eea5",
+        "rgbd_seg/course_sahi_merge.py": "5da8e42a3d33f071632722d29f59170d529f74cc0cf9ab6a5680d5f2c65e7d91",
+        "reports/course_sahi_merge_deps/site/sahi/postprocess/utils.py": "ec62ef02ad01f03d68a6bee86003e113a43aa0cf23bf8f7deb9cb32a52cd9600",
+        "reports/course_sahi_merge_deps/site/sahi/utils/shapely.py": "00412ef474ad3e8104a4e51b36e5a7954aa6990f95946a98778bee1be6fd98a2",
+        "reports/course_sahi_merge_deps/site/sahi/annotation.py": "5f0e92b79257a3f7f72c8d06175ca99729754a852aab723705d5bd7565557930",
+        "reports/course_sahi_merge_deps/site/sahi/utils/cv.py": "c8bed148b02f3611064c58b9f4ca37a0eb49dc17e183085becde63e07f4b423c"
+      },
+      "cases": [
+        {
+          "case": "overlapping_rings",
+          "input_conversion": {
+            "input_instances": 2,
+            "changed_instances": 0,
+            "dropped_instances": 0,
+            "added_pixels": 0,
+            "removed_pixels": 0
+          },
+          "input_unchanged": true,
+          "binary_union_area": 480,
+          "official_polygon_union_area": 580,
+          "added_vs_binary_union": 100,
+          "removed_vs_binary_union": 0,
+          "geometry": {
+            "a_outer_yx": [
+              10,
+              30,
+              10,
+              30
+            ],
+            "a_hole_yx": [
+              15,
+              25,
+              15,
+              25
+            ],
+            "b_outer_yx": [
+              10,
+              30,
+              19,
+              39
+            ],
+            "b_hole_yx": [
+              15,
+              25,
+              19,
+              29
+            ]
+          }
+        },
+        {
+          "case": "bounding_box_coordinate_convention",
+          "input_conversion": {
+            "input_instances": 2,
+            "changed_instances": 0,
+            "dropped_instances": 0,
+            "added_pixels": 0,
+            "removed_pixels": 0
+          },
+          "rle_xywh": [
+            [
+              10.0,
+              10.0,
+              21.0,
+              20.0
+            ],
+            [
+              17.0,
+              10.0,
+              21.0,
+              20.0
+            ]
+          ],
+          "polygon_xyxy": [
+            [
+              10,
+              10,
+              30,
+              29
+            ],
+            [
+              17,
+              10,
+              37,
+              29
+            ]
+          ],
+          "rle_pixel_edge_iou": 0.5,
+          "polygon_contour_iou": 0.48148148148148145,
+          "rle_nms_count": 1,
+          "polygon_nms_count": 2
+        }
+      ],
+      "conclusions": [
+        "Official polygon union can fill holes even when pre-merge polygon conversion is lossless.",
+        "COCO pixel-edge bounds and SAHI contour bounds can differ at the overlap threshold.",
+        "Both late official arms use the same polygon objects; compare them within that representation.",
+        "Pre-merge conversion statistics do not measure changes introduced during polygon union."
+      ]
+    }
+  },
+  "baseline_rescore": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/reference_rescore/verification.json",
+    "sha256": "7d28a41e9221efea0140e5d6bd2a610dc731cca063a33ff8222099ed8ff6173a",
+    "receipt": {
+      "status": "passed",
+      "all_metrics_exact": true,
+      "images": 2112,
+      "reference_predictions_sha256": "aaa7ed9882077edcc48471391f62c665b80ba04c1576f7e41c945864c8cabd29",
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/reference_rescore/evaluation.json",
+      "evaluation_sha256": "ebb635591a13c88951e7eb92aab0e9d2ee8f051f8612b91d35d57d5566ad4a1a",
+      "metrics": {
+        "mask_ap": 0.8802892836843677,
+        "mask_ap50": 0.9625140609439644,
+        "mask_ap75": 0.8962846723301018,
+        "mask_ap_small": 0.5252858263082129,
+        "mask_ap_medium": 0.9155911511687985,
+        "mask_ap_large": 0.9750856983614972,
+        "mask_ar_1": 0.027519811295751505,
+        "mask_ar_10": 0.266976756513212,
+        "mask_ar_100": 0.9102899472582227,
+        "mask_ar_small": 0.6740870117497618,
+        "mask_ar_medium": 0.9420244812087597,
+        "mask_ar_large": 0.9836635172203596
+      },
+      "checker_sha256": "77c227dfb6e988536f160750add44137128f27818bda1ca86c3dba03b0c2806d"
+    }
+  },
+  "checkpoints": {
+    "base": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt",
+      "sha256": "9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8"
+    },
+    "heads": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt",
+      "sha256": "86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783"
+    }
+  },
+  "protocol": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_v1/protocol.json",
+    "sha256": "7e4f13e2bf5dfd9a74926d2583d32538d5df3c0377d3ccab07d31c2295afe5c3"
+  },
+  "source_sha256": {
+    "rgbd_seg/course_swinl_removal.py": "84cdba72eb1b89e6ce1de891a3cdebc67b07c6e38f172074d510e9c001f42164",
+    "tools/evaluate_course_swinl_removal.py": "3075cb919c979b1dc221a1e1591a654bca2b59a742f25c3ba7e82267c7e8c6f0",
+    "tools/evaluate_course_swinl_ablation.py": "3673607e35cba1fb603cd29da220c511cc423e1d51080ca8909540fce7c0f1ba",
+    "rgbd_seg/course_tile_size.py": "2b8e0d633b0b5a68aa092e8b6ea7701908dea91837e29f6c64de0f99427c99b1",
+    "rgbd_seg/course_sahi_merge.py": "5da8e42a3d33f071632722d29f59170d529f74cc0cf9ab6a5680d5f2c65e7d91",
+    "tools/check_course_prediction_reload.py": "740826a0edee9153ca5ce4cad354f478c35113bccc7a774f5d28a6cb4a5e7eef",
+    "tools/evaluate_course_sahi_merge.py": "2de38bf1b6a319ecc505329fbe7902c7089b7806aa21dfe15562b6b84c81d32f"
+  },
+  "system_protocol": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/protocol_system.json",
+    "sha256": "b0d7f0588a476c82204d0c9bde79ea29357747fb7c7caad779fabadf369ab568"
+  },
+  "dependency_receipt": {
+    "sahi": "0.14.0",
+    "shapely": "2.1.2",
+    "opencv": "5.0.0",
+    "numpy": "2.3.1",
+    "backend": "numpy",
+    "official_wheel_sha256": "7fb73078e82fb34fb170276ae6a017e9250c4b64842926c332a8b683aa7a8d81",
+    "files": {
+      "sahi/__init__.py": "81e9515a457fdadf505d8ff61552fdeb7f3ae934976316ad2929e9fb0747cc9c",
+      "sahi/annotation.py": "5f0e92b79257a3f7f72c8d06175ca99729754a852aab723705d5bd7565557930",
+      "sahi/auto_model.py": "0bf01e8a35df49b585c3eea241566f6cdcfe8a0ddbfa0788b4d9abdf3212cc2f",
+      "sahi/cli.py": "6c54a94971bf35580e64f858256e24abbc42e257820e06bdea62ac448bb06a51",
+      "sahi/constants.py": "f49f0713ac36e06686eefb7154e3f04a45cd62cf71bb64cf195ebfe3c273ac86",
+      "sahi/logger.py": "a6cd7e4a045f60f6256cadbfd0aa975b953741b73169577a2133a91eda86e10b",
+      "sahi/models/__init__.py": "70db4cac5c0e2ec9e9a0eba251dddac3e63a07c626a5c2ed2655264c48a66e59",
+      "sahi/models/base.py": "32be4640026f77af2ac76392c316f96d816465a6fd513a94f6cf520a2cf43722",
+      "sahi/models/detectron2.py": "0180676114f47c76343c666b3c21be1b7a69a45b2d6f9707cccafdddafb2c020",
+      "sahi/models/huggingface.py": "8268ad4e82875a99298bf25cf6acd5d7094c853e33b313ac4b7b98a9f9afe49d",
+      "sahi/models/huggingface_segmentation.py": "4b6ac5bd3433b738472b02ea4207153105f4f5de3ca589586ad3fd6f8e99814c",
+      "sahi/models/libreyolo.py": "33ea36332bc37f82b293b7d3e4d16483c940cb7c35b7f3bd3efa05adc497a30d",
+      "sahi/models/mmdet.py": "59d27fa0d9ea24d0e29aacf72c8b9866ae6d009e56098e7aef0aa63e2e57d048",
+      "sahi/models/roboflow.py": "ccafee034c8e42dfa51e6a41a81f7e8fb6fa877625c28cdc491bb5867ec390a8",
+      "sahi/models/rtdetr.py": "08cdd520034559006e1324702e85a87d9c881955a59938d15b1d677d2abbc54a",
+      "sahi/models/torchvision.py": "b3bf604e466dbf1134436ae63cca21b05777c00dc319528d769865b75ed378ab",
+      "sahi/models/ultralytics.py": "27f99974fa1805480c0e74e6de93cd7c0de99fda9cc4a247f1c7a933a142c3af",
+      "sahi/models/yolo-world.py": "52cec54c655d6e49d51cf2fd404b5ae96448cc3b42b34460546d3e5fd1071863",
+      "sahi/models/yoloe.py": "36ede68a76fb01ff83cc807d149996595a5bf5e0b24c86e243cd8e6cb4e39914",
+      "sahi/models/yolov5.py": "a6b3cd76d80518f70d15545c706bfcc5639d141f0346c90f8c492be3d2cdacd9",
+      "sahi/postprocess/__init__.py": "0e8bc8f4285440e2969334193cd355cf838d918a6514c36a8e4d2462445e06a3",
+      "sahi/postprocess/_numba_backend.py": "54e6903ff923b720a9ef4caf73909b7a39d685283e1bc0d57ac36f0b814fe66c",
+      "sahi/postprocess/_numpy_backend.py": "98cf28dcc80bc5f07e41589371603880b73c1c3c06f64da7a0d243764a646e76",
+      "sahi/postprocess/_sparse_backend.py": "142b30ff11c2ac8afb0712a69955147c8f133adcd9e649f192985c8eed361d0f",
+      "sahi/postprocess/_torchvision_backend.py": "291d1b44feaa81af49cae12fe8e7642e62f3b650254a8210512c71009cf1567b",
+      "sahi/postprocess/backends.py": "3d49f288e201b99bbf99d032987d678a09d251e9c235f13c80f1daad75a9d5a6",
+      "sahi/postprocess/combine.py": "c40904075fb84122d60a7b4740c196e04de29994d048dd3777070d6943c42866",
+      "sahi/postprocess/legacy/__init__.py": "7ccb7bc7344b0c82b3a4e98be6862397d227003d13ae6a7d0f907430b70022fe",
+      "sahi/postprocess/legacy/combine.py": "b122156dbee3525fbe96f76c3afebda340fd1fe236faa9a08f360ab20ec435c3",
+      "sahi/postprocess/utils.py": "ec62ef02ad01f03d68a6bee86003e113a43aa0cf23bf8f7deb9cb32a52cd9600",
+      "sahi/predict.py": "f725e6740f0a72990153849f191a5214f7805eb2242dbb6df442e4f5d24eb7b5",
+      "sahi/prediction.py": "409a36b3131f9cd3bd3f9163722ef90546ffc6d030c55358c23bcef1fe8dfcae",
+      "sahi/scripts/__init__.py": "cf097d30ebe7520380994ad035cb143e4297dbda8f42d3c8d1665ae6f6210832",
+      "sahi/scripts/coco2fiftyone.py": "4c57cf4deee62d486c59b470a42103b68b90cbaf544fc8bb66290414c097e8b3",
+      "sahi/scripts/coco2yolo.py": "fa5a7992e07c77064ad8a30f93724323c13255fe893bb394c60d0a11c0b4d0bb",
+      "sahi/scripts/coco_error_analysis.py": "313acc4f71be41b3ac78e679a34b96b2354208f76d738cf72b67376769befe6b",
+      "sahi/scripts/coco_evaluation.py": "2049a6e4cf6902b79949b90f6fb8e5eaf3fc903179d28dd29c3df13a3ccb7248",
+      "sahi/scripts/predict.py": "8fb237157950da0d0feb37da466b4736b860e9a2030333079047201c5efe09cd",
+      "sahi/scripts/predict_fiftyone.py": "78061c2f4484cb949be8cbe57c9dee5f48f0298fcad480dda4a6482ba9688e5b",
+      "sahi/scripts/slice_coco.py": "a970bf06003574acbced9add771c27eb44e78d55dda9de70311f03f11e9cc9e9",
+      "sahi/slicing.py": "73fb1fb3f40b5cc3fcd7676e2b92d42e5dc1c14f2390916e6f19fc7c3fc4f560",
+      "sahi/utils/__init__.py": "649650ed465910c642249f4cb14a0cf5e9adbd942aacc8df9638032db36171cb",
+      "sahi/utils/coco.py": "dfe2a9f08607f57a8ee92ffb53ec9431d38bc92e1eaee9aea8a421dec0d4b92e",
+      "sahi/utils/compatibility.py": "d3c514a7f20cc7fb045c88a52a1eff6aeb93e7fc97125084c1d942e95c0c83ed",
+      "sahi/utils/cv.py": "c8bed148b02f3611064c58b9f4ca37a0eb49dc17e183085becde63e07f4b423c",
+      "sahi/utils/detectron2.py": "35a1b6e546b0da50a3b8e9ecf5d4e53688d62bb9b1e44178d33a88850ba5bb1b",
+      "sahi/utils/fiftyone.py": "7e2c040d4dc04645b799a2aa8094ba045f4dd20f4e56721cca28656e0b302434",
+      "sahi/utils/file.py": "6535a73de11ed2002a818b0c582d112d6c24103c2b2d1d20f57d18711f3689ff",
+      "sahi/utils/import_utils.py": "aff6ad9b8836f302f058bf3f1893954f7991ac120fce40410aa599b54559f5d7",
+      "sahi/utils/mmdet.py": "38fd764e1ce476a07fc2701a45315800e210dd790c89b67bbf0f09461b6efc44",
+      "sahi/utils/rtdetr.py": "3580407ae7b3ed4cb30ab3ee2c22046c4ab5a6d50e5aa7850ecf17d6053f4317",
+      "sahi/utils/shapely.py": "00412ef474ad3e8104a4e51b36e5a7954aa6990f95946a98778bee1be6fd98a2",
+      "sahi/utils/table.py": "b363f19865a43040e458105b20939dfd6d3e9f00a8acac61406619af685cb69d",
+      "sahi/utils/torch_utils.py": "0f31dde5671fd9404261fa505ff23becd813b18eb7a398367abc60a97fa67a05",
+      "sahi/utils/torchvision.py": "a585a772662fa42750ed9f4d706823642fb937b4b46255d569cc332b5260acbc",
+      "sahi/utils/yolov5.py": "6c15df3034e6ed1ae5e84df91831384ffa52e6ac6ed21da21e975809a3f736fb",
+      "shapely/__init__.py": "ec46944357e1207798213bf98e715cf862906ec317082494f9823f2370fd70e3",
+      "shapely/_coverage.py": "ca208be59b4c28c0c7570e84947911f02fc2da7d03b51a6c82c189861bae70be",
+      "shapely/_enum.py": "ca39c449cce225924b68cd0fd6b6063de90dffe99677ae3eae67b93ec68a7879",
+      "shapely/_geometry.py": "5d9c6f98b07f8e0d251e83221e028577f2cd4a28f89eb27f41834aa6afa16e84",
+      "shapely/_geometry_helpers.cpython-313-x86_64-linux-gnu.so": "b7f0e89771cd4b6d57286ff386889706658b4395f5462a16171e6fce6c73acfa",
+      "shapely/_geos.cpython-313-x86_64-linux-gnu.so": "31774add39ef511a18cf0c33af189097bc2af73675c1ce1fde994844521670a6",
+      "shapely/_ragged_array.py": "f9e68c01526d66fdcfd1dcc675c670c7ca8912de3d105992dfce150149530101",
+      "shapely/_version.py": "f3cc49f6c0bfcc0439409bc86b59d5d48bea3cb72c12d82e8f3fe4a2f5e8931d",
+      "shapely/affinity.py": "ee1593f65fcc884923f551022ae91d014cff3584a8877bc8ea1bcd57d03a3d8a",
+      "shapely/algorithms/__init__.py": "647222bee439c391895c1ee1c0ba74cdc91dfdbdb6ea4ebcc230614f493d032a",
+      "shapely/algorithms/_oriented_envelope.py": "697a317a01d740acc44aaa3c294d2a5f2bd82e1f002c98d6946b7418e452f2f4",
+      "shapely/algorithms/cga.py": "28d5ef19a213e49c47da4ffac272c192735d44e4f77280f67d822ea7e60fefa2",
+      "shapely/algorithms/polylabel.py": "83357995c6f3665be5ff050d0964056bbf26de13f2b990ae04c940ff81ee6964",
+      "shapely/conftest.py": "07eb05abad5d6bae644d77d180c7fe5a33dc659fe9baddbb5c075ba9f2b47c6a",
+      "shapely/constructive.py": "9c814d4fb0f6e5e3a2a9a8381a7a3ff1e97c9556995ee25c5f437913e1afd173",
+      "shapely/coordinates.py": "b6f11e24833518c9f06193442a1fb79b9d5c1e025a6d961a0124a10e113cfb13",
+      "shapely/coords.py": "21bba876608d89b91973cfd7a5af1eec71714f85bea02318e1fb6f253b831979",
+      "shapely/creation.py": "c2da7a51288863ac29e09a7deb1b32d9a7bb6bd2a02bd4b99c56f43db644b36d",
+      "shapely/decorators.py": "13056b4756f9e0d8cd33c2d15b4c5f6ae78bb078add4b4029c9231371927f1c9",
+      "shapely/errors.py": "30d5a32b7dfd8dfa59e7d526559815b17dadc990b0de744265ad23ff323cce5c",
+      "shapely/geometry/__init__.py": "f98ad1c4a67e1df4f7c951b89250f9104bdd1477f058d00aea8be3bae361865a",
+      "shapely/geometry/base.py": "7b0d96b827cf97e88eac9b2bdf83659ba84e99d00e971829fa71c8cc14376122",
+      "shapely/geometry/collection.py": "c448eae40adb0397be7b7c7aa5b73a5c343b632881892fb925b9decad0c43374",
+      "shapely/geometry/geo.py": "537722bc18969aba33000a63862aa95d804f8b76128f0ac026acec3050a23d37",
+      "shapely/geometry/linestring.py": "606ff10e909e1ab8b342a10e6ca8fc0f853ac95c9fbeafd86e1f2f64819f4172",
+      "shapely/geometry/multilinestring.py": "b5129ce9cacbea65adad4a743d121d29926989bc1538a905f74e362b5ae3125e",
+      "shapely/geometry/multipoint.py": "746c8a1b130ebaf20cd4301bcf107d5f75d28c3bd8a5250db58914805635a7f8",
+      "shapely/geometry/multipolygon.py": "05390e5692bccc4e8feb813378abf736601ccbafa897e562091d239cf8426d8e",
+      "shapely/geometry/point.py": "a4807c55cffa37b54d9e76e0baa8c7c0e03db92e3d05b484d94c0e302e7c5db1",
+      "shapely/geometry/polygon.py": "2d5347b806e9d6879079473a2390b8ef4095f4f83a3a3b37fa324920233c51c8",
+      "shapely/geos.py": "0803d94b0237b2ed64b68406e22aad59f0c62d94c82fb620678d7a2ed96aa024",
+      "shapely/io.py": "01def5ceed0bc1cb720fb45ab55730645b2f390fd537e6cbca42403813abf631",
+      "shapely/lib.cpython-313-x86_64-linux-gnu.so": "352718e66e597a17acfc008b58876d796160a317f8f652de403277de67aec4f1",
+      "shapely/linear.py": "afb83b3a2aebd774f1a69391b46a08ed11812a811f739a5fc08b103d810b9fb1",
+      "shapely/measurement.py": "289e4559bf3b0ee685f2a4d1fa327befe63c1b31f8cf84d9e162516d2747995a",
+      "shapely/ops.py": "3b7a787dec9b5a8b956f1c7f39f3ada6100f3faa9947ad57cd1cbe20bec8c5c4",
+      "shapely/plotting.py": "d9fb8b9d9763c34364943ef555b123272471a0569a283bfa1715f217e897257b",
+      "shapely/predicates.py": "7214ab3ea82b6a11fcfb5c95927a28e0bfd4b1fa1858d5c8f5f74ab16f9d6688",
+      "shapely/prepared.py": "43deda7f1121baa5cccb1760360c73b28323a58aa23331d7c27d4717c59b9ae9",
+      "shapely/set_operations.py": "1d72ddf8aefbda450ddfdfb1ebf10acad3374d68659c562cf6a488cb9c7f97af",
+      "shapely/speedups.py": "bf358006d3f5fb7cc1757e1b619c736f0c4b52012c5a33d3280806637886b5a8",
+      "shapely/strtree.py": "22a4beacf62ef1b54f579d076dfd46688b4b38f287d7bd912f765ed59f6e3d22",
+      "shapely/testing.py": "08ddb302739b1675ac041c71abeb8c9260d398a53446dd1d6f407cc90dea0257",
+      "shapely/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "shapely/tests/common.py": "8438b2c6479e72158a341eb7d40e23611660d6b36ea68be2d422e9fc62be8941",
+      "shapely/tests/geometry/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "shapely/tests/geometry/test_collection.py": "02b7a69a4074f2857d9c80e35549071672e50c8f7b33aba3e5d271516e75668f",
+      "shapely/tests/geometry/test_coords.py": "1185330a8cbb115ede28504e72af243542abaa72fe9712d2ef797ca9b6e5718c",
+      "shapely/tests/geometry/test_decimal.py": "0251cde6dde0cefbd0e70f6208832f26c2226c2e2c744de97f2416a5c05723d7",
+      "shapely/tests/geometry/test_emptiness.py": "1483c7b1958b811a1e84aa6fa1ecc0b2a8e3cc99e8b0bef2d3c6be01b1e56c0e",
+      "shapely/tests/geometry/test_equality.py": "aa17bd0d0a4d02a4663b66c06fcb10bd5d13b932381645ce4df78e1d056c120d",
+      "shapely/tests/geometry/test_format.py": "1ae35793378e164196163681846d322061f38972bee3eefb02098d3333c41845",
+      "shapely/tests/geometry/test_geometry_base.py": "d8f88ee157cbdc041140255bda3460a3e1f8620e6927627cc9aa74db7adcc91e",
+      "shapely/tests/geometry/test_hash.py": "12d43269152d4d420bf008828f2bd50b8291250fc4deeaabfb85a7fe8696f807",
+      "shapely/tests/geometry/test_linestring.py": "a2f289f4bc5c3864bfb404abb2de6299d6202d2f46c3cc9d625cd32d3aa24ede",
+      "shapely/tests/geometry/test_multi.py": "65ac5cd4c9634e4a71f36c92465b1444c7181fea60d5898f87d026fe4d88e7da",
+      "shapely/tests/geometry/test_multilinestring.py": "55de6861387450fde36f9b89b549ce523105be24dd81d4471392cecb3d4f563c",
+      "shapely/tests/geometry/test_multipoint.py": "2c2b3b6a6c828612707d60a4a22a4a4e57ad4ab2ef9bfb763cc33c8bd4f7982a",
+      "shapely/tests/geometry/test_multipolygon.py": "9c2ed1d8658df36348348a0593fe1f956b302859c7337dae84612f9f8bcb6bb8",
+      "shapely/tests/geometry/test_point.py": "d7c5a7d743311ff62f5317576c22c773b2f60c44b11815b15314e3949e6d87ce",
+      "shapely/tests/geometry/test_polygon.py": "463c247a3c9c4ff3a2bb07b7b26a0c60564e08863e8e4f0c11820aac56227ee4",
+      "shapely/tests/legacy/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "shapely/tests/legacy/conftest.py": "16f436c7e43664f304990257c17d2f29a28c58b9bd3a717b9cddd4b12122f9b0",
+      "shapely/tests/legacy/test_affinity.py": "7002ab7436202dfc8cebcc7583b7bf45a678487106e9f0bffe435ab42e260782",
+      "shapely/tests/legacy/test_box.py": "75650518aabf22dc50370eb5dc83ea90026ed2f01b08a0d289736d5df694ef22",
+      "shapely/tests/legacy/test_buffer.py": "04536523e745edfd396a82d494c678ec7862d50f8ed1af0a9f73a97b5efa1312",
+      "shapely/tests/legacy/test_cga.py": "82313dff85ea244317dd0bca8ad0d6f4e28cbea1e4bd3d112ecba434da31b5f4",
+      "shapely/tests/legacy/test_clip_by_rect.py": "43d6e01e51711a7646fb2aadb69bf4aa75966c287c90d58bee24aa3c9653007d",
+      "shapely/tests/legacy/test_create_inconsistent_dimensionality.py": "5abf2b460eb4e77b956a8e1d3df3b6ecc78ce3472030679801ee454d56a8cf95",
+      "shapely/tests/legacy/test_delaunay.py": "4ee6e33736d3c628fd37d543457f4fa3fdcca71cada27902a00131ab9695691b",
+      "shapely/tests/legacy/test_empty_polygons.py": "a4d8e5d04556ba985e9384cf1c7ab274fab5d09a889900b4cbdeb77ab2f92bb1",
+      "shapely/tests/legacy/test_equality.py": "1e5bce44c7eb11d9ae3c88bcf0ddbb99176a99e1a5b92edae5cbfb543a4dff60",
+      "shapely/tests/legacy/test_geointerface.py": "740b2e39949a553663597aae2e50b46c0eccb9f43cf91afaec9ec559009f8f8a",
+      "shapely/tests/legacy/test_invalid_geometries.py": "e8275ab3567602ee990ea8ceecb3514d4d34db2ddf2c7bcf4c5b459c198ce876",
+      "shapely/tests/legacy/test_linear_referencing.py": "0811d4d525ce1e8afb58a1b0c35666a1280ba9ad10b2e85f54f2b6d5a88dbf46",
+      "shapely/tests/legacy/test_linemerge.py": "ea3ca825b8f564ebd16ea156e8273b6d2f46ec31c290a37eb3101488032896c4",
+      "shapely/tests/legacy/test_locale.py": "45b1fa758e38a83a2765646e624a9d97cea492ee5cf46d593c7dfd56e993f3c6",
+      "shapely/tests/legacy/test_make_valid.py": "a9956f278f8de934ab273f8bc4bd15f0737f73fb37098b620b345f6caff1971b",
+      "shapely/tests/legacy/test_mapping.py": "096ab7cb9512ebd3ceb7c77fab53c584c272e40639e1f025e2e303b1b3101f8b",
+      "shapely/tests/legacy/test_minimum_clearance.py": "b979c1a8c8ac533e73828640b2eadf8b3b0f1aeb60af6bbadf2e81aa6a80f464",
+      "shapely/tests/legacy/test_ndarrays.py": "e7fb07796389e3daede35a4b9798f8d486d61430dc496d24005aad0b8e632a45",
+      "shapely/tests/legacy/test_nearest.py": "7971df1d003493571460d727f56bcbf52a67c210a315bd8278dd8d00c1d0d0cd",
+      "shapely/tests/legacy/test_operations.py": "45885fabe396348e7346eabe44db83687b760e69fcc97eb02b5c987a325a4c06",
+      "shapely/tests/legacy/test_operators.py": "6968c68073a62e6e89c76d41891f403c116890be21c4eac2d48458f181e8d105",
+      "shapely/tests/legacy/test_orient.py": "8b683621ecf809ebb5211267cc0d38852e8530ea3ad865be8fde7acddef13aa6",
+      "shapely/tests/legacy/test_parallel_offset.py": "1918896b8f30dbecfb3570d5823ca1e703d30adfe541983997f6f56c4c436785",
+      "shapely/tests/legacy/test_persist.py": "e2852e23de770dc447651bc90016a7c37f222e126bfcac804cbe76b753eddc18",
+      "shapely/tests/legacy/test_pickle.py": "904649fc746b26fa6547d4ef2fde1984d8859f7bae8ac7d0160af1efd4bf8b88",
+      "shapely/tests/legacy/test_polygonize.py": "4137b716e264dfdeee26c7a55b3c37183b4f3d8a3f9fc41bd74166abe90efcfe",
+      "shapely/tests/legacy/test_polylabel.py": "29df6ea15b38d6eaac32d704660fb48bdc30c00b55a007ab051ec86d42b7388d",
+      "shapely/tests/legacy/test_predicates.py": "acaf6bb954fab6a5ac4c4476d6d24a332d7ef6273af178062810464537935158",
+      "shapely/tests/legacy/test_prepared.py": "2262c11275e4d192592deea3707b7184d241809acaf46bb043303d06d71dbf1f",
+      "shapely/tests/legacy/test_products_z.py": "0ab37de73fbcb25dc9efa619134e44e6d62f30bae11834e9fd18af6db95bab98",
+      "shapely/tests/legacy/test_shape.py": "31cbfad36ecdac0f636087db09b72003debc1e31d697909fe2d7fc72ae2a196a",
+      "shapely/tests/legacy/test_shared_paths.py": "299d4533ab363b7d79be8230d5738496ec0c9dfce1c8b77dd725e7a4d9a7b7b6",
+      "shapely/tests/legacy/test_singularity.py": "188fbfebbddcd7c48802ad544194f764e9df7926e1044b86018802bb33e5761a",
+      "shapely/tests/legacy/test_snap.py": "7c25806a778e427e6bc6667249d88d23b2c3c2d65aa9f60e2c6b1ea0961157a4",
+      "shapely/tests/legacy/test_split.py": "ed2c14b9acfcf9592e287280bc2a5c25e02811b41a08c8f93fbdc09a70348c75",
+      "shapely/tests/legacy/test_substring.py": "d528a6313695737e2e93ce329554ab889371e13d808746b179bcfd2056c565a5",
+      "shapely/tests/legacy/test_svg.py": "c485e190be38c353c9977b2ec6f0e35ca77d9cf3bb963918313cf7aa80fb0c6d",
+      "shapely/tests/legacy/test_transform.py": "b39196b2ef44796fff0f44074f82fd8afaf597281e892c5134b1321a099d92c9",
+      "shapely/tests/legacy/test_union.py": "309a772ecb9fab530f3a5e7d846b50ab7c3e1f653756698333184bfd9f5cf197",
+      "shapely/tests/legacy/test_validation.py": "2f7decda98da83d47f1e80dafa6506d6810e65c2bea5ec619d01d7e31959bba2",
+      "shapely/tests/legacy/test_vectorized.py": "1074c8e0a625dd1025cccd8ef41b997d12efda4c739eeb49b4658cb9b25897c8",
+      "shapely/tests/legacy/test_voronoi_diagram.py": "cf764af15934364302b4b1b9d2f3d2bd0b9c0406931f0dc61fdb24d65d9bf2a1",
+      "shapely/tests/legacy/test_wkb.py": "9e90a3358aedbc5bf69e1c2d01c8808f6b5eee97f5a5bd60f1132b2b19c1af63",
+      "shapely/tests/legacy/test_wkt.py": "8f401b408d904a4b4b8e649b067ed98a0bf05ad37f12c36ac682aaed400a4115",
+      "shapely/tests/legacy/threading_test.py": "956c810cec32b0c6a83e8939c46bc336fec2527e6390474352eddb20b518ab30",
+      "shapely/tests/test_constructive.py": "d1f2a262b7c6d4edcb6720e4913a0b67377fe845ac868195a96e1db0a5d19554",
+      "shapely/tests/test_coordinates.py": "ed3f6f7994ba5023affdb919bf29921b309bea52da2ccd3174b5f2f6a50c590c",
+      "shapely/tests/test_coverage.py": "fc0ee5b8fc3287644f1c52298dde2b6e8f58d30539541789ea6287396c94847a",
+      "shapely/tests/test_creation.py": "8acf823723b015cafb5c8eef0abd1b650317fa4c65cb1fd547eafbbb4ee63ada",
+      "shapely/tests/test_creation_indices.py": "442e00c9f6497dfcb82800c33e644a653b9f686b2ec2bad2857e9d7310f06100",
+      "shapely/tests/test_decorators.py": "f2296fc9c051f82cea97c3b3fa631d2a2e34c856aa2724e5dae1d2e5e06fea62",
+      "shapely/tests/test_geometry.py": "167598facf5375b83a278094aa6faf7c04e56d445c80df5120aceffe1db642bc",
+      "shapely/tests/test_io.py": "463f9f5e1a320092501fdd6267800cfee95bb4ae056219031eed192270d889a1",
+      "shapely/tests/test_linear.py": "1290329dc46bbc86fdd55d4e4f514ce8cafcfc26a886446368ec008a2fefe2fc",
+      "shapely/tests/test_measurement.py": "78622de41a1a34e7ba4a748df5633c53aa170b75873a9a838c9dc195575abd4a",
+      "shapely/tests/test_misc.py": "51c71ca684af35ff44db3241aec202c64239ff364115d9ad7729f907ea96ac5b",
+      "shapely/tests/test_plotting.py": "a67aba0917c704a652cf5435bcb023225961b7efb26660d79e04d740ebbc27cf",
+      "shapely/tests/test_predicates.py": "ac87fb40003c6b8b03ea9a84484c32e1a65d7742c1d5b3d6ed78678dc47fa73a",
+      "shapely/tests/test_ragged_array.py": "68913b3eca0fea05a0861dfd7a7d5b392cfd61edd8f3c87f5c4e69b6c23f7bd3",
+      "shapely/tests/test_set_operations.py": "c7f7b4ff00f62325c5e621619f8f7d7d34d0c3dadba41c754dea13e15ea2a529",
+      "shapely/tests/test_strtree.py": "d38f6091ecb00b3a5575742816ffa7a0386332942df349737361980de5c77d15",
+      "shapely/tests/test_testing.py": "7ce5858e8dccc87080fec1158d06a767efc536c42d9bb360f216605906ad33c0",
+      "shapely/validation.py": "022bd86d8fbea62d9e57d855a1344078ec2d4baf66e12dfdc3ec25ddb45c3e84",
+      "shapely/vectorized/__init__.py": "e050c7c3ef8ab08f183e8b2f68476d991d78058a1de020b03ea7f00e6a5f8ad5",
+      "shapely/wkb.py": "35efe44fd667127ee169403aef8794b966bb0f3b5fbb9e478231dd2859fed69e",
+      "shapely/wkt.py": "0262744aff843140ca60a5b15aa65b3ffcea8248f5391401703fb44e71f0cf20",
+      "cv2/__init__.py": "69192904dead3ada37c8b305ee850ac7474924730881a9d5e0b2390944eb5aae",
+      "cv2/config-3.py": "9a7aadf724b822001f5e963b01fd4e375d45e2cbbe328d2ca7b42a440c083a1c",
+      "cv2/config.py": "974e2d4096ee1a9a9a341df1bf33e16973683bf1ac733006de27ff2f23bc584d",
+      "cv2/cv2.abi3.so": "9e29605abcc31c9942d0e7dffc53b4ccaa601676c794327b0ea71a570a0c26c2",
+      "cv2/data/__init__.py": "d76e4f72d7bf3ad079e59c635a0e64a3cba0a67a20675b113323f8f1db4108cc",
+      "cv2/load_config_py2.py": "c4ffe1da939bcdf6cdf2d38d57b0804261a1f787d0fb4b741f2b2b5c30e5b7f4",
+      "cv2/load_config_py3.py": "9c22766454a9ac2f6869d37830b2efc699e7b8c3125484e9976c6e677c066029",
+      "cv2/mat_wrapper/__init__.py": "8b627063a9260cbfeced85f3225f8966e582315624462e05ea3eb45b78f83fd0",
+      "cv2/misc/__init__.py": "cabf4f9312ac97145cf3b861b482519f94689a63fd8daaa4b18afe643ba3edc5",
+      "cv2/misc/version.py": "893131ab58f01a002fde3b58407448f294a999fccfb23906f5baec1f46dd6219",
+      "cv2/typing/__init__.py": "68724d42b4f7c1ae5f23cdf846a6caf0ea53743ebe4a72fb8ec30b03153fd669",
+      "cv2/utils/__init__.py": "7eec381871ce5ecc7129cf8069d00438a42afc8d46af81b7c8c951bc06d33f7d",
+      "cv2/version.py": "e718587212508acdcb296839c287c7fa346edb621005ffb199c26397592544ed",
+      "shapely.libs/libgeos-3ef06f11.so.3.13.1": "59e0139d1ccea9a331b932c60b399974bafdff5c0e07b554c6a5df80edacf150",
+      "shapely.libs/libgeos_c-abcdd5fa.so.1.19.2": "91589f52067072ab661524cf181caf856097fc901c1ecc4a98585d03f5452c02"
+    }
+  },
+  "mirror_verification": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_deps/mirror_direct/verification.json",
+    "sha256": "22e85fd2f105531bccfabfc5bad4c38790a9e8d735415ed35538d3240441a06b",
+    "receipt": {
+      "status": "passed",
+      "mirror": "https://pypi.tuna.tsinghua.edu.cn/simple",
+      "download_method": "system pip download --no-deps --no-cache-dir",
+      "proxy_env_explicitly_removed": [
+        "http_proxy",
+        "https_proxy",
+        "all_proxy",
+        "HTTP_PROXY",
+        "HTTPS_PROXY",
+        "ALL_PROXY"
+      ],
+      "scope": "Fresh mirror downloads verified byte-for-byte against every installed payload file; active dependency directory unchanged",
+      "initial_fetch_note": "Initial mirror fetch inherited shell proxy environment; this independent repeat explicitly removed those variables",
+      "wheels": [
+        {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_deps/mirror_direct/sahi-0.14.0-py3-none-any.whl",
+          "sha256": "7fb73078e82fb34fb170276ae6a017e9250c4b64842926c332a8b683aa7a8d81",
+          "installed_payload_files_verified": 57
+        },
+        {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_sahi_merge_deps/mirror_direct/shapely-2.1.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "sha256": "7ed1a5bbfb386ee8332713bf7508bc24e32d24b74fc9a7b9f8529a55db9f4ee6",
+          "installed_payload_files_verified": 133
+        }
+      ]
+    }
+  },
+  "phase_exits": {
+    "engineering": {
+      "engineering": 0
+    },
+    "inferring": {
+      "worker0": 0,
+      "worker1": 0,
+      "worker2": 0,
+      "worker3": 0,
+      "worker4": 0,
+      "worker5": 0,
+      "worker6": 0
+    },
+    "scoring": {
+      "score_sahi_nms_iou_early": 0,
+      "score_mask_nms_late": 0,
+      "score_sahi_polygon_mask_nms_late": 0,
+      "score_sahi_nms_ios_late": 0,
+      "score_sahi_greedynmm_ios_late": 0
+    }
+  },
+  "rank_receipts": [
+    {
+      "rank": 0,
+      "images": 302,
+      "gpu": "NVIDIA A800 80GB PCIe",
+      "receipt_sha256": "fd03319e939898941649099239e52870676373171d10ff8ca86addd0820738c5",
+      "checks_sha256": "220b15b16dfb6aea7fccd27d50e7d767e7209d69426b7091209ea719e2634f38"
+    },
+    {
+      "rank": 1,
+      "images": 302,
+      "gpu": "NVIDIA A800 80GB PCIe",
+      "receipt_sha256": "416c43994147b4ca7901e085ae6c6bc1aea068f744b8b13d7aff2f38e2351f95",
+      "checks_sha256": "9c92a3f2e3980e3bd52a718dc9dff4567cc536478d130b7def023f733856ed36"
+    },
+    {
+      "rank": 2,
+      "images": 302,
+      "gpu": "NVIDIA A800 80GB PCIe",
+      "receipt_sha256": "707b7f5be689bf799d41edf2751bce499adfae262118f0041bc8a98ad06ba9bd",
+      "checks_sha256": "2ea2c928339b2b383f0cba45ad71265325009e1dcc5ef9db0d12c5c0c013bfed"
+    },
+    {
+      "rank": 3,
+      "images": 302,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "cef30494311e1c77621bedf1c048d7c977cdfa736de9211bd0e9eb05400e6e31",
+      "checks_sha256": "975f9bb694c7d439879f02926030e0aee17a60f0b26256e11b31020a66869c43"
+    },
+    {
+      "rank": 4,
+      "images": 302,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "86a4848a41943053216900b276c02e0cd20e19f1d0bf144e18dc12e91e9d3ec8",
+      "checks_sha256": "0beaa3496c6858fc1e28035bf731db97a52a840d2a5b25ee372d2db736be33d2"
+    },
+    {
+      "rank": 5,
+      "images": 301,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "250595028e1f2fe621d544e04085fc7d429533d1cc2f241ae03ba01589099bb0",
+      "checks_sha256": "c325158700c266a026f75bddc3d3bbe9e2e08ba3acac0234884444778d23d44c"
+    },
+    {
+      "rank": 6,
+      "images": 301,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "receipt_sha256": "2cf420a31d2f210d71e08dc7cd8efa0b472cb0d8412c38e1fb0f7d9f3ae2e45f",
+      "checks_sha256": "845f67114487a89c0ed9fcbd7c7e3d121a720bb8533c0fbba788d57917a00ce1"
+    }
+  ],
+  "publisher_source_sha256": {
+    "tools/summarize_course_sahi_merge.py": "2d9e17b4118c40ef9e103a1a190a9fdce4485478ff81194fd898b230500f5834",
+    "tools/summarize_course_swinl_removal.py": "56e8f0da96d3b33a96ef6beb42c34478483750ce42b36b9a4dbfdcd0732c0f0f",
+    "tools/summarize_course_swinl_ablation.py": "5333caf74843ce4b0c3ad2aaabc75008d14053a3cde64e7d75a4a95c203fb9fc"
+  },
+  "material_passport": {
+    "source": "academic-research-suite / reports/course_sahi_merge_v1",
+    "verification_status": "VERIFIED",
+    "scope": "fixed-weight official SAHI integration comparison",
+    "limitations": "本轮调用 **SAHI 0.14.0 的官方 NMSPostprocess、GreedyNMMPostprocess 类**，RGB-D 输入和切片前向仍由 DPSeg 负责，未调用完整 get_sliced_prediction 接口。这是在已查看过结果的本地测试集上追加的固定权重比较；没有根据本表调阈值、选择检查点或替换默认配置。单种子结果不代表统计显著性，Kaggle 成绩另行报告。共享特征的实验运行时间不用于速度比较。"
+  }
+}
