@@ -1,5 +1,7 @@
 # Swin-Large 模型规模与推理开销
 
+> 版本说明：本页切片配置使用旧分数优先合并，4794.0 ms/图属于该配置。当前整图优先＋截断处理＋一致性配置已使用最终权重独立复测，见[当前效率报告](course_efficiency_swinl_current.md)。本页保留原测速记录。
+
 ## Material Passport
 
 - 来源：academic-research-suite / experiment-agent，当前五组配置的实际测量。

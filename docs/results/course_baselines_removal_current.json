@@ -1,0 +1,655 @@
+{
+  "schema": "dpseg-current-baselines-and-independent-removal-v2",
+  "status": "completed",
+  "updated_at_utc": "2026-11-06T20:16:12.198447+00:00",
+  "split": "local_test",
+  "images": 2112,
+  "backbone": "Swin-Large",
+  "camera_intrinsics_used": false,
+  "comparison": "baselines_and_independent_module_removal",
+  "current_default": {
+    "variant": "global_guard_edge_consensus",
+    "tile_size_px": 640,
+    "tile_count": 4,
+    "whole_image_included": true,
+    "actual_adjacent_overlap": 0.4,
+    "selection_basis": "user_requested_after_exploratory_local_test_comparison"
+  },
+  "completed_rows": 7,
+  "pending_rows": 0,
+  "results": [
+    {
+      "id": "mask2former",
+      "method": "Mask2Former",
+      "kind": "baseline",
+      "definition": "RGB 单分支基线，不带点细化、概率图细化或切片。",
+      "status": "completed",
+      "metrics": {
+        "mask_ap": 0.7346113652476002,
+        "mask_ap50": 0.911681216263419,
+        "mask_ap75": 0.7938843485171826,
+        "mask_ap_small": 0.20583773552236304,
+        "mask_ap_medium": 0.7961537864141843,
+        "mask_ap_large": 0.9253503178106516,
+        "mask_ar_1": 0.02717394185152792,
+        "mask_ar_10": 0.25664307863560465,
+        "mask_ar_100": 0.758200153719753,
+        "mask_ar_small": 0.29323594791997454,
+        "mask_ar_medium": 0.8188677440948646,
+        "mask_ar_large": 0.9369399573300822
+      },
+      "images": 2112,
+      "artifacts": {
+        "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_rgb_v1/final_evaluation/test/evaluation.json",
+        "evaluation_sha256": "05bac90a8d071ab5230444fa2d44bc8411ec29ea194a0905d2c84af8e71ac802",
+        "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_rgb_v1/final_evaluation/test/predictions.jsonl",
+        "predictions_sha256": "651e02d70f3c3d26728d931b31c74e9d1237defd28a4cd9737e13c9df17c5b1e",
+        "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_rgb_v1/submissions/mask2former_swinl_rgb_1024_e15.csv",
+        "csv_sha256": "0dcc2c79fc0ac8c7b695d6df5a58c47a5f07f82673256324ec2b0c9e9b209f82"
+      },
+      "predicted_instances": 142096,
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "verification": {
+        "source_stage": "S0",
+        "csv_validation": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_rgb_v1/final_evaluation/test/submission_validation.json",
+          "sha256": "e3a2da45978535968ba1d72501af62d395c5481cffa47cfc4ccd68d73b5e2b35"
+        }
+      },
+      "full_minus_row": {
+        "mask_ap_small": 0.3228719364559848,
+        "mask_ar_small": 0.3813697470096328,
+        "mask_ap": 0.15284155306906666
+      }
+    },
+    {
+      "id": "dafusion",
+      "method": "DA-Fusion",
+      "kind": "baseline",
+      "definition": "本项目适配的 RGB-D 融合基座，不带两种掩码细化或切片。",
+      "status": "completed",
+      "metrics": {
+        "mask_ap": 0.8456264561094238,
+        "mask_ap50": 0.9564883185073308,
+        "mask_ap75": 0.8936722950589349,
+        "mask_ap_small": 0.4087969008102758,
+        "mask_ap_medium": 0.8972162961025453,
+        "mask_ap_large": 0.9756734341650608,
+        "mask_ar_1": 0.02761389838594259,
+        "mask_ar_10": 0.2673239511277199,
+        "mask_ar_100": 0.8589568259521349,
+        "mask_ar_small": 0.48129564941251185,
+        "mask_ar_medium": 0.9092362372892161,
+        "mask_ar_large": 0.9849436147516002
+      },
+      "images": 2112,
+      "artifacts": {
+        "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/final_evaluation/test_native/evaluation.json",
+        "evaluation_sha256": "a61a13648182003c185e53fa64905b34b09c6de319d18d7d02454ca71b47d79e",
+        "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/final_evaluation/test_native/predictions.jsonl",
+        "predictions_sha256": "46307cfbdae122c54f452da30f84602647fe4a6b55a12c351002706cb95a6c4d",
+        "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/submissions/dpseg_swinl_depth_no_k_base15_native.csv",
+        "csv_sha256": "6fb0b19c6f3943b60ca841dadfb71c8ea8930be141b19602eef9d117376df239"
+      },
+      "predicted_instances": 116324,
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "verification": {
+        "source_stage": "S1",
+        "csv_validation": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/final_evaluation/test_native/submission_validation.json",
+          "sha256": "4bd22b6b7b2ada75b4e12663bbee778d10fb695dd837cd5f666fce4a985b6f85"
+        }
+      },
+      "full_minus_row": {
+        "mask_ap_small": 0.11991277116807203,
+        "mask_ar_small": 0.19331004551709546,
+        "mask_ap": 0.041826462207243065
+      }
+    },
+    {
+      "id": "without_rgbd_fusion",
+      "method": "w/o RGB-D 融合",
+      "kind": "independent_removal",
+      "definition": "移除双分支 RGB-D 特征融合，复用 RGB 第15轮基座；保留两种深度细化、四切片及当前合并，另训 RGB 专属点头。",
+      "status": "completed",
+      "metrics": {
+        "mask_ap": 0.7855593069486859,
+        "mask_ap50": 0.918864844682641,
+        "mask_ap75": 0.8232416808933951,
+        "mask_ap_small": 0.2867797025578372,
+        "mask_ap_medium": 0.8399154767688212,
+        "mask_ap_large": 0.9388117225790654,
+        "mask_ar_1": 0.02740319631072593,
+        "mask_ar_10": 0.26194773528398396,
+        "mask_ar_100": 0.8205136360022263,
+        "mask_ar_small": 0.44048904414099715,
+        "mask_ar_medium": 0.8709859424309074,
+        "mask_ar_large": 0.9496799756171898
+      },
+      "images": 2112,
+      "artifacts": {
+        "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/final_evaluation/test/evaluation.json",
+        "evaluation_sha256": "b20c24251b32ccd8712df2e40d8fb7304f7f82ad87a36f295c8b76d645d564f9",
+        "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/final_evaluation/test/predictions.jsonl",
+        "predictions_sha256": "a43fcba14e959be09b7b2d472e151d0e3a1048dd56fbd50fbe433ef581b50a8a",
+        "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/submissions/dpseg_swinl_without_rgbd_fusion_guarded640.csv",
+        "csv_sha256": "48cce8166a3dcf078a9bcfdd4820c6f0867463f4ecafcddebfccca6ffc8bc3f7"
+      },
+      "predicted_instances": 168792,
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "verification": {
+        "protocol": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/protocol.json",
+          "sha256": "df6abf969308e031d1ee31eee78f875457c5513988743ecbe377887b388dbfcd"
+        },
+        "result": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/results.json",
+          "sha256": "ee55eb1db7289661c8960f9c667d43969c84125a55bbdf85f797f420d458e417"
+        },
+        "selection": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/selection.json",
+          "sha256": "4b7eee9b60b7c0aaa38f8f0dfece77fad51eb91391dfcbc204875ed8c4c98857"
+        },
+        "selected_epoch": 6,
+        "training_epochs": 6,
+        "training_image_exposures": 86592,
+        "global_steps": 10824,
+        "validation_images_each_epoch": 2584,
+        "base_unchanged": true,
+        "base_gradients_absent": true,
+        "head_replicas_equal": true,
+        "engineering_weights_reused_for_formal_training": false,
+        "per_epoch_artifacts": [
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch01_rank0.json",
+            "sha256": "9633ae329f399cf1d3ae4e6cb8a6deb4f00756b09c983d857dba4e0c94cf2503"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch01_rank0.jsonl",
+            "sha256": "14e5304bb74d189b61bcbcc3dd241233f0b9df981ed01ac1249bc66243660b5e"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch01_rank1.json",
+            "sha256": "b546d77d0e1568a12b76572904f328724fae12b2e5611dbca122da5f7deb106f"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch01_rank1.jsonl",
+            "sha256": "a0f5b210acc2e85d4429b2f09a8ec89e7c1e7d29e92335e562ddaa5e19e1e7ad"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_01/evaluation.json",
+            "sha256": "91e4c6f161b0a4adc4efc722aaddaf8738638382d732c067c6936bc709359739"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_01/evaluation_run.json",
+            "sha256": "28e935887fbaadb8084f7a6940c45d188445b30dfd55975cf1c20f666f84fcb6"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_01/predictions.jsonl",
+            "sha256": "bc65ec7f9e81ff913e7bc8445e8d0cceab793f43844d70b348115483cf0e905d"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/heads_epoch_01.pt",
+            "sha256": "3df13258060ce0617bb3b8af9ee7fc9d01978a8ed8f3e66f44c9ee655a96d095"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch02_rank0.json",
+            "sha256": "312210fc6da73ccae9c2e0828593246f48defe47e1847347379da9d8fd07f14a"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch02_rank0.jsonl",
+            "sha256": "a155b22dadf42dff254c6586b46d9094289e6fc4dd252b9e23f6736b7ac47131"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch02_rank1.json",
+            "sha256": "13fb3673a7a70631fa113b788489c15a304a0dc55f0753f0a92b893040dae9f2"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch02_rank1.jsonl",
+            "sha256": "acfa82d48ea08f97b3eb0500dc658b07f4aab89160abb3ab6744c42cf2467b8a"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_02/evaluation.json",
+            "sha256": "360a962f9678c7b1f4e7e736057efd2c5f30b3563225000190368426dee9c063"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_02/evaluation_run.json",
+            "sha256": "8535de771feb8aacb680a98fa87f31591178adee6b3c3276038fbb0bd3048f63"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_02/predictions.jsonl",
+            "sha256": "ac8663ec37233320cbe7375047e30d5426da5ec5f86d805ec6e6440df408ccad"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/heads_epoch_02.pt",
+            "sha256": "d140394b3cedf915841c250e7d6cdcff52ecf58a5e191a92ce0af78761f71e3e"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch03_rank0.json",
+            "sha256": "427f7ec03b744f5b180372ee2204e9e45525c1cf5b89cd21b8de2e341a40948f"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch03_rank0.jsonl",
+            "sha256": "59783d2b20c4dc9f9856b31d879267f6e44e176fc01f50aaba43ad85a0c13aaf"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch03_rank1.json",
+            "sha256": "b7ee98f4c0ddf7272da80d711da945dca5c58652590ec2df81649fd4e5285007"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch03_rank1.jsonl",
+            "sha256": "6da55bc0c3dd0148119662093b604b0a8cac136cb9d0673525ee2399e806791d"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_03/evaluation.json",
+            "sha256": "877d205a5f793ef0155edbccf4ab6df67794ed5a23f8b1895a63c34ce8b2245b"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_03/evaluation_run.json",
+            "sha256": "9c193b529b5eeac01f99ed017245642a9c7f81184890eb87dee9f508fd946e18"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_03/predictions.jsonl",
+            "sha256": "dc5557a451012542a2068c230d20f2bd75e797fb94f792cff8f5428bf1874a0a"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/heads_epoch_03.pt",
+            "sha256": "0967012e44a49bf1e6e0101b7d4c7dfef6e41ea38d79f332bc2353015e55ed30"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch04_rank0.json",
+            "sha256": "f0011c69e0ff4589db0afc5fa7ad147db136993f90ad5ffb4d5a913598341e68"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch04_rank0.jsonl",
+            "sha256": "e162129882fad1e2936e3110a21ebbe325da81b6879d9a14f3095eb3b3f6c9a3"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch04_rank1.json",
+            "sha256": "6b31fdc7892b5e783ae25c89648748e5f789e879b39d4aa21ccaa18e8a82725e"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch04_rank1.jsonl",
+            "sha256": "615dab1b54f62fc1a00804f91e5a949ebc8969aa28886c9a79272d283669ace0"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_04/evaluation.json",
+            "sha256": "167de18aaecdcbeeb514ad1964c2974c30d34462a85cdb3a7da928853a77934b"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_04/evaluation_run.json",
+            "sha256": "8add685f328a74bad198d6f1687a3e05109ffbba2ce8173e9ee508a0455b4f83"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_04/predictions.jsonl",
+            "sha256": "eacc1da777207f12884b913671aba0c16b215896b4dcbb1c20eaf07527066d4c"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/heads_epoch_04.pt",
+            "sha256": "0700ea7655c2b5afc5ad48a408855bc4681e357083fc1dcb6be24cd8b6adff04"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch05_rank0.json",
+            "sha256": "53e104533aa2787db0a87c4c8072ddab91c51dc0de4696d6e4ebc4c3584179b2"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch05_rank0.jsonl",
+            "sha256": "448973944028e2eb5f9546ba5b2956a8bf0a55c5c728def361d280c151bbf3f4"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch05_rank1.json",
+            "sha256": "08482b88de814793f39b17fa65a782692fcefd855f243b0fae8458b24bd91568"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch05_rank1.jsonl",
+            "sha256": "746d4bba625291484cdb1a000448c0a7f2fbbbba93809b754a5ce43906e74847"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_05/evaluation.json",
+            "sha256": "61c3dcbcc36b2a0ce5f96f1e5a4baa4fd3ea2d96978305e02daa372ea212976b"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_05/evaluation_run.json",
+            "sha256": "a24d5597f7a6567af457a3431ec83cf7b89db0cb787c8c1af3cf97c020eeb537"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_05/predictions.jsonl",
+            "sha256": "577f5903d632e6ab76b36f081690be015c7f246de81e3f9425b5338b728f5f0f"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/heads_epoch_05.pt",
+            "sha256": "9266d4631b6017519f476dbe4b56bd574e6dfc22f91a4856bfe42e44b37ab738"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch06_rank0.json",
+            "sha256": "a17524baeb2b57d9ba9ba830ff6b3f9bf721d2259b01f77fbd1826ff872a3ec3"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch06_rank0.jsonl",
+            "sha256": "c6345077a7f3739ef3b1b1bb87981ceb6f6dc64a21e2959896a960bba4ba6622"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/coverage_epoch06_rank1.json",
+            "sha256": "92e801fbbdda243aea8259f005585d6fa167f6bb044db6b4c897f1bdb17c3b76"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/train_epoch06_rank1.jsonl",
+            "sha256": "74a2b17766db5908d00df5ab32a4ae39f297973e126887d3a08c2489713c31dc"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_06/evaluation.json",
+            "sha256": "ce434ba9dbfd5c41a0c49a1610c42549b791492b43457b85e0a1075fbedafe03"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_06/evaluation_run.json",
+            "sha256": "f8557d94ebe6214ec0d49e419aca5b58718ceb0defa7ac3aad1d7ddc599d61a5"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/val_epoch_06/predictions.jsonl",
+            "sha256": "46c08d841edf14b348f0e2a3227f113f57073c558d0178b393767de0f5ff3ca7"
+          },
+          {
+            "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/points6/heads_epoch_06.pt",
+            "sha256": "807038160f278474d901d8fa2c479fc1bb1589a91957746c18e99d3182afd799"
+          }
+        ],
+        "test_identity": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/final_evaluation/model_identity.json",
+          "sha256": "c8ec3a7cb5eef4546a1af7822b51d3ea853ad2f8c04e93d8c7628dd44c834c10"
+        },
+        "csv_validation": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/final_evaluation/test/submission_validation.json",
+          "sha256": "c861f45cac5382be4d7fd902d2176faa1bcc103885ccafff535206133200107a"
+        }
+      },
+      "full_minus_row": {
+        "mask_ap_small": 0.24192996942051065,
+        "mask_ar_small": 0.23411665078861016,
+        "mask_ap": 0.10189361136798092
+      }
+    },
+    {
+      "id": "without_point",
+      "method": "w/o 深度感知点细化",
+      "kind": "independent_removal",
+      "definition": "保留 RGB-D 融合、当前四切片合并和概率图细化，仅跳过可学习点细化。",
+      "status": "completed",
+      "metrics": {
+        "mask_ap": 0.873440725486621,
+        "mask_ap50": 0.953162610330962,
+        "mask_ap75": 0.9094454076983882,
+        "mask_ap_small": 0.5193664791428301,
+        "mask_ap_medium": 0.9101482677359447,
+        "mask_ap_large": 0.9806772954224141,
+        "mask_ar_1": 0.02759137049110811,
+        "mask_ar_10": 0.2672616681243539,
+        "mask_ar_100": 0.9010972409954678,
+        "mask_ar_small": 0.6632158357150418,
+        "mask_ar_medium": 0.9323053138248701,
+        "mask_ar_large": 0.9893629990856446
+      },
+      "images": 2112,
+      "artifacts": {
+        "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/without_point/evaluation.json",
+        "evaluation_sha256": "af4d2135a26c965f0a30638f83062887370d2c0a7b0ba4f9eddf8689c76e3bf2",
+        "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/without_point/predictions.jsonl",
+        "predictions_sha256": "a0ca209018b0f7c282afef5aace54714c938fd61bd44e04531c0fccd9e29231a",
+        "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/submissions/dpseg_swinl_depth_no_k_guarded640_without_point.csv",
+        "csv_sha256": "dc9063e8eb0ebc0376d2bd66672f365db8915eabfd66c53e53ed461ced833f98"
+      },
+      "predicted_instances": 140993,
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "verification": {
+        "summary": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/summary.json",
+          "sha256": "83594d8095cace127e4be956155a73ef66776c63a8d350ca3737d976bdb8c78d"
+        },
+        "csv_validation": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/without_point/csv_validation.json",
+          "sha256": "ef44fbfd1c43043c2a1525694497b0d1b98e1898cb09d713a0a2e4765c9131f5"
+        }
+      },
+      "full_minus_row": {
+        "mask_ap_small": 0.009343192835517766,
+        "mask_ar_small": 0.011389859214565479,
+        "mask_ap": 0.014012192830045844
+      }
+    },
+    {
+      "id": "without_probability",
+      "method": "w/o 深度引导概率图细化",
+      "kind": "independent_removal",
+      "definition": "保留 RGB-D 融合、当前四切片合并和点细化，仅跳过概率图细化。",
+      "status": "completed",
+      "metrics": {
+        "mask_ap": 0.8658737585847508,
+        "mask_ap50": 0.9528512266200481,
+        "mask_ap75": 0.9003612823087924,
+        "mask_ap_small": 0.4624782945070043,
+        "mask_ap_medium": 0.9087043332413265,
+        "mask_ap_large": 0.9776421185106606,
+        "mask_ar_1": 0.02759534600196125,
+        "mask_ar_10": 0.26758235933317437,
+        "mask_ar_100": 0.8908298216320798,
+        "mask_ar_small": 0.5865354080660528,
+        "mask_ar_medium": 0.9316279366293712,
+        "mask_ar_large": 0.9868637610484609
+      },
+      "images": 2112,
+      "artifacts": {
+        "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/without_probability/evaluation.json",
+        "evaluation_sha256": "366c891a0f29778a368db85b54712dfddca736c46e51f201723bc844126b363b",
+        "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/without_probability/predictions.jsonl",
+        "predictions_sha256": "5bc16b44f49d73e880ecbe4725ebbd1e3ea9ab4a5dd66feac6badd09b9802cc1",
+        "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/submissions/dpseg_swinl_depth_no_k_guarded640_without_probability.csv",
+        "csv_sha256": "82ab48d61016f7cc59a7efb24b51441931abded91d6258d89fb61e3ed52bab83"
+      },
+      "predicted_instances": 140993,
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "verification": {
+        "summary": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/summary.json",
+          "sha256": "83594d8095cace127e4be956155a73ef66776c63a8d350ca3737d976bdb8c78d"
+        },
+        "csv_validation": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/without_probability/csv_validation.json",
+          "sha256": "65abd914e7d2865b56f3639083ada4f970d633d5af28b8c14f8ba63bddc9a889"
+        }
+      },
+      "full_minus_row": {
+        "mask_ap_small": 0.06623137747134356,
+        "mask_ar_small": 0.08807028686355456,
+        "mask_ap": 0.021579159731916042
+      }
+    },
+    {
+      "id": "without_tiles",
+      "method": "w/o 切片增强推理",
+      "kind": "independent_removal",
+      "definition": "仅使用整图，保留 RGB-D 融合和两种深度细化；不涉及跨视图合并。",
+      "status": "completed",
+      "metrics": {
+        "mask_ap": 0.8860679855189169,
+        "mask_ap50": 0.9573466897485423,
+        "mask_ap75": 0.9140489820387586,
+        "mask_ap_small": 0.476383566407863,
+        "mask_ap_medium": 0.9348438683491352,
+        "mask_ap_large": 0.9828868532951069,
+        "mask_ar_1": 0.027812673928599825,
+        "mask_ar_10": 0.2707230129071586,
+        "mask_ar_100": 0.900885213749967,
+        "mask_ar_small": 0.5696411559225151,
+        "mask_ar_medium": 0.9460680246087151,
+        "mask_ar_large": 0.9907345321548309
+      },
+      "images": 2112,
+      "artifacts": {
+        "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_report_ablation_v1/S3/evaluation.json",
+        "evaluation_sha256": "4f8e9e1ab355aa56426a3d7f3d06095e330cf33f71ddc4186230d02324efda8b",
+        "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_report_ablation_v1/S3/predictions.jsonl",
+        "predictions_sha256": "4e46a11061e27e69d0af114b2ed36582bfa67f95993267663fbb39d4a3b435d1",
+        "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_report_ablation_v1/submissions/dpseg_swinl_depth_no_k_s3_depth_point_probability.csv",
+        "csv_sha256": "461d105a4d19ac733dda45c1e85b877c57e5491b1a3a085de92f05d200ab7504"
+      },
+      "predicted_instances": 116324,
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "verification": {
+        "source_stage": "S3",
+        "csv_validation": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_report_ablation_v1/S3/csv_validation.json",
+          "sha256": "5ccbb4b3897adaffa49757ab9ac1e04203b63f0084b80b97e253e1ace1eadb2b"
+        }
+      },
+      "full_minus_row": {
+        "mask_ap_small": 0.05232610557048484,
+        "mask_ar_small": 0.10496453900709224,
+        "mask_ap": 0.0013849327977499826
+      }
+    },
+    {
+      "id": "full",
+      "method": "DPSeg（完整模型）",
+      "kind": "full",
+      "definition": "RGB-D 融合、两种深度细化、整图＋四个640切片，以及整图优先＋截断处理＋一致性合并。",
+      "status": "completed",
+      "metrics": {
+        "mask_ap": 0.8874529183166668,
+        "mask_ap50": 0.9533133655024585,
+        "mask_ap75": 0.9112134869569904,
+        "mask_ap_small": 0.5287096719783478,
+        "mask_ap_medium": 0.9245783485544911,
+        "mask_ap_large": 0.9827638508782183,
+        "mask_ar_1": 0.02767485621902414,
+        "mask_ar_10": 0.2687630860565583,
+        "mask_ar_100": 0.9147690228194323,
+        "mask_ar_small": 0.6746056949296073,
+        "mask_ar_medium": 0.946974913136336,
+        "mask_ar_large": 0.9904907040536421
+      },
+      "images": 2112,
+      "artifacts": {
+        "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/evaluation.json",
+        "evaluation_sha256": "e1e7e3c654eb053da8c1bfcd264bba5d2229e5a55968f120eaa37433e5203b05",
+        "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/predictions.jsonl",
+        "predictions_sha256": "97d3407dc4f0fd803b00576eb4b024cce886fe1f3a1ca46487b0da98c53bdff5",
+        "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_guarded_merge640_v1/submissions/dpseg_swinl_depth_no_k_guarded640_global_guard_edge_consensus.csv",
+        "csv_sha256": "6f75831ace88fa4145311b749311c70ff21ebeaf9640473f18cabc5238226024"
+      },
+      "predicted_instances": 140993,
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "verification": {
+        "source_stage": "S4",
+        "csv_validation": {
+          "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/csv_validation.json",
+          "sha256": "113898df1740ada093be2da70acb03ba2f4d1b8ce33cbecb6ed7131640ae2aa8"
+        }
+      },
+      "full_minus_row": {
+        "mask_ap_small": 0.0,
+        "mask_ar_small": 0.0,
+        "mask_ap": 0.0
+      }
+    }
+  ],
+  "semantics": {
+    "iou_type": "segm",
+    "max_detections": [
+      1,
+      10,
+      100
+    ],
+    "iou_thresholds": [
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.8999999999999999,
+      0.95
+    ],
+    "area_ranges": [
+      [
+        0,
+        10000000000.0
+      ],
+      [
+        0,
+        1024
+      ],
+      [
+        1024,
+        9216
+      ],
+      [
+        9216,
+        10000000000.0
+      ]
+    ],
+    "ground_truth_area": "original annotation area preserved",
+    "prediction_area": "independent COCO RLE; no bbox passed to loadRes",
+    "gt_instances": 75462,
+    "gt_small_including_crowd": 9447
+  },
+  "selection_provenance": {
+    "base_epoch": 15,
+    "point_epoch": 6,
+    "point_epoch_selected_on": "full_validation",
+    "merge_selected_on": "user_request_after_examined_local_test_results",
+    "test_ground_truth_used_at_inference": false,
+    "merge_validation_optimality_established": false,
+    "point_epoch_applies_to": "RGB-D-backed point-refinement rows only",
+    "without_rgbd_fusion": {
+      "trained_epochs_required": 6,
+      "selected_epoch": 6,
+      "selection": "full validation APsmall, then AP, then earlier epoch",
+      "status": "completed",
+      "base_training_reused": true,
+      "point_head_retrained_for_rgb_features": true
+    }
+  },
+  "source_snapshots": {
+    "snapshot": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/docs/results/course_ablation_swinl_current.json",
+      "sha256": "80d571d677a130d1d2ae7d64344d9f71366a3193205edf46bae9437d9e388cec"
+    },
+    "current_manifest": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/configs/dpseg_current.json",
+      "sha256": "9bdf443dab70763ce98f4e09fae7fcab9aa4fb5d6570007c39ed0d94e072866a"
+    },
+    "current_removal": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_current_removal_v1/summary.json",
+      "sha256": "83594d8095cace127e4be956155a73ef66776c63a8d350ca3737d976bdb8c78d"
+    },
+    "rgb_head": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_without_rgbd_v1/results.json",
+      "sha256": "ee55eb1db7289661c8960f9c667d43969c84125a55bbdf85f797f420d458e417"
+    }
+  },
+  "checkpoints": {
+    "rgb": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_rgb_v1/base15/final.pt",
+      "sha256": "6d350cac2ef76ee22d372c09cdcb1b01210ccc55c7c2739000b86e2cec302c15"
+    },
+    "rgbd": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt",
+      "sha256": "9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8"
+    },
+    "points": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt",
+      "sha256": "86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783"
+    }
+  },
+  "verification_scope": "All completed rows: file hashes, full RLE receipts and CSV-to-scored-prediction binding. RGB removal additionally requires all six full training/validation epochs and locked head.",
+  "publisher": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/tools/summarize_course_baselines_removal.py",
+    "sha256": "c9abf3a7f6868baddc07fdba71b45bb3e1a43bfb8299318c4de357b55db2e3c7"
+  },
+  "pending_measurements": [
+    "full_validation_of_current_complete_system",
+    "Kaggle_of_current_merge",
+    "independent_inference_timing_of_current_merge"
+  ]
+}

@@ -1,0 +1,2970 @@
+{
+  "schema": "dpseg-four-tile-overlap-v1",
+  "status": "verified",
+  "generated_at_utc": "2026-11-06T12:18:54.136415+00:00",
+  "split": "local_test",
+  "images": 2112,
+  "backbone": "Swin-Large",
+  "camera_intrinsics_used": false,
+  "training": false,
+  "test_used_for_selection": false,
+  "default_changed_by_experiment": false,
+  "current_default": "overlap40",
+  "speed_benchmark": false,
+  "interpretation_scope": "固定四片和完整覆盖时，切片尺寸、实际重叠率与目标在输入中的相对尺度一起改变，因此该实验是不同切片几何设置的条件比较，不能解释为重叠率的独立因果作用。规则在推理前冻结，没有根据本轮测试结果调参或自动更换默认，不作为验证选出的最优配置。",
+  "results": [
+    {
+      "status": "completed",
+      "variant": "overlap00",
+      "images": 2112,
+      "predicted_instances": 141708,
+      "metrics": {
+        "mask_ap": 0.8805839385735713,
+        "mask_ap50": 0.9502427935987424,
+        "mask_ap75": 0.9077485374394699,
+        "mask_ap_small": 0.47938634247202183,
+        "mask_ap_medium": 0.9229259995991032,
+        "mask_ap_large": 0.9828006611775333,
+        "mask_ar_1": 0.02741909835413851,
+        "mask_ar_10": 0.2677321035753094,
+        "mask_ar_100": 0.9096392886485913,
+        "mask_ar_small": 0.6381285064041495,
+        "mask_ar_medium": 0.9462975359408372,
+        "mask_ar_large": 0.9904907040536421
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap00/evaluation.json",
+      "evaluation_sha256": "0f6ff8130b43bd48cd2bfd22b982c16f381f85b853eb3d35022845a0e5262258",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap00/predictions.jsonl",
+      "predictions_sha256": "e675e54f2cfb8357e9d8eb7812f1f5d7085b0a194a0b1d530c41ae20a8525c6b",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/submissions/dpseg_swinl_depth_no_k_overlap00.csv",
+      "csv_sha256": "e24797f90490cf32ee7355e86ab4c4367abdb22eedc11ad852de148967495e47",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap00/csv_validation.json",
+        "sha256": "1d970cd78d258fe5c4b1d1a13d48db545e9a34d4dfd1f62630c9d06b55c855ee",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "reused": false,
+      "candidate_statistics": {
+        "candidates": 296839,
+        "protected_whole_candidates": 67398,
+        "protected_whole_selected": 67213,
+        "protected_whole_lost_to_top100": 185,
+        "near_internal_edge_candidates": 16256,
+        "cross_view_supported_candidates": 121987,
+        "area_filtered": 0,
+        "partial_filtered": 4051,
+        "duplicates_removed": 71054,
+        "top100_removed": 80026,
+        "selected": 141708,
+        "selected_whole": 90597,
+        "selected_tiles": 51111,
+        "selected_tile_small": 41684,
+        "added_vs_legacy": 27508,
+        "removed_vs_legacy": 28063,
+        "shared_vs_legacy": 114200
+      },
+      "geometry": {
+        "tile_size_px": 512,
+        "target_overlap_ratio": 0.0,
+        "actual_overlap_ratio": 0.0,
+        "actual_overlap_px": 0,
+        "axis_starts_px": [
+          0,
+          512
+        ],
+        "bounds": [
+          [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          [
+            0,
+            0,
+            512,
+            512
+          ],
+          [
+            512,
+            0,
+            1024,
+            512
+          ],
+          [
+            0,
+            512,
+            512,
+            1024
+          ],
+          [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        ],
+        "tiles": 4,
+        "views_including_whole": 5,
+        "model_input_size": [
+          1024,
+          1024
+        ],
+        "coverage_fraction": 1.0,
+        "magnification": 2.0
+      },
+      "current_default": false,
+      "delta_vs_current_default": {
+        "mask_ap_small": -0.04932332950632601,
+        "mask_ar_small": -0.03647718852545778,
+        "mask_ap": -0.006868979743095527,
+        "mask_ap50": -0.0030705719037160684,
+        "mask_ap75": -0.0034649495175205214,
+        "mask_ap_medium": -0.0016523489553879056,
+        "mask_ap_large": 3.681029931501545e-05
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "overlap20",
+      "images": 2112,
+      "predicted_instances": 144275,
+      "metrics": {
+        "mask_ap": 0.8807358502007941,
+        "mask_ap50": 0.947955890327003,
+        "mask_ap75": 0.9057966730252867,
+        "mask_ap_small": 0.504850806579174,
+        "mask_ap_medium": 0.9202994635343367,
+        "mask_ap_large": 0.9826988348053642,
+        "mask_ar_1": 0.027370067053616387,
+        "mask_ar_10": 0.26757573348175245,
+        "mask_ar_100": 0.9129058333995917,
+        "mask_ar_small": 0.6631311527469037,
+        "mask_ar_medium": 0.9464632941251475,
+        "mask_ar_large": 0.9904602255409936
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap20/evaluation.json",
+      "evaluation_sha256": "937dea7e67d2b736ff513daab16094f328790e3b18a081e1d67d8331a924d15c",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap20/predictions.jsonl",
+      "predictions_sha256": "504544e061642733411e15a1be75c5646e8aa5b99efd37003c19b386183cc8b9",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/submissions/dpseg_swinl_depth_no_k_overlap20.csv",
+      "csv_sha256": "59431a2548449dccc26bc0b2d5b5896c40d8aadfb37eefb8e924587ab03f28df",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap20/csv_validation.json",
+        "sha256": "b1cc8a21f8cbdc701e84aacc185f8237a7c560580176c82172b2fcf0b23eb75c",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "reused": false,
+      "candidate_statistics": {
+        "candidates": 372147,
+        "protected_whole_candidates": 67398,
+        "protected_whole_selected": 67124,
+        "protected_whole_lost_to_top100": 274,
+        "near_internal_edge_candidates": 17967,
+        "cross_view_supported_candidates": 212219,
+        "area_filtered": 0,
+        "partial_filtered": 3758,
+        "duplicates_removed": 133881,
+        "top100_removed": 90233,
+        "selected": 144275,
+        "selected_whole": 81412,
+        "selected_tiles": 62863,
+        "selected_tile_small": 51354,
+        "added_vs_legacy": 44658,
+        "removed_vs_legacy": 44783,
+        "shared_vs_legacy": 99617
+      },
+      "geometry": {
+        "tile_size_px": 569,
+        "target_overlap_ratio": 0.2,
+        "actual_overlap_ratio": 0.20035149384885764,
+        "actual_overlap_px": 114,
+        "axis_starts_px": [
+          0,
+          455
+        ],
+        "bounds": [
+          [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          [
+            0,
+            0,
+            569,
+            569
+          ],
+          [
+            455,
+            0,
+            1024,
+            569
+          ],
+          [
+            0,
+            455,
+            569,
+            1024
+          ],
+          [
+            455,
+            455,
+            1024,
+            1024
+          ]
+        ],
+        "tiles": 4,
+        "views_including_whole": 5,
+        "model_input_size": [
+          1024,
+          1024
+        ],
+        "coverage_fraction": 1.0,
+        "magnification": 1.7996485061511422
+      },
+      "current_default": false,
+      "delta_vs_current_default": {
+        "mask_ap_small": -0.023858865399173812,
+        "mask_ar_small": -0.011474542182703606,
+        "mask_ap": -0.006717068115872693,
+        "mask_ap50": -0.005357475175455484,
+        "mask_ap75": -0.00541681393170379,
+        "mask_ap_medium": -0.004278885020154388,
+        "mask_ap_large": -6.501607285402944e-05
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "overlap40",
+      "images": 2112,
+      "predicted_instances": 140993,
+      "metrics": {
+        "mask_ap": 0.8874529183166668,
+        "mask_ap50": 0.9533133655024585,
+        "mask_ap75": 0.9112134869569904,
+        "mask_ap_small": 0.5287096719783478,
+        "mask_ap_medium": 0.9245783485544911,
+        "mask_ap_large": 0.9827638508782183,
+        "mask_ar_1": 0.02767485621902414,
+        "mask_ar_10": 0.2687630860565583,
+        "mask_ar_100": 0.9147690228194323,
+        "mask_ar_small": 0.6746056949296073,
+        "mask_ar_medium": 0.946974913136336,
+        "mask_ar_large": 0.9904907040536421
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/evaluation.json",
+      "evaluation_sha256": "e1e7e3c654eb053da8c1bfcd264bba5d2229e5a55968f120eaa37433e5203b05",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/predictions.jsonl",
+      "predictions_sha256": "97d3407dc4f0fd803b00576eb4b024cce886fe1f3a1ca46487b0da98c53bdff5",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_guarded_merge640_v1/submissions/dpseg_swinl_depth_no_k_guarded640_global_guard_edge_consensus.csv",
+      "csv_sha256": "6f75831ace88fa4145311b749311c70ff21ebeaf9640473f18cabc5238226024",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/csv_validation.json",
+        "sha256": "113898df1740ada093be2da70acb03ba2f4d1b8ce33cbecb6ed7131640ae2aa8",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "reused": true,
+      "candidate_statistics": {
+        "candidates": 442955,
+        "protected_whole_candidates": 67398,
+        "protected_whole_selected": 67144,
+        "protected_whole_lost_to_top100": 254,
+        "near_internal_edge_candidates": 12657,
+        "cross_view_supported_candidates": 308362,
+        "area_filtered": 0,
+        "partial_filtered": 2528,
+        "duplicates_removed": 232081,
+        "top100_removed": 67353,
+        "selected": 140993,
+        "selected_whole": 79117,
+        "selected_tiles": 61876,
+        "selected_tile_small": 51956,
+        "added_vs_legacy": 50217,
+        "removed_vs_legacy": 50182,
+        "shared_vs_legacy": 90776
+      },
+      "geometry": {
+        "tile_size_px": 640,
+        "target_overlap_ratio": 0.4,
+        "actual_overlap_ratio": 0.4,
+        "actual_overlap_px": 256,
+        "axis_starts_px": [
+          0,
+          384
+        ],
+        "bounds": [
+          [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          [
+            0,
+            0,
+            640,
+            640
+          ],
+          [
+            384,
+            0,
+            1024,
+            640
+          ],
+          [
+            0,
+            384,
+            640,
+            1024
+          ],
+          [
+            384,
+            384,
+            1024,
+            1024
+          ]
+        ],
+        "tiles": 4,
+        "views_including_whole": 5,
+        "model_input_size": [
+          1024,
+          1024
+        ],
+        "coverage_fraction": 1.0,
+        "magnification": 1.6
+      },
+      "current_default": true,
+      "delta_vs_current_default": {
+        "mask_ap_small": 0.0,
+        "mask_ar_small": 0.0,
+        "mask_ap": 0.0,
+        "mask_ap50": 0.0,
+        "mask_ap75": 0.0,
+        "mask_ap_medium": 0.0,
+        "mask_ap_large": 0.0
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "overlap60",
+      "images": 2112,
+      "predicted_instances": 136773,
+      "metrics": {
+        "mask_ap": 0.8881408072364343,
+        "mask_ap50": 0.9561581987788865,
+        "mask_ap75": 0.9135466354256835,
+        "mask_ap_small": 0.5142443148161825,
+        "mask_ap_medium": 0.9282129661231305,
+        "mask_ap_large": 0.9828868532951069,
+        "mask_ar_1": 0.02750920993347645,
+        "mask_ar_10": 0.2691394344173227,
+        "mask_ar_100": 0.9129416129972702,
+        "mask_ar_small": 0.6577008574150524,
+        "mask_ar_medium": 0.9473223677919098,
+        "mask_ar_large": 0.9904907040536421
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap60/evaluation.json",
+      "evaluation_sha256": "28d2b4a4b3f73a7e71418b5124c1670cd196a23038863ed7bb62c0d9c5142210",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap60/predictions.jsonl",
+      "predictions_sha256": "53457665b5ece5bb0563f1f9e4792cb2b9c91ac1f9d408848f43f2a6fe669f67",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/submissions/dpseg_swinl_depth_no_k_overlap60.csv",
+      "csv_sha256": "2e2b5db2fb680247c8320f13e7052dcfa08b61cb26df33b6187b8de5d350db9b",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap60/csv_validation.json",
+        "sha256": "1d5a7d13e5c22a71a2fcbc481322884d3688ce0cb26b42eeccee00261a113288",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "reused": false,
+      "candidate_statistics": {
+        "candidates": 511630,
+        "protected_whole_candidates": 67398,
+        "protected_whole_selected": 67208,
+        "protected_whole_lost_to_top100": 190,
+        "near_internal_edge_candidates": 9390,
+        "cross_view_supported_candidates": 399180,
+        "area_filtered": 0,
+        "partial_filtered": 1474,
+        "duplicates_removed": 327180,
+        "top100_removed": 46203,
+        "selected": 136773,
+        "selected_whole": 78112,
+        "selected_tiles": 58661,
+        "selected_tile_small": 50524,
+        "added_vs_legacy": 54717,
+        "removed_vs_legacy": 54431,
+        "shared_vs_legacy": 82056
+      },
+      "geometry": {
+        "tile_size_px": 731,
+        "target_overlap_ratio": 0.6,
+        "actual_overlap_ratio": 0.5991792065663475,
+        "actual_overlap_px": 438,
+        "axis_starts_px": [
+          0,
+          293
+        ],
+        "bounds": [
+          [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          [
+            0,
+            0,
+            731,
+            731
+          ],
+          [
+            293,
+            0,
+            1024,
+            731
+          ],
+          [
+            0,
+            293,
+            731,
+            1024
+          ],
+          [
+            293,
+            293,
+            1024,
+            1024
+          ]
+        ],
+        "tiles": 4,
+        "views_including_whole": 5,
+        "model_input_size": [
+          1024,
+          1024
+        ],
+        "coverage_fraction": 1.0,
+        "magnification": 1.4008207934336525
+      },
+      "current_default": false,
+      "delta_vs_current_default": {
+        "mask_ap_small": -0.014465357162165349,
+        "mask_ar_small": -0.01690483751455496,
+        "mask_ap": 0.0006878889197674543,
+        "mask_ap50": 0.002844833276428038,
+        "mask_ap75": 0.002333148468693036,
+        "mask_ap_medium": 0.0036346175686394755,
+        "mask_ap_large": 0.00012300241688867342
+      }
+    },
+    {
+      "status": "completed",
+      "variant": "overlap80",
+      "images": 2112,
+      "predicted_instances": 131382,
+      "metrics": {
+        "mask_ap": 0.8906256010206762,
+        "mask_ap50": 0.9631175355117554,
+        "mask_ap75": 0.9187599875564776,
+        "mask_ap_small": 0.5034216389260953,
+        "mask_ap_medium": 0.9334976094910931,
+        "mask_ap_large": 0.982886553283292,
+        "mask_ar_1": 0.02776496779836209,
+        "mask_ar_10": 0.2703824441440726,
+        "mask_ar_100": 0.9069028120113435,
+        "mask_ar_small": 0.6095162485445115,
+        "mask_ar_medium": 0.9473048356762617,
+        "mask_ar_large": 0.9906735751295337
+      },
+      "evaluation": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap80/evaluation.json",
+      "evaluation_sha256": "0e18cc325ce5e1ad607e547e94a0948e38458e7f637ebd22208e8fbb463d42c6",
+      "predictions": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap80/predictions.jsonl",
+      "predictions_sha256": "6d08279534a97f24aa5456d1642f4f50c204c2bca810b1e21d83b32f65bfa2ac",
+      "csv": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/submissions/dpseg_swinl_depth_no_k_overlap80.csv",
+      "csv_sha256": "74a33d953da09b36a32c07102372345fab2ecfc355b741afb1da9efa8af3453e",
+      "csv_rows_identical_to_scored_predictions": 2112,
+      "validation": {
+        "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/overlap80/csv_validation.json",
+        "sha256": "1505c2985531face663c71dc5f6f65d312151924f7306a548558c8dc48f37f39",
+        "rows": 2112,
+        "rle_native_decode_verified": true
+      },
+      "reused": false,
+      "candidate_statistics": {
+        "candidates": 571582,
+        "protected_whole_candidates": 67398,
+        "protected_whole_selected": 67266,
+        "protected_whole_lost_to_top100": 132,
+        "near_internal_edge_candidates": 3372,
+        "cross_view_supported_candidates": 473446,
+        "area_filtered": 0,
+        "partial_filtered": 311,
+        "duplicates_removed": 408446,
+        "top100_removed": 31443,
+        "selected": 131382,
+        "selected_whole": 79854,
+        "selected_tiles": 51528,
+        "selected_tile_small": 45489,
+        "added_vs_legacy": 56862,
+        "removed_vs_legacy": 56334,
+        "shared_vs_legacy": 74520
+      },
+      "geometry": {
+        "tile_size_px": 853,
+        "target_overlap_ratio": 0.8,
+        "actual_overlap_ratio": 0.7995310668229777,
+        "actual_overlap_px": 682,
+        "axis_starts_px": [
+          0,
+          171
+        ],
+        "bounds": [
+          [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          [
+            0,
+            0,
+            853,
+            853
+          ],
+          [
+            171,
+            0,
+            1024,
+            853
+          ],
+          [
+            0,
+            171,
+            853,
+            1024
+          ],
+          [
+            171,
+            171,
+            1024,
+            1024
+          ]
+        ],
+        "tiles": 4,
+        "views_including_whole": 5,
+        "model_input_size": [
+          1024,
+          1024
+        ],
+        "coverage_fraction": 1.0,
+        "magnification": 1.2004689331770222
+      },
+      "current_default": false,
+      "delta_vs_current_default": {
+        "mask_ap_small": -0.02528803305225258,
+        "mask_ar_small": -0.06508944638509584,
+        "mask_ap": 0.0031726827040093886,
+        "mask_ap50": 0.009804170009296898,
+        "mask_ap75": 0.007546500599487138,
+        "mask_ap_medium": 0.008919260936602003,
+        "mask_ap_large": 0.00012270240507372687
+      }
+    }
+  ],
+  "semantics": {
+    "iou_type": "segm",
+    "max_detections": [
+      1,
+      10,
+      100
+    ],
+    "iou_thresholds": [
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.8999999999999999,
+      0.95
+    ],
+    "area_ranges": [
+      [
+        0,
+        10000000000.0
+      ],
+      [
+        0,
+        1024
+      ],
+      [
+        1024,
+        9216
+      ],
+      [
+        9216,
+        10000000000.0
+      ]
+    ],
+    "ground_truth_area": "original annotation area preserved",
+    "prediction_area": "independent COCO RLE; no bbox passed to loadRes",
+    "gt_instances": 75462,
+    "gt_small_including_crowd": 9447
+  },
+  "recovery": {
+    "status": "verified",
+    "original_run": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1",
+    "original_protocol": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1/protocol.json",
+      "sha256": "1b9e319d9c898fbfc59e265cd20b06111df4416fad0b43637f57397d1b4dca1f"
+    },
+    "interruption": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/evidence/interruption.json",
+      "sha256": "224dc4496764c875cbd366f9737c243f406550fba72d0ae5f24ce787f6b3f4f0"
+    },
+    "original_evidence_manifest": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/evidence/original_evidence_manifest.json",
+      "sha256": "5fa395e41b6bcd0084433942ffb42b0d804f53e21027da4eb36ff028d319f625"
+    },
+    "reused_images_per_configuration": 1174,
+    "newly_completed_images_per_configuration": 938,
+    "prefix_identity_checks": [
+      {
+        "image_id": 202310001,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202472003,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202310002,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202475004,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202310003,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202471001,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202310004,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202474002,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202310005,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202466007,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202310006,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      },
+      {
+        "image_id": 202474004,
+        "predictions_exact": true,
+        "native_exact": true,
+        "reference40_exact": true
+      }
+    ],
+    "original_shards_preserved": true,
+    "frozen_inference_unchanged": true
+  },
+  "protocol": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery/protocol.json",
+    "sha256": "5ff36a1979a9f08d67270465352bd8f70337c3ccf524be0441e5ac380e519535"
+  },
+  "current_default_manifest": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/configs/dpseg_current.json",
+    "sha256": "9bdf443dab70763ce98f4e09fae7fcab9aa4fb5d6570007c39ed0d94e072866a",
+    "content": {
+      "schema": "dpseg-current-v1",
+      "created_at_utc": "2026-11-06T10:14:40.956497+00:00",
+      "status": "current_default_adopted",
+      "default": {
+        "strategy": "global_guard_edge_consensus",
+        "overlap": 0.4,
+        "overlap_config": "overlap40",
+        "tile_size_px": 640,
+        "tiles": 4,
+        "include_whole_image": true,
+        "views_including_whole": 5,
+        "point_refinement": true,
+        "probability_depth_refinement": true,
+        "max_detections": 100
+      },
+      "model": {
+        "backbone": "Swin-Large",
+        "depth_encoding": "depth",
+        "configuration": "swinl_depth_no_k",
+        "base_epoch": 15,
+        "depth_point_head_epoch": 6,
+        "input_keys": [
+          "image",
+          "depth_m",
+          "depth_valid"
+        ],
+        "camera_intrinsics_used": false,
+        "xyz_backprojection": false,
+        "precision": "fp32",
+        "tf32": false
+      },
+      "protocol": {
+        "path": "reports/course_swinl_guarded_merge640_v1/protocol.json",
+        "sha256": "faa7e01fd67b79b8a0715a3ef850690d132b6c5def23bf4f04413540ffca7808"
+      },
+      "system_protocol": {
+        "path": "reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/protocol_system.json",
+        "sha256": "b0d7f0588a476c82204d0c9bde79ea29357747fb7c7caad779fabadf369ab568"
+      },
+      "weights": {
+        "base": {
+          "path": "reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt",
+          "sha256": "9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8"
+        },
+        "heads": {
+          "path": "reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt",
+          "sha256": "86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783"
+        }
+      },
+      "source_sha256": {
+        "tools/run_course_dafusion.py": "359f6354d4b781337cfd5953ff3af865114eca38428736e5d3cb3c8573bca378",
+        "rgbd_seg/course_depth_data.py": "f6fcb8b9f9f0cd5d62cd5f0ff0a6d1a65d767fa9cd359c10a3eba5a00eaf7f96",
+        "rgbd_seg/course_dafusion_eval.py": "e9a3df29636c7780a7e72e5457eb38d05bdd575f0056d699d885f9b1f19668f8",
+        "rgbd_seg/course_dafusion.py": "18ff74462c8c31c9a88550a2dfded24e52e01b2fcf47c671ab0442ed1ca83cec",
+        "rgbd_seg/course_training_data.py": "d2145b73ee14f81fa2cc6084d9bab92002bc18d3a54deb756ef3235818f866eb",
+        "rgbd_seg/course_finetune_eval.py": "68a118aa292d474cffe543db7d62b939116f077af9cc144ac5f43ad776d9ab8a",
+        "rgbd_seg/course_finetune_mask2former.py": "e6d4a6e3aa922b1ae612213fc941f8388a93c8eccc7e0344c6394d127e1cd18f",
+        "rgbd_seg/course_mask2former.py": "265aaad977fb208db1de8f1c829c5b0d928201f5eec4b1ca7efcd4b655482e4a",
+        "rgbd_seg/course_archive.py": "e5acb37e9ee319c000e699e2c4c190c3b51e69856fbd9b205082b9340a858844",
+        "rgbd_seg/course_submission.py": "1b37f5ebaac939a36fcd9d650caee8a2f373f50a9e665b9130ca0f2674c355d1",
+        "third_party/DA-Fusion/source_receipt.json": "1663212b49420057fe77484888f40892059c53ce8d62637b1e9c1e43e2ebf124",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/__init__.py": "214f925c034868e1058db7f35f6de650351373c4efbb0a839ef9cd441b4ee288",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/deformable_self_attention.py": "c3f7a2e57a2c2022609ee915d71fa6e9ffabe9f1f2d6d850c8f400cffe568830",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/deformable_cross_attention.py": "cacdafb9264940e69b7e4b916cd6795c001d53be67078df17df5afe66778af23",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/fusion_stage.py": "9d13360b92f6ed0e4c1bf11a24ff514f57513ba49f93878607c64f457a03d5f1",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/geometry_prior.py": "f76a8ec7a6b502acf9fd93cc53c146bcdfba9cdf9c8715efb8ff56122d9720ac",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/offset_network.py": "d8fb8520ab98c1f98041df1956628b8b6a10250817322d9460eb68c7bc0a0835",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/relative_position_bias.py": "5fc54b67a6bb88dbf3b0fd59f646067840808c4163ef9b074cd6e0a3f514b9ef",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/fusion/sampling.py": "17fc6b5436fa03785e4b01f4c6f2c32b5cd2b8f82e5895a2ae69032156485cf5",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/backbone/depth_adapter.py": "c64505e7dd2c0999b1d658f1368d484f244aee94147ef1a6af279586b93635ac",
+        "third_party/DA-Fusion/dafusion/dafusion/modeling/backbone/dual_fusion_backbone.py": "f1345f49b02a2780eb8320a97e7c10535f5fab0adf17ac97dfc3bff85a7308a1",
+        "third_party/DA-Fusion/dafusion/dafusion/data/depth_xyz.py": "85471d049fe0b63f298924b529e7c876849355c1d03e80ee40908618b7e3db8e",
+        "third_party/DA-Fusion/dafusion/dafusion/data/hha.py": "3f92aa7f75a0b7bc30ca0f59f8c9053b48325c69c9c3385b76ea73d669c7c614",
+        "third_party/DA-Fusion/dafusion/dafusion/data/dataset_mappers/dafusion_mapper.py": "d083c33d5149ed6fc1b8b20e3827e1d50326c354ac4981f972c962e747b0ab3b",
+        "third_party/DA-Fusion/dafusion/dafusion/config.py": "ee8be8b485b7fd5c63eef9dd7637239b512d98b7952fe960dab8047edc9e3a97",
+        "third_party/DA-Fusion/dafusion/configs/Base-DAFusion-SwinL.yaml": "901e4844bd83b805c369b156ef73c3f170b4df6ce3649c172dfc822a3f0a185e",
+        "third_party/DA-Fusion/dafusion/configs/dafusion_rgbd_uoais_stage1.yaml": "4e686a73e999263c5fff5122b706bd144904358bd8538de9185dcffc15c130e0",
+        "third_party/DA-Fusion/dafusion/README.md": "7aedd733221809c598fd70c6ccac54dc833704b1a1e4a1d824489f3ac9305f74",
+        "rgbd_seg/course_resolution.py": "e560425007f7df93d0050827e2f70f55cd60d6f6bfad5d367acc52252d7080e5",
+        "rgbd_seg/course_distributed_eval.py": "1591a54738a37e47312034053ad0a3f819f3d476a5790f568aacefebefbf5e0c",
+        "rgbd_seg/course_depth_backbone.py": "890ed2c8fd9ec2fac6bbb06f0c4b576d1112d6859f9eb149291d8131c5b08207",
+        "rgbd_seg/course_depth_backbone_eval.py": "9f42336907d17564cc38da9ff44a1c5e6cdc5a3d9af40f625bee295028d67ba4",
+        "rgbd_seg/course_longer_training.py": "8e438abba17caa7382700c613c7da7888e68227a9b2e5d02ad7df87e1baa1628",
+        "tools/run_course_depth_backbone.py": "6d5f715f0a7f42b04d5ab6d99582031b6cdd822ee339afd18bdd5ea19a9f631a",
+        "rgbd_seg/course_depth_backbone_points.py": "32a5a682105c23e65c6aa3b4a3b4fd4a4ea4a6da7dbefa7a4d0ce4916d6dbdf3",
+        "rgbd_seg/course_depth_backbone_system.py": "2d1733ff083c6839d2a49156403f6d00869ed8b990bb5b335fa248423dda75ce",
+        "tools/run_course_depth_backbone_system.py": "dc23188f009498fa630162a2346fd8e65d6f177b0a8d6f4e46fa4e9072766467",
+        "rgbd_seg/course_point_refinement.py": "d5214ab90a597272f975ce1c2214b804b1ca54f14a93d2db01176f46a78238b6",
+        "rgbd_seg/course_tiled_probability.py": "11bbac620744e58fef14dd15476f5958f51754336af74c862f6391b0bc7e643a",
+        "rgbd_seg/course_depth_refinement.py": "8c7adaad81e580734f91581858eb1f2aace820b0ea3f62d873a5bba1837090c2",
+        "rgbd_seg/course_swinl_removal.py": "84cdba72eb1b89e6ce1de891a3cdebc67b07c6e38f172074d510e9c001f42164",
+        "tools/evaluate_course_swinl_removal.py": "3075cb919c979b1dc221a1e1591a654bca2b59a742f25c3ba7e82267c7e8c6f0",
+        "tools/evaluate_course_swinl_ablation.py": "3673607e35cba1fb603cd29da220c511cc423e1d51080ca8909540fce7c0f1ba",
+        "rgbd_seg/course_tile_size.py": "2b8e0d633b0b5a68aa092e8b6ea7701908dea91837e29f6c64de0f99427c99b1",
+        "rgbd_seg/course_guarded_merge.py": "687eb4dbdd961be645e69bc528422e22aa0d34815c9114b1beb5c6eef1c3d673",
+        "tools/check_course_prediction_reload.py": "740826a0edee9153ca5ce4cad354f478c35113bccc7a774f5d28a6cb4a5e7eef",
+        "tools/evaluate_course_guarded_merge.py": "abd6d8b0f37835d68256989da4374b82597332b1c2fd1c16becea15fe3cea2a3",
+        "rgbd_seg/course_dpseg.py": "9b4d7bb5ae890f74ac862af235975cf48211eff933feab1907f2a24a5698b1e3",
+        "tools/predict_dpseg.py": "b8661f4c8d74f848440bf2b6992d348288aa787163fc320dd8b8362de4e0aa2c"
+      },
+      "dataset": {
+        "archive": "/data/yinli/workspace/downloads/buaa_image_segmentation/blender.zip",
+        "archive_sha256": "931708a0bbfbdc0908c3118098897fccf9a05e4f6d768758ba7328136898c94e",
+        "split_counts": {
+          "val": 2584,
+          "test": 2112
+        },
+        "image_size": [
+          1024,
+          1024
+        ],
+        "archive_verification": "Dataset command validates split metadata; --verify-archive additionally verifies all archive bytes."
+      },
+      "overlap_configs": {
+        "overlap00": {
+          "tile_size_px": 512,
+          "target_overlap_ratio": 0.0,
+          "actual_overlap_ratio": 0.0,
+          "actual_overlap_px": 0,
+          "axis_starts_px": [
+            0,
+            512
+          ],
+          "bounds": [
+            [
+              0,
+              0,
+              1024,
+              1024
+            ],
+            [
+              0,
+              0,
+              512,
+              512
+            ],
+            [
+              512,
+              0,
+              1024,
+              512
+            ],
+            [
+              0,
+              512,
+              512,
+              1024
+            ],
+            [
+              512,
+              512,
+              1024,
+              1024
+            ]
+          ],
+          "tiles": 4,
+          "views_including_whole": 5,
+          "model_input_size": [
+            1024,
+            1024
+          ],
+          "coverage_fraction": 1.0,
+          "magnification": 2.0
+        },
+        "overlap20": {
+          "tile_size_px": 569,
+          "target_overlap_ratio": 0.2,
+          "actual_overlap_ratio": 0.20035149384885764,
+          "actual_overlap_px": 114,
+          "axis_starts_px": [
+            0,
+            455
+          ],
+          "bounds": [
+            [
+              0,
+              0,
+              1024,
+              1024
+            ],
+            [
+              0,
+              0,
+              569,
+              569
+            ],
+            [
+              455,
+              0,
+              1024,
+              569
+            ],
+            [
+              0,
+              455,
+              569,
+              1024
+            ],
+            [
+              455,
+              455,
+              1024,
+              1024
+            ]
+          ],
+          "tiles": 4,
+          "views_including_whole": 5,
+          "model_input_size": [
+            1024,
+            1024
+          ],
+          "coverage_fraction": 1.0,
+          "magnification": 1.7996485061511422
+        },
+        "overlap40": {
+          "tile_size_px": 640,
+          "target_overlap_ratio": 0.4,
+          "actual_overlap_ratio": 0.4,
+          "actual_overlap_px": 256,
+          "axis_starts_px": [
+            0,
+            384
+          ],
+          "bounds": [
+            [
+              0,
+              0,
+              1024,
+              1024
+            ],
+            [
+              0,
+              0,
+              640,
+              640
+            ],
+            [
+              384,
+              0,
+              1024,
+              640
+            ],
+            [
+              0,
+              384,
+              640,
+              1024
+            ],
+            [
+              384,
+              384,
+              1024,
+              1024
+            ]
+          ],
+          "tiles": 4,
+          "views_including_whole": 5,
+          "model_input_size": [
+            1024,
+            1024
+          ],
+          "coverage_fraction": 1.0,
+          "magnification": 1.6
+        },
+        "overlap60": {
+          "tile_size_px": 731,
+          "target_overlap_ratio": 0.6,
+          "actual_overlap_ratio": 0.5991792065663475,
+          "actual_overlap_px": 438,
+          "axis_starts_px": [
+            0,
+            293
+          ],
+          "bounds": [
+            [
+              0,
+              0,
+              1024,
+              1024
+            ],
+            [
+              0,
+              0,
+              731,
+              731
+            ],
+            [
+              293,
+              0,
+              1024,
+              731
+            ],
+            [
+              0,
+              293,
+              731,
+              1024
+            ],
+            [
+              293,
+              293,
+              1024,
+              1024
+            ]
+          ],
+          "tiles": 4,
+          "views_including_whole": 5,
+          "model_input_size": [
+            1024,
+            1024
+          ],
+          "coverage_fraction": 1.0,
+          "magnification": 1.4008207934336525
+        },
+        "overlap80": {
+          "tile_size_px": 853,
+          "target_overlap_ratio": 0.8,
+          "actual_overlap_ratio": 0.7995310668229777,
+          "actual_overlap_px": 682,
+          "axis_starts_px": [
+            0,
+            171
+          ],
+          "bounds": [
+            [
+              0,
+              0,
+              1024,
+              1024
+            ],
+            [
+              0,
+              0,
+              853,
+              853
+            ],
+            [
+              171,
+              0,
+              1024,
+              853
+            ],
+            [
+              0,
+              171,
+              853,
+              1024
+            ],
+            [
+              171,
+              171,
+              1024,
+              1024
+            ]
+          ],
+          "tiles": 4,
+          "views_including_whole": 5,
+          "model_input_size": [
+            1024,
+            1024
+          ],
+          "coverage_fraction": 1.0,
+          "magnification": 1.2004689331770222
+        }
+      },
+      "guarded_merge_policy": {
+        "tile_size_px": 640,
+        "full_size": [
+          1024,
+          1024
+        ],
+        "small_area_max": 1024,
+        "reliable_score_min": 0.5,
+        "duplicate_iou_threshold": 0.5,
+        "internal_edge_distance_px": 8,
+        "edge_priority_multiplier": 0.75,
+        "contained_fraction_min": 0.8,
+        "whole_to_tile_area_ratio_min": 1.5,
+        "consensus_iou_min": 0.5,
+        "consensus_priority_floor": 0.75,
+        "consensus_priority_weight": 0.25,
+        "max_detections": 100,
+        "final_score": "unchanged",
+        "final_order": "score descending, view_id, query_id",
+        "same_view_suppression": false,
+        "mask_union": false
+      },
+      "inference_order": [
+        "whole_image_and_four_corner_views",
+        "global_guard_edge_consensus_candidate_selection",
+        "source_view_depth_point_refinement",
+        "full_image_probability_depth_refinement",
+        "unchanged_score_top100_output"
+      ],
+      "scope_notes": [
+        "Guard priority chooses representatives during conflict resolution; the final top100 still uses original scores and reserves no whole-image slots.",
+        "Each crop is resized to 1024 by 1024. Changing overlap also changes tile size and magnification at a fixed four-tile count.",
+        "No camera intrinsics, XYZ backprojection, ground-truth masks, or annotations are supplied to predict_dpseg."
+      ],
+      "test_evidence": {
+        "status": "completed_historical_strategy_run",
+        "split": "test",
+        "images": 2112,
+        "metrics": {
+          "mask_ap": 0.8874529183166668,
+          "mask_ap50": 0.9533133655024585,
+          "mask_ap75": 0.9112134869569904,
+          "mask_ap_small": 0.5287096719783478,
+          "mask_ap_medium": 0.9245783485544911,
+          "mask_ap_large": 0.9827638508782183,
+          "mask_ar_1": 0.02767485621902414,
+          "mask_ar_10": 0.2687630860565583,
+          "mask_ar_100": 0.9147690228194323,
+          "mask_ar_small": 0.6746056949296073,
+          "mask_ar_medium": 0.946974913136336,
+          "mask_ar_large": 0.9904907040536421
+        },
+        "predicted_instances": 140993,
+        "csv_rows_identical_to_scored_predictions": 2112,
+        "artifacts": {
+          "results": {
+            "path": "reports/course_swinl_guarded_merge640_v1/results.json",
+            "sha256": "4b348d05380781bb91f73db7d9d704cb189f7444ab9e0c13aced2b7cc2f34bc5"
+          },
+          "evaluation": {
+            "path": "reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/evaluation.json",
+            "sha256": "e1e7e3c654eb053da8c1bfcd264bba5d2229e5a55968f120eaa37433e5203b05"
+          },
+          "predictions": {
+            "path": "reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/predictions.jsonl",
+            "sha256": "97d3407dc4f0fd803b00576eb4b024cce886fe1f3a1ca46487b0da98c53bdff5"
+          },
+          "csv": {
+            "path": "reports/course_swinl_guarded_merge640_v1/submissions/dpseg_swinl_depth_no_k_guarded640_global_guard_edge_consensus.csv",
+            "sha256": "6f75831ace88fa4145311b749311c70ff21ebeaf9640473f18cabc5238226024"
+          }
+        }
+      },
+      "adoption": {
+        "user_authorized": true,
+        "historical_protocols_modified": false,
+        "selected_from": "completed local test strategy comparison",
+        "validation_full_split_retested_for_adopted_strategy": false,
+        "kaggle_submission_retested_for_adopted_strategy": false,
+        "new_cli_full_split_retested": false,
+        "note": "The current default adopts the tested guarded640 strategy. The new CLI and other overlap settings do not inherit new full-val or Kaggle measurements."
+      }
+    }
+  },
+  "checkpoints": {
+    "base": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt",
+      "sha256": "9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8"
+    },
+    "heads": {
+      "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt",
+      "sha256": "86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783"
+    }
+  },
+  "system_protocol": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/protocol_system.json",
+    "sha256": "b0d7f0588a476c82204d0c9bde79ea29357747fb7c7caad779fabadf369ab568"
+  },
+  "source_sha256": {
+    "rgbd_seg/course_swinl_removal.py": "84cdba72eb1b89e6ce1de891a3cdebc67b07c6e38f172074d510e9c001f42164",
+    "tools/evaluate_course_swinl_removal.py": "3075cb919c979b1dc221a1e1591a654bca2b59a742f25c3ba7e82267c7e8c6f0",
+    "tools/evaluate_course_swinl_ablation.py": "3673607e35cba1fb603cd29da220c511cc423e1d51080ca8909540fce7c0f1ba",
+    "rgbd_seg/course_tile_size.py": "2b8e0d633b0b5a68aa092e8b6ea7701908dea91837e29f6c64de0f99427c99b1",
+    "rgbd_seg/course_guarded_merge.py": "687eb4dbdd961be645e69bc528422e22aa0d34815c9114b1beb5c6eef1c3d673",
+    "tools/check_course_prediction_reload.py": "740826a0edee9153ca5ce4cad354f478c35113bccc7a774f5d28a6cb4a5e7eef",
+    "tools/evaluate_course_guarded_merge.py": "abd6d8b0f37835d68256989da4374b82597332b1c2fd1c16becea15fe3cea2a3",
+    "rgbd_seg/course_dpseg.py": "9b4d7bb5ae890f74ac862af235975cf48211eff933feab1907f2a24a5698b1e3",
+    "tools/evaluate_course_overlap.py": "85f1987902560c6a5f0b08cb08e7e19d7af0e5370f4609467e719ed2bf9c47a3",
+    "tools/resume_course_overlap.py": "2dd9c588d74292f3f3b6cb3d54cfc6c761d626f44b9cedcd01eb41fc023240b1"
+  },
+  "geometry_check": {
+    "status": "passed",
+    "variants": [
+      "overlap00",
+      "overlap20",
+      "overlap40",
+      "overlap60",
+      "overlap80"
+    ],
+    "tiles": 4,
+    "views_including_whole": 5,
+    "full_coverage": true,
+    "model_input_size": [
+      1024,
+      1024
+    ],
+    "geometry_and_scale_independently_verified": true
+  },
+  "engineering_gate": {
+    "status": "passed",
+    "split": "val",
+    "checks": [
+      {
+        "image_id": 201960001,
+        "native_and_reference40_exact": true,
+        "score_errors": {
+          "reference40": 0.0,
+          "native": 0.0
+        },
+        "instances": {
+          "overlap00": 49,
+          "overlap20": 40,
+          "overlap60": 40,
+          "overlap80": 49
+        },
+        "stats": {
+          "overlap00": {
+            "geometry": {
+              "tile_size_px": 512,
+              "target_overlap_ratio": 0.0,
+              "actual_overlap_ratio": 0.0,
+              "actual_overlap_px": 0,
+              "axis_starts_px": [
+                0,
+                512
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                [
+                  512,
+                  0,
+                  1024,
+                  512
+                ],
+                [
+                  0,
+                  512,
+                  512,
+                  1024
+                ],
+                [
+                  512,
+                  512,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 2.0
+            },
+            "merging": {
+              "candidates": 81,
+              "protected_whole_candidates": 36,
+              "protected_whole_selected": 36,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 0,
+              "cross_view_supported_candidates": 64,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 32,
+              "top100_removed": 0,
+              "selected": 49,
+              "selected_whole": 38,
+              "selected_tiles": 11,
+              "selected_tile_small": 11,
+              "added_vs_legacy": 27,
+              "removed_vs_legacy": 27,
+              "shared_vs_legacy": 22
+            },
+            "probability_changes": {
+              "instances": 49,
+              "changed_instances": 44,
+              "added_pixels": 407,
+              "removed_pixels": 427,
+              "empty_reverted": 5
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap20": {
+            "geometry": {
+              "tile_size_px": 569,
+              "target_overlap_ratio": 0.2,
+              "actual_overlap_ratio": 0.20035149384885764,
+              "actual_overlap_px": 114,
+              "axis_starts_px": [
+                0,
+                455
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  569,
+                  569
+                ],
+                [
+                  455,
+                  0,
+                  1024,
+                  569
+                ],
+                [
+                  0,
+                  455,
+                  569,
+                  1024
+                ],
+                [
+                  455,
+                  455,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.7996485061511422
+            },
+            "merging": {
+              "candidates": 86,
+              "protected_whole_candidates": 36,
+              "protected_whole_selected": 36,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 0,
+              "cross_view_supported_candidates": 85,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 46,
+              "top100_removed": 0,
+              "selected": 40,
+              "selected_whole": 36,
+              "selected_tiles": 4,
+              "selected_tile_small": 3,
+              "added_vs_legacy": 30,
+              "removed_vs_legacy": 30,
+              "shared_vs_legacy": 10
+            },
+            "probability_changes": {
+              "instances": 40,
+              "changed_instances": 40,
+              "added_pixels": 388,
+              "removed_pixels": 411,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap60": {
+            "geometry": {
+              "tile_size_px": 731,
+              "target_overlap_ratio": 0.6,
+              "actual_overlap_ratio": 0.5991792065663475,
+              "actual_overlap_px": 438,
+              "axis_starts_px": [
+                0,
+                293
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  731,
+                  731
+                ],
+                [
+                  293,
+                  0,
+                  1024,
+                  731
+                ],
+                [
+                  0,
+                  293,
+                  731,
+                  1024
+                ],
+                [
+                  293,
+                  293,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.4008207934336525
+            },
+            "merging": {
+              "candidates": 175,
+              "protected_whole_candidates": 36,
+              "protected_whole_selected": 36,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 2,
+              "cross_view_supported_candidates": 175,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 135,
+              "top100_removed": 0,
+              "selected": 40,
+              "selected_whole": 36,
+              "selected_tiles": 4,
+              "selected_tile_small": 4,
+              "added_vs_legacy": 32,
+              "removed_vs_legacy": 32,
+              "shared_vs_legacy": 8
+            },
+            "probability_changes": {
+              "instances": 40,
+              "changed_instances": 40,
+              "added_pixels": 396,
+              "removed_pixels": 366,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap80": {
+            "geometry": {
+              "tile_size_px": 853,
+              "target_overlap_ratio": 0.8,
+              "actual_overlap_ratio": 0.7995310668229777,
+              "actual_overlap_px": 682,
+              "axis_starts_px": [
+                0,
+                171
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  853,
+                  853
+                ],
+                [
+                  171,
+                  0,
+                  1024,
+                  853
+                ],
+                [
+                  0,
+                  171,
+                  853,
+                  1024
+                ],
+                [
+                  171,
+                  171,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.2004689331770222
+            },
+            "merging": {
+              "candidates": 209,
+              "protected_whole_candidates": 36,
+              "protected_whole_selected": 36,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 0,
+              "cross_view_supported_candidates": 200,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 160,
+              "top100_removed": 0,
+              "selected": 49,
+              "selected_whole": 37,
+              "selected_tiles": 12,
+              "selected_tile_small": 12,
+              "added_vs_legacy": 31,
+              "removed_vs_legacy": 31,
+              "shared_vs_legacy": 18
+            },
+            "probability_changes": {
+              "instances": 49,
+              "changed_instances": 49,
+              "added_pixels": 460,
+              "removed_pixels": 650,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap40": {
+            "geometry": {
+              "tile_size_px": 640,
+              "target_overlap_ratio": 0.4,
+              "actual_overlap_ratio": 0.4,
+              "actual_overlap_px": 256,
+              "axis_starts_px": [
+                0,
+                384
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  640,
+                  640
+                ],
+                [
+                  384,
+                  0,
+                  1024,
+                  640
+                ],
+                [
+                  0,
+                  384,
+                  640,
+                  1024
+                ],
+                [
+                  384,
+                  384,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.6
+            },
+            "merging": {
+              "candidates": 127,
+              "protected_whole_candidates": 36,
+              "protected_whole_selected": 36,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 6,
+              "cross_view_supported_candidates": 126,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 86,
+              "top100_removed": 0,
+              "selected": 41,
+              "selected_whole": 37,
+              "selected_tiles": 4,
+              "selected_tile_small": 4,
+              "added_vs_legacy": 35,
+              "removed_vs_legacy": 35,
+              "shared_vs_legacy": 6
+            },
+            "probability_changes": {
+              "instances": 41,
+              "changed_instances": 41,
+              "added_pixels": 395,
+              "removed_pixels": 450,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "image_id": 202121005,
+        "native_and_reference40_exact": true,
+        "score_errors": {
+          "reference40": 0.0,
+          "native": 0.0
+        },
+        "instances": {
+          "overlap00": 7,
+          "overlap20": 7,
+          "overlap60": 7,
+          "overlap80": 7
+        },
+        "stats": {
+          "overlap00": {
+            "geometry": {
+              "tile_size_px": 512,
+              "target_overlap_ratio": 0.0,
+              "actual_overlap_ratio": 0.0,
+              "actual_overlap_px": 0,
+              "axis_starts_px": [
+                0,
+                512
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                [
+                  512,
+                  0,
+                  1024,
+                  512
+                ],
+                [
+                  0,
+                  512,
+                  512,
+                  1024
+                ],
+                [
+                  512,
+                  512,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 2.0
+            },
+            "merging": {
+              "candidates": 9,
+              "protected_whole_candidates": 7,
+              "protected_whole_selected": 7,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 1,
+              "cross_view_supported_candidates": 4,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 2,
+              "top100_removed": 0,
+              "selected": 7,
+              "selected_whole": 7,
+              "selected_tiles": 0,
+              "selected_tile_small": 0,
+              "added_vs_legacy": 0,
+              "removed_vs_legacy": 0,
+              "shared_vs_legacy": 7
+            },
+            "probability_changes": {
+              "instances": 7,
+              "changed_instances": 7,
+              "added_pixels": 97,
+              "removed_pixels": 181,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap20": {
+            "geometry": {
+              "tile_size_px": 569,
+              "target_overlap_ratio": 0.2,
+              "actual_overlap_ratio": 0.20035149384885764,
+              "actual_overlap_px": 114,
+              "axis_starts_px": [
+                0,
+                455
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  569,
+                  569
+                ],
+                [
+                  455,
+                  0,
+                  1024,
+                  569
+                ],
+                [
+                  0,
+                  455,
+                  569,
+                  1024
+                ],
+                [
+                  455,
+                  455,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.7996485061511422
+            },
+            "merging": {
+              "candidates": 14,
+              "protected_whole_candidates": 7,
+              "protected_whole_selected": 7,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 0,
+              "cross_view_supported_candidates": 14,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 7,
+              "top100_removed": 0,
+              "selected": 7,
+              "selected_whole": 7,
+              "selected_tiles": 0,
+              "selected_tile_small": 0,
+              "added_vs_legacy": 3,
+              "removed_vs_legacy": 3,
+              "shared_vs_legacy": 4
+            },
+            "probability_changes": {
+              "instances": 7,
+              "changed_instances": 7,
+              "added_pixels": 97,
+              "removed_pixels": 181,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap60": {
+            "geometry": {
+              "tile_size_px": 731,
+              "target_overlap_ratio": 0.6,
+              "actual_overlap_ratio": 0.5991792065663475,
+              "actual_overlap_px": 438,
+              "axis_starts_px": [
+                0,
+                293
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  731,
+                  731
+                ],
+                [
+                  293,
+                  0,
+                  1024,
+                  731
+                ],
+                [
+                  0,
+                  293,
+                  731,
+                  1024
+                ],
+                [
+                  293,
+                  293,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.4008207934336525
+            },
+            "merging": {
+              "candidates": 25,
+              "protected_whole_candidates": 7,
+              "protected_whole_selected": 7,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 0,
+              "cross_view_supported_candidates": 25,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 18,
+              "top100_removed": 0,
+              "selected": 7,
+              "selected_whole": 7,
+              "selected_tiles": 0,
+              "selected_tile_small": 0,
+              "added_vs_legacy": 5,
+              "removed_vs_legacy": 5,
+              "shared_vs_legacy": 2
+            },
+            "probability_changes": {
+              "instances": 7,
+              "changed_instances": 7,
+              "added_pixels": 97,
+              "removed_pixels": 181,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap80": {
+            "geometry": {
+              "tile_size_px": 853,
+              "target_overlap_ratio": 0.8,
+              "actual_overlap_ratio": 0.7995310668229777,
+              "actual_overlap_px": 682,
+              "axis_starts_px": [
+                0,
+                171
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  853,
+                  853
+                ],
+                [
+                  171,
+                  0,
+                  1024,
+                  853
+                ],
+                [
+                  0,
+                  171,
+                  853,
+                  1024
+                ],
+                [
+                  171,
+                  171,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.2004689331770222
+            },
+            "merging": {
+              "candidates": 33,
+              "protected_whole_candidates": 7,
+              "protected_whole_selected": 7,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 2,
+              "cross_view_supported_candidates": 33,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 26,
+              "top100_removed": 0,
+              "selected": 7,
+              "selected_whole": 7,
+              "selected_tiles": 0,
+              "selected_tile_small": 0,
+              "added_vs_legacy": 5,
+              "removed_vs_legacy": 5,
+              "shared_vs_legacy": 2
+            },
+            "probability_changes": {
+              "instances": 7,
+              "changed_instances": 7,
+              "added_pixels": 97,
+              "removed_pixels": 181,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap40": {
+            "geometry": {
+              "tile_size_px": 640,
+              "target_overlap_ratio": 0.4,
+              "actual_overlap_ratio": 0.4,
+              "actual_overlap_px": 256,
+              "axis_starts_px": [
+                0,
+                384
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  640,
+                  640
+                ],
+                [
+                  384,
+                  0,
+                  1024,
+                  640
+                ],
+                [
+                  0,
+                  384,
+                  640,
+                  1024
+                ],
+                [
+                  384,
+                  384,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.6
+            },
+            "merging": {
+              "candidates": 17,
+              "protected_whole_candidates": 7,
+              "protected_whole_selected": 7,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 2,
+              "cross_view_supported_candidates": 17,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 10,
+              "top100_removed": 0,
+              "selected": 7,
+              "selected_whole": 7,
+              "selected_tiles": 0,
+              "selected_tile_small": 0,
+              "added_vs_legacy": 5,
+              "removed_vs_legacy": 5,
+              "shared_vs_legacy": 2
+            },
+            "probability_changes": {
+              "instances": 7,
+              "changed_instances": 7,
+              "added_pixels": 97,
+              "removed_pixels": 181,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "image_id": 202309008,
+        "native_and_reference40_exact": true,
+        "score_errors": {
+          "reference40": 0.0,
+          "native": 0.0
+        },
+        "instances": {
+          "overlap00": 58,
+          "overlap20": 56,
+          "overlap60": 34,
+          "overlap80": 33
+        },
+        "stats": {
+          "overlap00": {
+            "geometry": {
+              "tile_size_px": 512,
+              "target_overlap_ratio": 0.0,
+              "actual_overlap_ratio": 0.0,
+              "actual_overlap_px": 0,
+              "axis_starts_px": [
+                0,
+                512
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                [
+                  512,
+                  0,
+                  1024,
+                  512
+                ],
+                [
+                  0,
+                  512,
+                  512,
+                  1024
+                ],
+                [
+                  512,
+                  512,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 2.0
+            },
+            "merging": {
+              "candidates": 80,
+              "protected_whole_candidates": 26,
+              "protected_whole_selected": 26,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 2,
+              "cross_view_supported_candidates": 40,
+              "area_filtered": 0,
+              "partial_filtered": 2,
+              "duplicates_removed": 20,
+              "top100_removed": 0,
+              "selected": 58,
+              "selected_whole": 26,
+              "selected_tiles": 32,
+              "selected_tile_small": 8,
+              "added_vs_legacy": 9,
+              "removed_vs_legacy": 11,
+              "shared_vs_legacy": 49
+            },
+            "probability_changes": {
+              "instances": 58,
+              "changed_instances": 58,
+              "added_pixels": 1296,
+              "removed_pixels": 2425,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap20": {
+            "geometry": {
+              "tile_size_px": 569,
+              "target_overlap_ratio": 0.2,
+              "actual_overlap_ratio": 0.20035149384885764,
+              "actual_overlap_px": 114,
+              "axis_starts_px": [
+                0,
+                455
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  569,
+                  569
+                ],
+                [
+                  455,
+                  0,
+                  1024,
+                  569
+                ],
+                [
+                  0,
+                  455,
+                  569,
+                  1024
+                ],
+                [
+                  455,
+                  455,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.7996485061511422
+            },
+            "merging": {
+              "candidates": 84,
+              "protected_whole_candidates": 26,
+              "protected_whole_selected": 26,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 3,
+              "cross_view_supported_candidates": 54,
+              "area_filtered": 0,
+              "partial_filtered": 1,
+              "duplicates_removed": 27,
+              "top100_removed": 0,
+              "selected": 56,
+              "selected_whole": 26,
+              "selected_tiles": 30,
+              "selected_tile_small": 21,
+              "added_vs_legacy": 15,
+              "removed_vs_legacy": 13,
+              "shared_vs_legacy": 41
+            },
+            "probability_changes": {
+              "instances": 56,
+              "changed_instances": 56,
+              "added_pixels": 988,
+              "removed_pixels": 2205,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap60": {
+            "geometry": {
+              "tile_size_px": 731,
+              "target_overlap_ratio": 0.6,
+              "actual_overlap_ratio": 0.5991792065663475,
+              "actual_overlap_px": 438,
+              "axis_starts_px": [
+                0,
+                293
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  731,
+                  731
+                ],
+                [
+                  293,
+                  0,
+                  1024,
+                  731
+                ],
+                [
+                  0,
+                  293,
+                  731,
+                  1024
+                ],
+                [
+                  293,
+                  293,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.4008207934336525
+            },
+            "merging": {
+              "candidates": 102,
+              "protected_whole_candidates": 26,
+              "protected_whole_selected": 26,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 2,
+              "cross_view_supported_candidates": 95,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 68,
+              "top100_removed": 0,
+              "selected": 34,
+              "selected_whole": 26,
+              "selected_tiles": 8,
+              "selected_tile_small": 2,
+              "added_vs_legacy": 15,
+              "removed_vs_legacy": 15,
+              "shared_vs_legacy": 19
+            },
+            "probability_changes": {
+              "instances": 34,
+              "changed_instances": 34,
+              "added_pixels": 642,
+              "removed_pixels": 823,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap80": {
+            "geometry": {
+              "tile_size_px": 853,
+              "target_overlap_ratio": 0.8,
+              "actual_overlap_ratio": 0.7995310668229777,
+              "actual_overlap_px": 682,
+              "axis_starts_px": [
+                0,
+                171
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  853,
+                  853
+                ],
+                [
+                  171,
+                  0,
+                  1024,
+                  853
+                ],
+                [
+                  0,
+                  171,
+                  853,
+                  1024
+                ],
+                [
+                  171,
+                  171,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.2004689331770222
+            },
+            "merging": {
+              "candidates": 131,
+              "protected_whole_candidates": 26,
+              "protected_whole_selected": 26,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 0,
+              "cross_view_supported_candidates": 125,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 98,
+              "top100_removed": 0,
+              "selected": 33,
+              "selected_whole": 26,
+              "selected_tiles": 7,
+              "selected_tile_small": 1,
+              "added_vs_legacy": 20,
+              "removed_vs_legacy": 20,
+              "shared_vs_legacy": 13
+            },
+            "probability_changes": {
+              "instances": 33,
+              "changed_instances": 33,
+              "added_pixels": 731,
+              "removed_pixels": 836,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          },
+          "overlap40": {
+            "geometry": {
+              "tile_size_px": 640,
+              "target_overlap_ratio": 0.4,
+              "actual_overlap_ratio": 0.4,
+              "actual_overlap_px": 256,
+              "axis_starts_px": [
+                0,
+                384
+              ],
+              "bounds": [
+                [
+                  0,
+                  0,
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  0,
+                  640,
+                  640
+                ],
+                [
+                  384,
+                  0,
+                  1024,
+                  640
+                ],
+                [
+                  0,
+                  384,
+                  640,
+                  1024
+                ],
+                [
+                  384,
+                  384,
+                  1024,
+                  1024
+                ]
+              ],
+              "tiles": 4,
+              "views_including_whole": 5,
+              "model_input_size": [
+                1024,
+                1024
+              ],
+              "coverage_fraction": 1.0,
+              "magnification": 1.6
+            },
+            "merging": {
+              "candidates": 81,
+              "protected_whole_candidates": 26,
+              "protected_whole_selected": 26,
+              "protected_whole_lost_to_top100": 0,
+              "near_internal_edge_candidates": 1,
+              "cross_view_supported_candidates": 67,
+              "area_filtered": 0,
+              "partial_filtered": 0,
+              "duplicates_removed": 42,
+              "top100_removed": 0,
+              "selected": 39,
+              "selected_whole": 26,
+              "selected_tiles": 13,
+              "selected_tile_small": 5,
+              "added_vs_legacy": 12,
+              "removed_vs_legacy": 12,
+              "shared_vs_legacy": 27
+            },
+            "probability_changes": {
+              "instances": 39,
+              "changed_instances": 39,
+              "added_pixels": 657,
+              "removed_pixels": 1199,
+              "empty_reverted": 0
+            },
+            "model_views": 5,
+            "merge_strategy": "global_guard_edge_consensus",
+            "actual_model_input_size_verified": true,
+            "model_input_sizes": [
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ],
+              [
+                1024,
+                1024
+              ]
+            ]
+          }
+        }
+      }
+    ],
+    "synthetic": {
+      "status": "passed",
+      "full_coverage": true,
+      "exactly_four_distinct_tiles": true,
+      "zero_overlap_disjoint": true,
+      "reference40_bounds_exact": true,
+      "model_input_size": [
+        1024,
+        1024
+      ],
+      "tile_sizes": [
+        512,
+        569,
+        640,
+        731,
+        853
+      ]
+    },
+    "geometry_check": {
+      "status": "passed",
+      "variants": [
+        "overlap00",
+        "overlap20",
+        "overlap40",
+        "overlap60",
+        "overlap80"
+      ],
+      "tiles": 4,
+      "views_including_whole": 5,
+      "full_coverage": true,
+      "model_input_size": [
+        1024,
+        1024
+      ],
+      "geometry_and_scale_independently_verified": true
+    },
+    "protocol_sha256": "5ff36a1979a9f08d67270465352bd8f70337c3ccf524be0441e5ac380e519535",
+    "ground_truth_used": false,
+    "model_or_threshold_changes": false,
+    "gpu": "NVIDIA A100-PCIE-40GB"
+  },
+  "reference_run_summary": {
+    "path": "/data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_guarded_merge640_v1/summary.json",
+    "sha256": "87f5f9ab1f7080a85c7f7e4858ac7387095f6b405d213a1a9303f1612157643e"
+  },
+  "reference40_checked_test_ids": [
+    202310001,
+    202619003,
+    202310002,
+    202619004,
+    202310003,
+    202619005,
+    202310004,
+    202619006,
+    202310005,
+    202619007,
+    202310006,
+    202619008
+  ],
+  "phase_exits": {
+    "engineering": {
+      "engineering": 0
+    },
+    "inferring": {
+      "worker0": 0,
+      "worker1": 0,
+      "worker2": 0,
+      "worker3": 0,
+      "worker4": 0,
+      "worker5": 0
+    },
+    "scoring": {
+      "score_overlap00": 0,
+      "score_overlap20": 0,
+      "score_overlap60": 0,
+      "score_overlap80": 0
+    }
+  },
+  "rank_receipts": [
+    {
+      "rank": 0,
+      "gpu": "NVIDIA A800 80GB PCIe",
+      "images": 352,
+      "receipt_sha256": "ed6f73f509da966e001f857a56bbd19b93f6c911a7516cda907315a5f8e3027d",
+      "checks_sha256": "8907d8e5899fa258d92b4f7760c477e96e1815dbeeb60d90f8605fa8799d577d",
+      "reference40_image_ids": [
+        202310001,
+        202619003
+      ]
+    },
+    {
+      "rank": 1,
+      "gpu": "NVIDIA A800 80GB PCIe",
+      "images": 352,
+      "receipt_sha256": "74205ea57428a8e8832f5b848dffbb613b114f33a64067a641c6dc5e51786308",
+      "checks_sha256": "6542e05e51e4d11922b2f947701d712168bbb6721aebcf65136dcf6d71cbc5ed",
+      "reference40_image_ids": [
+        202310002,
+        202619004
+      ]
+    },
+    {
+      "rank": 2,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "images": 352,
+      "receipt_sha256": "478e144e6de00e42dada7cc7a3029f47a7248829c0aa8212c5076b52805d6c52",
+      "checks_sha256": "842505d2cd25c38bc31dcfe5a5894d15b07488bf40a86b6d398df81192146e1b",
+      "reference40_image_ids": [
+        202310003,
+        202619005
+      ]
+    },
+    {
+      "rank": 3,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "images": 352,
+      "receipt_sha256": "a0681e8a3bfcc502f400d3b7d6c35514b533036f541e5b756e9907c4586cc3c7",
+      "checks_sha256": "85bb523fd629c0a33548d28446fe5caf88d3033a712759401a552a0ba8f7532f",
+      "reference40_image_ids": [
+        202310004,
+        202619006
+      ]
+    },
+    {
+      "rank": 4,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "images": 352,
+      "receipt_sha256": "e7327ab06ff40de2fe7855ecaf60c2d1853462fd52daada146127c7af946d1ba",
+      "checks_sha256": "94ed3b9d2347e9514af2170dded7e9968df48c976c294bc43e12f5871e81cc3f",
+      "reference40_image_ids": [
+        202310005,
+        202619007
+      ]
+    },
+    {
+      "rank": 5,
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "images": 352,
+      "receipt_sha256": "26a07cef0fd57c42dbd7cc7dadf9005f41269f33dbbf39468063072102630ed1",
+      "checks_sha256": "09ed0073a29d9c41606e69650a673964f5115feeb0475d0ada8054b199975bb0",
+      "reference40_image_ids": [
+        202310006,
+        202619008
+      ]
+    }
+  ],
+  "publisher_sha256": "73fd331e9809d2a65fa3a4b6df0ec3d2bfdc4ef3a3258e2f2ffacf25b61e1d91",
+  "material_passport": {
+    "source": "academic-research-suite / /data/yinli/workspace/rgbd_instance_seg/reports/course_swinl_overlap_v1_recovery",
+    "verification_status": "VERIFIED",
+    "scope": "fixed four-tile coverage comparison with coupled overlap and crop size",
+    "limitations": "固定四片和完整覆盖时，切片尺寸、实际重叠率与目标在输入中的相对尺度一起改变，因此该实验是不同切片几何设置的条件比较，不能解释为重叠率的独立因果作用。规则在推理前冻结，没有根据本轮测试结果调参或自动更换默认，不作为验证选出的最优配置。"
+  }
+}

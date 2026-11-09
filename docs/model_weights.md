@@ -4,9 +4,9 @@
 
 固定版本为 `weights-v1`。三份权重的远端SHA-256与本地原件一致；点头已通过镜像直连重新下载并校验。详见[上传核验记录](results/model_weights_upload.json)。
 
-## 当前最佳：Large＋无内参
+## 当前完整版：Large＋无内参
 
-当前最佳配置采用双 Swin-Large、归一化 Z＋有效性输入、深度引导点细化、切片推理及概率图深度细化，训练与推理均无需相机内参。本地测试 AP/APₛ 为 **0.880289/0.525286**，新比赛 `rgb-d-333` 公榜 APₛ 为 **0.56785**。
+当前配置采用双 Swin-Large、归一化 Z＋有效性输入、深度引导点细化、切片推理及概率图深度细化，训练与推理均无需相机内参。切片合并已切换为整图优先＋截断处理＋跨视图一致性，模型权重不变。本地测试 AP/APₛ 为 **0.887453/0.528710**。新配置尚无完整验证或 Kaggle 分数；历史公榜 **0.56785** 属于旧分数优先合并。
 
 本组权重保存在本机，尚未发布到现有 Hugging Face `weights-v1`。该版本中的 Tiny 权重对应下方原 S0–S4 实验。
 
@@ -15,9 +15,13 @@
 | `reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/base15/final.pt` | 固定第 15 轮无内参 Large 基座 |
 | `reports/course_swinl_depth_no_k_v1/swinl_depth_no_k/points6/heads_epoch_06.pt` | 配套第 6 轮点细化头 |
 
-基座 SHA-256 为 `9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8`，点头为 `86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783`。Large 点头读取 448 维细粒度特征，须与该基座配对。验证、测试、文件校验及提交信息见[实验记录](results/swinl_depth_no_k.md)和[结果摘要](results/swinl_depth_no_k.json)。
+基座 SHA-256 为 `9cb107dd389ee5df08cad28da63708a274cb45345cf566ee6f682be516f44af8`，点头为 `86124a11728e805a907e9cf41f9f4422a55787be482363e400b21901415d5783`。Large 点头读取 448 维细粒度特征，须与该基座配对。当前配置和提交 CSV 见[当前累计消融](results/course_ablation_swinl_current.md)，运行配置见 [dpseg_current.json](../configs/dpseg_current.json)。旧合并的验证、测试及提交信息保留在[历史实验记录](results/swinl_depth_no_k.md)。新合并不增加训练参数，也无需重新上传一份相同权重。
 
-## 主消融 S0–S4
+## 当前 Large 累计消融对应关系
+
+S0 使用本机 RGB Swin-Large 第 15 轮，路径为 `reports/course_swinl_rgb_v1/base15/final.pt`；S1 使用上方 RGB-D 基座；S2 增加配套深度点头；S3 增加概率图细化；S4 增加四个 640 切片和当前整图优先合并。S2–S4 共用同一套基座与点头。
+
+## 已发布的原 Tiny＋XYZ 消融 S0–S4
 
 | 实验 | 所需权重 | 推理设置 |
 |---|---|---|

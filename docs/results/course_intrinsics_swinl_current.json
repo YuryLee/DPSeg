@@ -1,0 +1,102 @@
+{
+  "schema": "dpseg-current-intrinsics-results-v1",
+  "status": "completed",
+  "images": 2112,
+  "split": "local_test",
+  "settings": {
+    "backbone": "Swin-Large",
+    "base_epoch": 15,
+    "head_epoch": 6,
+    "tiles": 4,
+    "tile_size": 640,
+    "overlap": 0.4,
+    "input_size": 1024,
+    "merge": "global_guard_edge_consensus",
+    "point_refinement": true,
+    "probability_refinement": true,
+    "max_detections": 100
+  },
+  "rows": [
+    {
+      "id": "xyz_with_k",
+      "label": "XYZ＋有效性（有内参）",
+      "status": "completed",
+      "variant": "xyz_current_full",
+      "images": 2112,
+      "predicted_instances": 148399,
+      "metrics": {
+        "mask_ap": 0.8753793397662488,
+        "mask_ap50": 0.9488854864364047,
+        "mask_ap75": 0.9043680215120279,
+        "mask_ap_small": 0.5009995326464229,
+        "mask_ap_medium": 0.9146004931615416,
+        "mask_ap_large": 0.9788063624843997,
+        "mask_ar_1": 0.027645702472767753,
+        "mask_ar_10": 0.26861864249556067,
+        "mask_ar_100": 0.9065198377991572,
+        "mask_ar_small": 0.6569916375568964,
+        "mask_ar_medium": 0.9398712186414203,
+        "mask_ar_large": 0.987290460225541
+      },
+      "evaluation": "reports/course_swinl_intrinsics_current_v1/xyz_current_full/evaluation.json",
+      "evaluation_sha256": "c5dd82c4b1853aeaecc90855d12bc35befa90ecabcf7f949ebb50348e5039d81",
+      "predictions": "reports/course_swinl_intrinsics_current_v1/xyz_current_full/predictions.jsonl",
+      "predictions_sha256": "9c660e491abdf3268ee037466723e9ff845623d2df0c004cbb5428f297fafe66",
+      "csv": "reports/course_swinl_intrinsics_current_v1/submissions/dpseg_swinl_xyz_with_k_guarded640_full.csv",
+      "csv_sha256": "2303c283acee7bd09b671634b977d51706b7d7b79ec82ac632a7ce71ee483251",
+      "csv_rows_identical_to_scored_predictions": 2112
+    },
+    {
+      "id": "depth_without_k",
+      "label": "归一化 Z＋有效性（无内参）",
+      "status": "completed",
+      "variant": "global_guard_edge_consensus",
+      "images": 2112,
+      "predicted_instances": 140993,
+      "metrics": {
+        "mask_ap": 0.8874529183166668,
+        "mask_ap50": 0.9533133655024585,
+        "mask_ap75": 0.9112134869569904,
+        "mask_ap_small": 0.5287096719783478,
+        "mask_ap_medium": 0.9245783485544911,
+        "mask_ap_large": 0.9827638508782183,
+        "mask_ar_1": 0.02767485621902414,
+        "mask_ar_10": 0.2687630860565583,
+        "mask_ar_100": 0.9147690228194323,
+        "mask_ar_small": 0.6746056949296073,
+        "mask_ar_medium": 0.946974913136336,
+        "mask_ar_large": 0.9904907040536421
+      },
+      "evaluation": "reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/evaluation.json",
+      "evaluation_sha256": "e1e7e3c654eb053da8c1bfcd264bba5d2229e5a55968f120eaa37433e5203b05",
+      "predictions": "reports/course_swinl_guarded_merge640_v1/global_guard_edge_consensus/predictions.jsonl",
+      "predictions_sha256": "97d3407dc4f0fd803b00576eb4b024cce886fe1f3a1ca46487b0da98c53bdff5",
+      "csv": "reports/course_swinl_guarded_merge640_v1/submissions/dpseg_swinl_depth_no_k_guarded640_global_guard_edge_consensus.csv",
+      "csv_sha256": "6f75831ace88fa4145311b749311c70ff21ebeaf9640473f18cabc5238226024",
+      "csv_rows_identical_to_scored_predictions": 2112
+    }
+  ],
+  "sources": [
+    {
+      "path": "reports/course_swinl_intrinsics_current_v1/results.json",
+      "sha256": "353a52bfdbeca28005655b3fb853b79b909c2e9ded7f846de31e041cfa20aabb"
+    },
+    {
+      "path": "reports/course_swinl_intrinsics_current_v1/completion_audit.json",
+      "sha256": "ca66dd05702014a279333489c61476e8a880bba42675545fa99991467cd06494"
+    },
+    {
+      "path": "reports/course_swinl_intrinsics_current_v1/training_protocol_comparison.json",
+      "sha256": "178312567661adafbaf0e15e9ab47e905e21bfe1f305540b7e3133c7d8fc5c44"
+    },
+    {
+      "path": "reports/course_swinl_intrinsics_current_v1/protocol.json",
+      "sha256": "31847933c4f454a68258de371cc8bd1fea353fa1c989da9f88be9767cd9e83eb"
+    }
+  ],
+  "csv_validation": {
+    "full_xyz_csv_decoded": true,
+    "rows_bound_to_scored_predictions": 2112
+  },
+  "scope": "Depth representation, preprocessing and corresponding trained weights change together; not a pure camera-intrinsics toggle. Single seed; local test previously inspected; not a new Kaggle score."
+}

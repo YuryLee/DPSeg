@@ -1,5 +1,7 @@
 # 当前最佳：Swin-Large＋无内参 RGB-D 实例分割
 
+> 版本说明：本页的完整配置使用旧分数优先合并，包括本页验证、本地测试与 Kaggle 成绩。2026-11-06 起当前完整版采用整图优先＋截断处理＋一致性，见[当前结果](course_ablation_swinl_current.md)；新合并尚无完整验证或 Kaggle 成绩。
+
 ## Material Passport
 
 - Origin Skill: academic-research-suite / experiment-agent
